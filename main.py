@@ -1500,11 +1500,11 @@ class PromotionUrlRequest(BaseModel):
 
 @app.get("/")
 async def root():
-    return {
-        "message": "SellAI v3.0.0 API",
-        "version": __version__,
-        "docs": "/docs"
-    }
+    from fastapi.responses import FileResponse
+    index_path = os.path.join(STATIC_DIR, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    return {"message": "SellAI API", "version": __version__, "docs": "/docs"}
 
 @app.get("/health")
 async def health_check():

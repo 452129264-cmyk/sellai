@@ -1,0 +1,244 @@
+2026-04-21 04:25:09,394 - root - WARNING - DeepL SDK not available, using simulation mode
+2026-04-21 04:25:09,430 - __main__ - WARNING - 全域商业大脑模块未加载: cannot import name 'InsightType' from 'src.global_business_brain' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/global_business_brain.py)
+2026-04-21 04:25:09,513 - root - WARNING - 分身分析模块未找到，相关功能将受限
+2026-04-21 04:25:09,517 - __main__ - WARNING - 达人外联引擎模块未加载: cannot import name 'InfluencerTier' from 'src.influencer_outreach_engine' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/influencer_outreach_engine.py)
+2026-04-21 04:25:09,517 - __main__ - WARNING - 社交关系管理模块未加载: cannot import name 'RelationshipType' from 'src.social_relationship_manager' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/social_relationship_manager.py)
+2026-04-21 04:25:09,517 - __main__ - WARNING - 健康监控系统未加载: cannot import name 'HealthStatus' from 'src.health_monitor' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/health_monitor.py)
+2026-04-21 04:25:09,517 - __main__ - WARNING - 邀请裂变系统未加载: cannot import name 'RewardType' from 'src.invitation_fission_manager' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/invitation_fission_manager.py)
+2026-04-21 04:25:09,518 - __main__ - WARNING - Scrapling爬虫框架未加载: cannot import name 'CrawlerEngine' from 'src.scrapling' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/scrapling/__init__.py)
+2026-04-21 04:25:09,536 - __main__ - WARNING - 支付服务未加载: cannot import name 'PaymentProcessor' from 'src.payment_service' (unknown location)
+2026-04-21 04:25:09,551 - __main__ - WARNING - 智能调度器未加载: cannot import name 'MemoryIsolationCore' from 'src.scheduler' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/scheduler/__init__.py)
+2026-04-21 04:25:09,551 - __main__ - WARNING - Sora2视频生成未加载: cannot import name 'Sora2Client' from 'src.sora2_integration' (unknown location)
+2026-04-21 04:25:09,605 - __main__ - WARNING - Claude Notebook融合未加载: No module named 'src.claude_notebook_fusion.task_optimizer'
+2026-04-21 04:25:09,606 - __main__ - WARNING - 商业匹配引擎未加载: cannot import name 'BusinessMatcher' from 'src.business_matching' (unknown location)
+2026-04-21 04:25:09,625 - root - WARNING - Azure Cognitive Services SDK未安装，语音合成功能将受限
+2026-04-21 04:25:09,626 - root - WARNING - 语音合成服务模块未找到，相关功能将受限
+2026-04-21 04:25:09,637 - root - WARNING - DeepL翻译服务模块未找到，相关功能将受限
+2026-04-21 04:25:09,652 - root - WARNING - Banana质量锁死控制器未找到，画质检查将受限
+2026-04-21 04:25:09,655 - __main__ - WARNING - DeepL翻译服务未加载: No module named 'deepl'
+2026-04-21 04:25:09,679 - __main__ - WARNING - 社交关系API未加载: No module named 'flask'
+2026-04-21 04:25:09,720 - __main__ - WARNING - 百炼图片生成模块未加载: cannot import name 'bailian_adapter' from 'src.bailian_image' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/bailian_image.py)
+2026-04-21 04:25:09,744 - __main__ - WARNING - 达人面板管理未加载: cannot import name 'InfluencerPanelManager' from 'src.add_influencer_panel' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/add_influencer_panel.py)
+2026-04-21 04:25:09,747 - __main__ - WARNING - 邀请面板管理未加载: cannot import name 'InvitationPanelManager' from 'src.add_invitation_panel' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/add_invitation_panel.py)
+2026-04-21 04:25:09,764 - __main__ - WARNING - 性能基准测试未加载: No module named 'matplotlib'
+2026-04-21 04:25:09,787 - __main__ - WARNING - 达人群发未加载: cannot import name 'InfluencerMassMessenger' from 'src.influencer_mass_messenger' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/influencer_mass_messenger.py)
+2026-04-21 04:25:09,797 - __main__ - WARNING - 网络服务器未加载: cannot import name 'SellaiNetworkServer' from 'src.sellai_network_server' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/sellai_network_server.py)
+2026-04-21 04:25:09,797 - __main__ - WARNING - 网络客户端未加载: cannot import name 'SellaiNetworkClient' from 'src.sellai_network_client' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/sellai_network_client.py)
+2026-04-21 04:25:09,797 - __main__ - WARNING - 语音合成服务未加载: cannot import name 'VoiceSynthesisService' from 'src.voice_synthesis_service' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/voice_synthesis_service.py)
+2026-04-21 04:25:09,803 - root - WARNING - Whisper库未安装，语音识别功能将受限
+2026-04-21 04:25:09,804 - __main__ - WARNING - 语音识别服务未加载: cannot import name 'VoiceRecognitionService' from 'src.voice_recognition_service' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/voice_recognition_service.py)
+2026-04-21 04:25:09,816 - root - WARNING - PyAudio库未安装，麦克风录音功能将受限
+2026-04-21 04:25:09,830 - __main__ - WARNING - 实时音频流未加载: cannot import name 'RealTimeAudioStream' from 'src.real_time_audio_stream' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/real_time_audio_stream.py)
+2026-04-21 04:25:09,832 - __main__ - INFO - 静态文件目录已挂载: /Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/static
+2026-04-21 04:25:09,843 - src.industry_resource_importer - INFO - 行业资源导入器初始化完成
+2026-04-21 04:25:09,844 - src.commission_calculator - INFO - 佣金计算器初始化完成
+2026-04-21 04:25:09,844 - src.global_business_brain - INFO - 全域商业大脑初始化完成，节点ID: default_evolution_node
+2026-04-21 04:25:09,845 - src.commission_calculator - INFO - 佣金计算器初始化完成
+2026-04-21 04:25:09,845 - src.self_evolution_brain.daily_review_engine - INFO - 每日复盘引擎初始化完成
+2026-04-21 04:25:09,845 - src.self_evolution_brain.main_controller - ERROR - 初始化组件时出错: 'SelfEvolutionBrainController' object has no attribute 'component_status'
+2026-04-21 04:25:09,845 - __main__ - ERROR - ✗ 自我进化大脑启动失败: 'SelfEvolutionBrainController' object has no attribute 'component_status'
+2026-04-21 04:25:09,846 - src.memory_v2.memory_v2_validator - INFO - Memory V2 验证数据库初始化完成
+2026-04-21 04:25:09,847 - src.memory_v2.memory_v2_indexer - INFO - Memory V2 索引数据库初始化完成
+2026-04-21 04:25:09,847 - src.memory_v2.memory_v2_indexer - INFO - 后台索引器已启动
+2026-04-21 04:25:09,848 - src.memory_v2_integration - INFO - Memory V2 集成数据库初始化完成
+2026-04-21 04:25:09,848 - __main__ - INFO - ✓ Memory V2启动成功
+2026-04-21 04:25:09,848 - src.global_orchestrator.core_scheduler - INFO - 核心调度器初始化完成
+2026-04-21 04:25:09,848 - __main__ - INFO - ✓ 全局调度器启动成功
+2026-04-21 04:25:09,848 - src.hyperhorse.core - INFO - 初始化HyperHorse引擎: hyperhorse_engine_1776716709_434540
+2026-04-21 04:25:09,849 - src.hyperhorse.core - WARNING - 加载成功模式失败: no such table: hyperhorse_success_patterns
+2026-04-21 04:25:09,849 - __main__ - INFO - ✓ HyperHorse视频引擎启动成功
+2026-04-21 04:25:09,849 - src.avatar_market - INFO - AI分身市场初始化完成
+2026-04-21 04:25:09,849 - __main__ - INFO - ✓ AI分身市场启动成功
+2026-04-21 04:25:09,849 - src.multi_layer_security - INFO - 多曾安全系统初始化完成
+2026-04-21 04:25:09,849 - src.multi_layer_security - INFO - Kairos守护者启动
+2026-04-21 04:25:09,849 - src.multi_layer_security - INFO - 卧底审计员启动
+2026-04-21 04:25:09,849 - __main__ - INFO - ✓ 安全系统启动成功
+2026-04-21 04:25:09,850 - src.task_scheduler - INFO - 任务调度器初始化完成
+2026-04-21 04:25:09,850 - src.task_dispatcher - INFO - 智能任务分发器初始化完成
+2026-04-21 04:25:09,850 - __main__ - INFO - ✓ 任务调度系统启动成功
+2026-04-21 04:25:09,850 - src.short_video_distributor - INFO - 短视频分发系统初始化完成
+2026-04-21 04:25:09,850 - __main__ - INFO - ✓ 短视频分发系统启动成功
+2026-04-21 04:25:09,850 - src.chat_system - INFO - 聊天服务器初始化完成
+2026-04-21 04:25:09,850 - src.chat_system - INFO - 聊天持久化记忆初始化完成
+2026-04-21 04:25:09,850 - src.chat_system - INFO - 聊天管理器初始化完成
+2026-04-21 04:25:09,850 - __main__ - INFO - ✓ 聊天系统启动成功
+2026-04-21 04:25:09,850 - src.commission_calculator - INFO - 佣金计算器初始化完成
+2026-04-21 04:25:09,850 - __main__ - INFO - ✓ 佣金计算系统启动成功
+2026-04-21 04:25:09,850 - src.network_data_sync - INFO - 网络数据同步系统初始化完成
+2026-04-21 04:25:09,852 - __main__ - INFO - ✓ 数据同步系统启动成功
+2026-04-21 04:25:09,852 - src.industry_resource_importer - INFO - 行业资源导入器初始化完成
+2026-04-21 04:25:09,852 - __main__ - INFO - ✓ 行业资源导入启动成功
+2026-04-21 04:25:09,856 - src.undercover_auditor - INFO - 审计数据库表初始化完成
+2026-04-21 04:25:09,857 - src.undercover_auditor - INFO - Undercover安全审计系统初始化完成
+2026-04-21 04:25:09,857 - src.permission_manager - INFO - 安全审计系统初始化成功
+2026-04-21 04:25:09,857 - src.permission_manager - INFO - 权限数据库表初始化完成
+2026-04-21 04:25:09,858 - src.permission_manager - INFO - 权限管理器初始化完成
+2026-04-21 04:25:09,858 - __main__ - INFO - ✓ 权限管理模块启动成功
+2026-04-21 04:25:09,858 - src.task_dispatcher - INFO - 智能任务分发器初始化完成
+2026-04-21 04:25:09,859 - __main__ - INFO - ✓ 任务分发器启动成功
+2026-04-21 04:25:09,860 - __main__ - INFO - ✓ 共享状态管理器启动成功
+2026-04-21 04:25:09,860 - src.chat_manager - INFO - 聊天表初始化完成
+2026-04-21 04:25:09,860 - src.chat_permanent_memory - WARNING - 未提供Notebook LM API密钥，永久记忆功能受限
+2026-04-21 04:25:09,861 - src.multi_layer_security - INFO - 多曾安全系统初始化完成
+2026-04-21 04:25:09,861 - src.chat_permanent_memory - INFO - 多层次安全防护系统初始化成功
+2026-04-21 04:25:09,862 - src.chat_permanent_memory - INFO - 加载了 0 条同步状态记录
+2026-04-21 04:25:09,862 - src.chat_permanent_memory - INFO - 聊天记录永久记忆管理器初始化完成，数据库: data/shared_state/state.db
+2026-04-21 04:25:09,862 - src.chat_memory_bridge - INFO - 聊天永久记忆系统初始化成功
+2026-04-21 04:25:09,862 - src.chat_memory_bridge - INFO - 后台批量同步服务启动，间隔: 300秒
+2026-04-21 04:25:09,862 - src.chat_memory_bridge - INFO - 后台批量同步服务已启动
+2026-04-21 04:25:09,862 - src.chat_memory_bridge - INFO - 增量同步完成: 0条消息
+2026-04-21 04:25:09,862 - src.chat_memory_bridge - INFO - 聊天记忆桥接初始化完成
+2026-04-21 04:25:09,862 - __main__ - INFO - ✓ 聊天记忆桥接启动成功
+2026-04-21 04:25:09,863 - src.smart_router - INFO - 网络拓扑加载完成，0 个节点，0 条延迟记录
+2026-04-21 04:25:09,864 - src.smart_router - INFO - 智能路由器初始化完成，已加载 0 个网络节点
+2026-04-21 04:25:09,864 - __main__ - INFO - ✓ 智能路由启动成功
+2026-04-21 04:25:09,864 - __main__ - INFO - ✓ 负载均衡分配器启动成功
+2026-04-21 04:25:09,865 - src.optimized_task_allocator - INFO - 优化任务分配器初始化完成
+2026-04-21 04:25:09,865 - __main__ - INFO - ✓ 优化任务分配器启动成功
+2026-04-21 04:25:09,865 - src.voice_wakeup_system - INFO - 语音活动检测器初始化完成 (采样率: 16000Hz, 阈值: 500.0)
+2026-04-21 04:25:09,865 - src.voice_wakeup_system - WARNING - Whisper服务初始化失败: Whisper库未安装，请运行: pip install openai-whisper
+2026-04-21 04:25:09,865 - src.voice_wakeup_system - INFO - 语音唤醒系统初始化完成 (唤醒词: 'sell sell 在吗')
+2026-04-21 04:25:09,865 - src.voice_conversation_engine - INFO - 语音唤醒系统初始化完成
+2026-04-21 04:25:09,865 - src.voice_conversation_engine - WARNING - 语音识别服务初始化失败: Whisper库未安装，请运行: pip install openai-whisper
+2026-04-21 04:25:09,866 - src.social_relationship_manager - INFO - 社交关系表初始化完成
+2026-04-21 04:25:09,867 - src.chat_manager - INFO - 聊天表初始化完成
+2026-04-21 04:25:09,867 - src.voice_conversation_engine - INFO - 分身系统接口初始化完成
+2026-04-21 04:25:09,867 - src.voice_conversation_engine - INFO - 实时语音对话引擎初始化完成
+2026-04-21 04:25:09,867 - __main__ - INFO - ✓ 语音对话引擎启动成功
+2026-04-21 04:25:09,868 - src.memory_v2_indexer - INFO - Memory V2 索引数据库初始化完成
+2026-04-21 04:25:09,868 - src.memory_v2_indexer - INFO - 后台索引器已启动
+2026-04-21 04:25:09,868 - __main__ - INFO - ✓ Memory V2索引器启动成功
+2026-04-21 04:25:09,869 - src.memory_v2_validator - INFO - Memory V2 验证数据库初始化完成
+2026-04-21 04:25:09,869 - __main__ - INFO - ✓ Memory V2验证器启动成功
+2026-04-21 04:25:09,869 - __main__ - INFO - ✓ 知识驱动分身模块已加载（按需初始化）
+2026-04-21 04:25:09,869 - src.scrapling.crawler_engine - INFO - 会话管理器初始化完成
+2026-04-21 04:25:09,870 - src.scrapling.crawler_engine - INFO - Scrapling爬虫引擎初始化完成
+2026-04-21 04:25:09,870 - src.scrapling.config_manager - INFO - 全局配置管理器初始化完成
+2026-04-21 04:25:09,870 - src.scrapling.daemon_service - INFO - Scrapling守护进程初始化完成
+2026-04-21 04:25:09,870 - src.scrapling.daemon_service - INFO - 守护进程数据库表初始化完成
+2026-04-21 04:25:09,871 - src.scrapling.daemon_service - INFO - 守护进程主循环启动
+2026-04-21 04:25:09,871 - src.scrapling.daemon_service - INFO - 调度器循环启动
+2026-04-21 04:25:09,871 - src.scrapling.daemon_service - INFO - Scrapling守护进程启动成功，爬取间隔: 1800秒
+2026-04-21 04:25:09,871 - src.scrapling.daemon_service - INFO - 定时任务配置完成，每1800秒执行一次爬取
+2026-04-21 04:26:49,325 - root - WARNING - DeepL SDK not available, using simulation mode
+2026-04-21 04:26:49,333 - __main__ - WARNING - 全域商业大脑模块未加载: cannot import name 'InsightType' from 'src.global_business_brain' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/global_business_brain.py)
+2026-04-21 04:26:49,372 - root - WARNING - 分身分析模块未找到，相关功能将受限
+2026-04-21 04:26:49,377 - __main__ - WARNING - 达人外联引擎模块未加载: cannot import name 'InfluencerTier' from 'src.influencer_outreach_engine' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/influencer_outreach_engine.py)
+2026-04-21 04:26:49,377 - __main__ - WARNING - 社交关系管理模块未加载: cannot import name 'RelationshipType' from 'src.social_relationship_manager' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/social_relationship_manager.py)
+2026-04-21 04:26:49,377 - __main__ - WARNING - 健康监控系统未加载: cannot import name 'HealthStatus' from 'src.health_monitor' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/health_monitor.py)
+2026-04-21 04:26:49,377 - __main__ - WARNING - 邀请裂变系统未加载: cannot import name 'RewardType' from 'src.invitation_fission_manager' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/invitation_fission_manager.py)
+2026-04-21 04:26:49,378 - __main__ - WARNING - Scrapling爬虫框架未加载: cannot import name 'CrawlerEngine' from 'src.scrapling' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/scrapling/__init__.py)
+2026-04-21 04:26:49,382 - __main__ - WARNING - 支付服务未加载: cannot import name 'PaymentProcessor' from 'src.payment_service' (unknown location)
+2026-04-21 04:26:49,388 - __main__ - WARNING - 智能调度器未加载: cannot import name 'MemoryIsolationCore' from 'src.scheduler' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/scheduler/__init__.py)
+2026-04-21 04:26:49,388 - __main__ - WARNING - Sora2视频生成未加载: cannot import name 'Sora2Client' from 'src.sora2_integration' (unknown location)
+2026-04-21 04:26:49,415 - __main__ - WARNING - Claude Notebook融合未加载: No module named 'src.claude_notebook_fusion.task_optimizer'
+2026-04-21 04:26:49,416 - __main__ - WARNING - 商业匹配引擎未加载: cannot import name 'BusinessMatcher' from 'src.business_matching' (unknown location)
+2026-04-21 04:26:49,419 - root - WARNING - Azure Cognitive Services SDK未安装，语音合成功能将受限
+2026-04-21 04:26:49,419 - root - WARNING - 语音合成服务模块未找到，相关功能将受限
+2026-04-21 04:26:49,421 - root - WARNING - DeepL翻译服务模块未找到，相关功能将受限
+2026-04-21 04:26:49,425 - root - WARNING - Banana质量锁死控制器未找到，画质检查将受限
+2026-04-21 04:26:49,429 - __main__ - WARNING - DeepL翻译服务未加载: No module named 'deepl'
+2026-04-21 04:26:49,434 - __main__ - WARNING - 社交关系API未加载: No module named 'flask'
+2026-04-21 04:26:49,466 - __main__ - WARNING - 百炼图片生成模块未加载: cannot import name 'bailian_adapter' from 'src.bailian_image' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/bailian_image.py)
+2026-04-21 04:26:49,472 - __main__ - WARNING - 达人面板管理未加载: cannot import name 'InfluencerPanelManager' from 'src.add_influencer_panel' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/add_influencer_panel.py)
+2026-04-21 04:26:49,473 - __main__ - WARNING - 邀请面板管理未加载: cannot import name 'InvitationPanelManager' from 'src.add_invitation_panel' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/add_invitation_panel.py)
+2026-04-21 04:26:49,478 - __main__ - WARNING - 性能基准测试未加载: No module named 'matplotlib'
+2026-04-21 04:26:49,485 - __main__ - WARNING - 达人群发未加载: cannot import name 'InfluencerMassMessenger' from 'src.influencer_mass_messenger' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/influencer_mass_messenger.py)
+2026-04-21 04:26:49,490 - __main__ - WARNING - 网络服务器未加载: cannot import name 'SellaiNetworkServer' from 'src.sellai_network_server' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/sellai_network_server.py)
+2026-04-21 04:26:49,490 - __main__ - WARNING - 网络客户端未加载: cannot import name 'SellaiNetworkClient' from 'src.sellai_network_client' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/sellai_network_client.py)
+2026-04-21 04:26:49,490 - __main__ - WARNING - 语音合成服务未加载: cannot import name 'VoiceSynthesisService' from 'src.voice_synthesis_service' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/voice_synthesis_service.py)
+2026-04-21 04:26:49,491 - root - WARNING - Whisper库未安装，语音识别功能将受限
+2026-04-21 04:26:49,492 - __main__ - WARNING - 语音识别服务未加载: cannot import name 'VoiceRecognitionService' from 'src.voice_recognition_service' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/voice_recognition_service.py)
+2026-04-21 04:26:49,494 - root - WARNING - PyAudio库未安装，麦克风录音功能将受限
+2026-04-21 04:26:49,500 - __main__ - WARNING - 实时音频流未加载: cannot import name 'RealTimeAudioStream' from 'src.real_time_audio_stream' (/Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/src/real_time_audio_stream.py)
+2026-04-21 04:26:49,502 - __main__ - INFO - 静态文件目录已挂载: /Users/wanyu/Downloads/SellAI_v3.4.3_static修复版/static
+2026-04-21 04:26:49,505 - src.industry_resource_importer - INFO - 行业资源导入器初始化完成
+2026-04-21 04:26:49,506 - src.commission_calculator - INFO - 佣金计算器初始化完成
+2026-04-21 04:26:49,507 - src.global_business_brain - INFO - 全域商业大脑初始化完成，节点ID: default_evolution_node
+2026-04-21 04:26:49,507 - src.commission_calculator - INFO - 佣金计算器初始化完成
+2026-04-21 04:26:49,507 - src.self_evolution_brain.daily_review_engine - INFO - 每日复盘引擎初始化完成
+2026-04-21 04:26:49,507 - src.self_evolution_brain.main_controller - ERROR - 初始化组件时出错: 'SelfEvolutionBrainController' object has no attribute 'component_status'
+2026-04-21 04:26:49,507 - __main__ - ERROR - ✗ 自我进化大脑启动失败: 'SelfEvolutionBrainController' object has no attribute 'component_status'
+2026-04-21 04:26:49,508 - src.memory_v2.memory_v2_validator - INFO - Memory V2 验证数据库初始化完成
+2026-04-21 04:26:49,509 - src.memory_v2.memory_v2_indexer - INFO - Memory V2 索引数据库初始化完成
+2026-04-21 04:26:49,509 - src.memory_v2.memory_v2_indexer - INFO - 后台索引器已启动
+2026-04-21 04:26:49,510 - src.memory_v2_integration - INFO - Memory V2 集成数据库初始化完成
+2026-04-21 04:26:49,510 - __main__ - INFO - ✓ Memory V2启动成功
+2026-04-21 04:26:49,510 - src.global_orchestrator.core_scheduler - INFO - 核心调度器初始化完成
+2026-04-21 04:26:49,511 - __main__ - INFO - ✓ 全局调度器启动成功
+2026-04-21 04:26:49,511 - src.hyperhorse.core - INFO - 初始化HyperHorse引擎: hyperhorse_engine_1776716809_04cc0f
+2026-04-21 04:26:49,512 - src.hyperhorse.core - WARNING - 加载成功模式失败: no such table: hyperhorse_success_patterns
+2026-04-21 04:26:49,512 - __main__ - INFO - ✓ HyperHorse视频引擎启动成功
+2026-04-21 04:26:49,512 - src.avatar_market - INFO - AI分身市场初始化完成
+2026-04-21 04:26:49,512 - __main__ - INFO - ✓ AI分身市场启动成功
+2026-04-21 04:26:49,512 - src.multi_layer_security - INFO - 多曾安全系统初始化完成
+2026-04-21 04:26:49,512 - src.multi_layer_security - INFO - Kairos守护者启动
+2026-04-21 04:26:49,512 - src.multi_layer_security - INFO - 卧底审计员启动
+2026-04-21 04:26:49,512 - __main__ - INFO - ✓ 安全系统启动成功
+2026-04-21 04:26:49,513 - src.task_scheduler - INFO - 任务调度器初始化完成
+2026-04-21 04:26:49,513 - src.task_dispatcher - INFO - 智能任务分发器初始化完成
+2026-04-21 04:26:49,513 - __main__ - INFO - ✓ 任务调度系统启动成功
+2026-04-21 04:26:49,513 - src.short_video_distributor - INFO - 短视频分发系统初始化完成
+2026-04-21 04:26:49,513 - __main__ - INFO - ✓ 短视频分发系统启动成功
+2026-04-21 04:26:49,513 - src.chat_system - INFO - 聊天服务器初始化完成
+2026-04-21 04:26:49,513 - src.chat_system - INFO - 聊天持久化记忆初始化完成
+2026-04-21 04:26:49,513 - src.chat_system - INFO - 聊天管理器初始化完成
+2026-04-21 04:26:49,513 - __main__ - INFO - ✓ 聊天系统启动成功
+2026-04-21 04:26:49,513 - src.commission_calculator - INFO - 佣金计算器初始化完成
+2026-04-21 04:26:49,513 - __main__ - INFO - ✓ 佣金计算系统启动成功
+2026-04-21 04:26:49,514 - src.network_data_sync - INFO - 网络数据同步系统初始化完成
+2026-04-21 04:26:49,515 - __main__ - INFO - ✓ 数据同步系统启动成功
+2026-04-21 04:26:49,515 - src.industry_resource_importer - INFO - 行业资源导入器初始化完成
+2026-04-21 04:26:49,515 - __main__ - INFO - ✓ 行业资源导入启动成功
+2026-04-21 04:26:49,520 - src.undercover_auditor - INFO - 审计数据库表初始化完成
+2026-04-21 04:26:49,520 - src.undercover_auditor - INFO - Undercover安全审计系统初始化完成
+2026-04-21 04:26:49,520 - src.permission_manager - INFO - 安全审计系统初始化成功
+2026-04-21 04:26:49,521 - src.permission_manager - INFO - 权限数据库表初始化完成
+2026-04-21 04:26:49,522 - src.permission_manager - INFO - 权限管理器初始化完成
+2026-04-21 04:26:49,522 - __main__ - INFO - ✓ 权限管理模块启动成功
+2026-04-21 04:26:49,522 - src.task_dispatcher - INFO - 智能任务分发器初始化完成
+2026-04-21 04:26:49,522 - __main__ - INFO - ✓ 任务分发器启动成功
+2026-04-21 04:26:49,523 - __main__ - INFO - ✓ 共享状态管理器启动成功
+2026-04-21 04:26:49,524 - src.chat_manager - INFO - 聊天表初始化完成
+2026-04-21 04:26:49,524 - src.chat_permanent_memory - WARNING - 未提供Notebook LM API密钥，永久记忆功能受限
+2026-04-21 04:26:49,524 - src.multi_layer_security - INFO - 多曾安全系统初始化完成
+2026-04-21 04:26:49,524 - src.chat_permanent_memory - INFO - 多层次安全防护系统初始化成功
+2026-04-21 04:26:49,526 - src.chat_permanent_memory - INFO - 加载了 0 条同步状态记录
+2026-04-21 04:26:49,526 - src.chat_permanent_memory - INFO - 聊天记录永久记忆管理器初始化完成，数据库: data/shared_state/state.db
+2026-04-21 04:26:49,526 - src.chat_memory_bridge - INFO - 聊天永久记忆系统初始化成功
+2026-04-21 04:26:49,527 - src.chat_memory_bridge - INFO - 后台批量同步服务启动，间隔: 300秒
+2026-04-21 04:26:49,527 - src.chat_memory_bridge - INFO - 增量同步完成: 0条消息
+2026-04-21 04:26:49,527 - src.chat_memory_bridge - INFO - 后台批量同步服务已启动
+2026-04-21 04:26:49,527 - src.chat_memory_bridge - INFO - 聊天记忆桥接初始化完成
+2026-04-21 04:26:49,527 - __main__ - INFO - ✓ 聊天记忆桥接启动成功
+2026-04-21 04:26:49,529 - src.smart_router - INFO - 网络拓扑加载完成，0 个节点，0 条延迟记录
+2026-04-21 04:26:49,529 - src.smart_router - INFO - 智能路由器初始化完成，已加载 0 个网络节点
+2026-04-21 04:26:49,530 - __main__ - INFO - ✓ 智能路由启动成功
+2026-04-21 04:26:49,530 - __main__ - INFO - ✓ 负载均衡分配器启动成功
+2026-04-21 04:26:49,531 - src.optimized_task_allocator - INFO - 优化任务分配器初始化完成
+2026-04-21 04:26:49,531 - __main__ - INFO - ✓ 优化任务分配器启动成功
+2026-04-21 04:26:49,531 - src.voice_wakeup_system - INFO - 语音活动检测器初始化完成 (采样率: 16000Hz, 阈值: 500.0)
+2026-04-21 04:26:49,531 - src.voice_wakeup_system - WARNING - Whisper服务初始化失败: Whisper库未安装，请运行: pip install openai-whisper
+2026-04-21 04:26:49,531 - src.voice_wakeup_system - INFO - 语音唤醒系统初始化完成 (唤醒词: 'sell sell 在吗')
+2026-04-21 04:26:49,531 - src.voice_conversation_engine - INFO - 语音唤醒系统初始化完成
+2026-04-21 04:26:49,531 - src.voice_conversation_engine - WARNING - 语音识别服务初始化失败: Whisper库未安装，请运行: pip install openai-whisper
+2026-04-21 04:26:49,532 - src.social_relationship_manager - INFO - 社交关系表初始化完成
+2026-04-21 04:26:49,533 - src.chat_manager - INFO - 聊天表初始化完成
+2026-04-21 04:26:49,533 - src.voice_conversation_engine - INFO - 分身系统接口初始化完成
+2026-04-21 04:26:49,533 - src.voice_conversation_engine - INFO - 实时语音对话引擎初始化完成
+2026-04-21 04:26:49,533 - __main__ - INFO - ✓ 语音对话引擎启动成功
+2026-04-21 04:26:49,534 - src.memory_v2_indexer - INFO - Memory V2 索引数据库初始化完成
+2026-04-21 04:26:49,534 - src.memory_v2_indexer - INFO - 后台索引器已启动
+2026-04-21 04:26:49,534 - __main__ - INFO - ✓ Memory V2索引器启动成功
+2026-04-21 04:26:49,535 - src.memory_v2_validator - INFO - Memory V2 验证数据库初始化完成
+2026-04-21 04:26:49,536 - __main__ - INFO - ✓ Memory V2验证器启动成功
+2026-04-21 04:26:49,536 - __main__ - INFO - ✓ 知识驱动分身模块已加载（按需初始化）
+2026-04-21 04:26:49,536 - src.scrapling.crawler_engine - INFO - 会话管理器初始化完成
+2026-04-21 04:26:49,536 - src.scrapling.crawler_engine - INFO - Scrapling爬虫引擎初始化完成
+2026-04-21 04:26:49,536 - src.scrapling.config_manager - INFO - 全局配置管理器初始化完成
+2026-04-21 04:26:49,536 - src.scrapling.daemon_service - INFO - Scrapling守护进程初始化完成
+2026-04-21 04:26:49,537 - src.scrapling.daemon_service - INFO - 守护进程数据库表初始化完成
+2026-04-21 04:26:49,537 - src.scrapling.daemon_service - INFO - 守护进程主循环启动
+2026-04-21 04:26:49,537 - src.scrapling.daemon_service - INFO - 调度器循环启动
+2026-04-21 04:26:49,537 - src.scrapling.daemon_service - INFO - 定时任务配置完成，每1800秒执行一次爬取
+2026-04-21 04:26:49,537 - src.scrapling.daemon_service - INFO - Scrapling守护进程启动成功，爬取间隔: 1800秒
