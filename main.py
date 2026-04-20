@@ -463,14 +463,14 @@ class BailianBackgroundRequest(BaseModel):
 # 全局百炼图片适配器
 _bailian_adapter_instance: Optional[Any] = None
 
-def get_bailian_adapter() -> Optional[bailian_adapter]:
+def get_bailian_adapter() -> Optional[Any]:
     global _bailian_adapter_instance
     if _bailian_adapter_instance is None and BAILIAN_AVAILABLE:
         try:
             _bailian_adapter_instance = bailian_adapter()
         except Exception as e:
             logger.error(f"初始化百炼图片适配器失败: {e}")
-    return bailian_adapter
+    return _bailian_adapter_instance
 
 # 聊天记忆桥接
 try:
