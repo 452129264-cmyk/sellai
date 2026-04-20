@@ -3233,6 +3233,7 @@ async def broadcast_message(message_type: str, content: str):
 # ============================================================
 
 if __name__ == "__main__":
+    print("启动 Uvicorn...")
     os.makedirs("logs", exist_ok=True)
     os.makedirs("data/shared_state", exist_ok=True)
     
@@ -3559,5 +3560,6 @@ async def get_daemon_logs(limit: int = 50):
         }
 
 if __name__ == "__main__":
+    print("启动 Uvicorn...")
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
