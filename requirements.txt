@@ -20,3 +20,4 @@ websockets
 python-multipart
 aiohttp
 schedule
+schedule

@@ -461,13 +461,13 @@ class BailianBackgroundRequest(BaseModel):
     background_prompt: str = "studio white background"
 
 # 全局百炼图片适配器
-bailian_adapter: Optional[bailian_adapter] = None
+_bailian_adapter_instance: Optional[Any] = None
 
 def get_bailian_adapter() -> Optional[bailian_adapter]:
-    global bailian_adapter
-    if bailian_adapter is None and BAILIAN_AVAILABLE:
+    global _bailian_adapter_instance
+    if _bailian_adapter_instance is None and BAILIAN_AVAILABLE:
         try:
-            bailian_adapter = bailian_adapter()
+            _bailian_adapter_instance = bailian_adapter()
         except Exception as e:
             logger.error(f"初始化百炼图片适配器失败: {e}")
     return bailian_adapter
