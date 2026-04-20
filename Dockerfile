@@ -24,7 +24,6 @@ COPY static ./static
 COPY main.py .
 COPY data ./data
 COPY docs ./docs
-COPY .env .
 
 # 创建日志目录
 RUN mkdir -p logs
