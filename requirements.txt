@@ -19,3 +19,4 @@ firecrawl-py
 websockets
 python-multipart
 aiohttp
+schedule

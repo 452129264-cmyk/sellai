@@ -428,7 +428,7 @@ def get_predictive_memory_system():
 
 try:
     from src.bailian_image import (
-        BailianImageAdapter, BailianImageAdapterSync,
+        bailian_adapter, bailian_adapterSync,
         BailianImageRequest, BailianImageResult, BailianTaskStatus,
         BailianImageStyle, BailianModel
     )
@@ -461,13 +461,13 @@ class BailianBackgroundRequest(BaseModel):
     background_prompt: str = "studio white background"
 
 # 全局百炼图片适配器
-bailian_adapter: Optional[BailianImageAdapter] = None
+bailian_adapter: Optional[bailian_adapter] = None
 
-def get_bailian_adapter() -> Optional[BailianImageAdapter]:
+def get_bailian_adapter() -> Optional[bailian_adapter]:
     global bailian_adapter
     if bailian_adapter is None and BAILIAN_AVAILABLE:
         try:
-            bailian_adapter = BailianImageAdapter()
+            bailian_adapter = bailian_adapter()
         except Exception as e:
             logger.error(f"初始化百炼图片适配器失败: {e}")
     return bailian_adapter
