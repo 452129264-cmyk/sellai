@@ -20,7 +20,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src ./src
 COPY avatar_independent ./avatar_independent
 COPY voice_system ./voice_system
-COPY static ./static
 COPY main.py .
 COPY data ./data
 COPY docs ./docs
