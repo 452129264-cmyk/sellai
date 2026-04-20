@@ -3557,3 +3557,7 @@ async def get_daemon_logs(limit: int = 50):
             "success": False,
             "error": str(e)
         }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
