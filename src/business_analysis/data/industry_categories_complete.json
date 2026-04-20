@@ -1,0 +1,1740 @@
+[
+  {
+    "id": "information_technology",
+    "code": "450000",
+    "name": "信息科技",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括软件、硬件、半导体、互联网服务等",
+    "keywords": [
+      "软件",
+      "硬件",
+      "互联网",
+      "云计算",
+      "人工智能"
+    ],
+    "created_at": "2026-04-05T15:33:50.448485",
+    "updated_at": "2026-04-05T15:33:50.448500"
+  },
+  {
+    "id": "financial_services",
+    "code": "400000",
+    "name": "金融服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括银行、保险、证券、支付等金融服务",
+    "keywords": [
+      "银行",
+      "保险",
+      "证券",
+      "支付",
+      "金融科技"
+    ],
+    "created_at": "2026-04-05T15:33:50.448609",
+    "updated_at": "2026-04-05T15:33:50.448610"
+  },
+  {
+    "id": "healthcare",
+    "code": "350000",
+    "name": "医疗健康",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括制药、医疗器械、医疗服务、健康管理等",
+    "keywords": [
+      "制药",
+      "医疗",
+      "健康",
+      "生物科技",
+      "医疗服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.448616",
+    "updated_at": "2026-04-05T15:33:50.448616"
+  },
+  {
+    "id": "consumer_goods",
+    "code": "300000",
+    "name": "消费品",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括食品饮料、个人用品、家居用品、服装服饰等",
+    "keywords": [
+      "食品",
+      "饮料",
+      "日用品",
+      "服装",
+      "家居"
+    ],
+    "created_at": "2026-04-05T15:33:50.448621",
+    "updated_at": "2026-04-05T15:33:50.448622"
+  },
+  {
+    "id": "industrial_manufacturing",
+    "code": "200000",
+    "name": "工业制造",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括机械设备、汽车制造、航空航天、电气设备等",
+    "keywords": [
+      "机械",
+      "汽车",
+      "航空",
+      "制造",
+      "电气"
+    ],
+    "created_at": "2026-04-05T15:33:50.448625",
+    "updated_at": "2026-04-05T15:33:50.448625"
+  },
+  {
+    "id": "materials",
+    "code": "150000",
+    "name": "原材料",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括金属矿产、化学制品、建筑材料、林业造纸等",
+    "keywords": [
+      "金属",
+      "矿产",
+      "化工",
+      "建材",
+      "造纸"
+    ],
+    "created_at": "2026-04-05T15:33:50.448628",
+    "updated_at": "2026-04-05T15:33:50.448628"
+  },
+  {
+    "id": "energy",
+    "code": "100000",
+    "name": "能源",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括石油天然气、煤炭、可再生能源、电力等",
+    "keywords": [
+      "石油",
+      "天然气",
+      "煤炭",
+      "新能源",
+      "电力"
+    ],
+    "created_at": "2026-04-05T15:33:50.448634",
+    "updated_at": "2026-04-05T15:33:50.448634"
+  },
+  {
+    "id": "utilities",
+    "code": "550000",
+    "name": "公用事业",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括水务、燃气、电力供应、废物处理等",
+    "keywords": [
+      "水务",
+      "燃气",
+      "电力供应",
+      "废物处理",
+      "公用事业"
+    ],
+    "created_at": "2026-04-05T15:33:50.448637",
+    "updated_at": "2026-04-05T15:33:50.448638"
+  },
+  {
+    "id": "real_estate",
+    "code": "600000",
+    "name": "房地产",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括房地产开发、物业管理、房地产服务等",
+    "keywords": [
+      "房地产",
+      "开发",
+      "物业",
+      "地产服务",
+      "建筑"
+    ],
+    "created_at": "2026-04-05T15:33:50.448640",
+    "updated_at": "2026-04-05T15:33:50.448640"
+  },
+  {
+    "id": "consumer_discretionary",
+    "code": "250000",
+    "name": "可选消费",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括汽车、家电、娱乐、旅游等非必需品消费",
+    "keywords": [
+      "汽车",
+      "家电",
+      "娱乐",
+      "旅游",
+      "奢侈品"
+    ],
+    "created_at": "2026-04-05T15:33:50.448643",
+    "updated_at": "2026-04-05T15:33:50.448643"
+  },
+  {
+    "id": "consumer_staples",
+    "code": "300500",
+    "name": "日常消费",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括零售、分销、食品服务等必需品消费",
+    "keywords": [
+      "零售",
+      "超市",
+      "食品",
+      "分销",
+      "必需品"
+    ],
+    "created_at": "2026-04-05T15:33:50.448645",
+    "updated_at": "2026-04-05T15:33:50.448646"
+  },
+  {
+    "id": "telecommunications",
+    "code": "500000",
+    "name": "电信服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括有线通信、无线通信、卫星通信等",
+    "keywords": [
+      "电信",
+      "通信",
+      "移动",
+      "网络",
+      "卫星"
+    ],
+    "created_at": "2026-04-05T15:33:50.448650",
+    "updated_at": "2026-04-05T15:33:50.448650"
+  },
+  {
+    "id": "media_entertainment",
+    "code": "650000",
+    "name": "传媒娱乐",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括广播电视、电影、出版、游戏等",
+    "keywords": [
+      "媒体",
+      "娱乐",
+      "影视",
+      "出版",
+      "游戏"
+    ],
+    "created_at": "2026-04-05T15:33:50.448652",
+    "updated_at": "2026-04-05T15:33:50.448653"
+  },
+  {
+    "id": "transportation",
+    "code": "700000",
+    "name": "交通运输",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括航空、铁路、公路、海运等",
+    "keywords": [
+      "运输",
+      "航空",
+      "铁路",
+      "物流",
+      "海运"
+    ],
+    "created_at": "2026-04-05T15:33:50.448655",
+    "updated_at": "2026-04-05T15:33:50.448656"
+  },
+  {
+    "id": "business_services",
+    "code": "750000",
+    "name": "商业服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括专业服务、商务支持、人力资源等",
+    "keywords": [
+      "服务",
+      "咨询",
+      "人力资源",
+      "商务",
+      "专业"
+    ],
+    "created_at": "2026-04-05T15:33:50.448660",
+    "updated_at": "2026-04-05T15:33:50.448660"
+  },
+  {
+    "id": "education_services",
+    "code": "800000",
+    "name": "教育服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括学前教育、K12教育、高等教育、职业教育等",
+    "keywords": [
+      "教育",
+      "培训",
+      "学校",
+      "职业教育",
+      "在线教育"
+    ],
+    "created_at": "2026-04-05T15:33:50.448663",
+    "updated_at": "2026-04-05T15:33:50.448663"
+  },
+  {
+    "id": "environmental_services",
+    "code": "850000",
+    "name": "环保服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括环境治理、资源回收、生态修复等",
+    "keywords": [
+      "环保",
+      "环境",
+      "治理",
+      "回收",
+      "生态"
+    ],
+    "created_at": "2026-04-05T15:33:50.448666",
+    "updated_at": "2026-04-05T15:33:50.448666"
+  },
+  {
+    "id": "agriculture_fishing",
+    "code": "900000",
+    "name": "农业牧渔",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括种植业、畜牧业、渔业、林业等",
+    "keywords": [
+      "农业",
+      "种植",
+      "畜牧",
+      "渔业",
+      "林业"
+    ],
+    "created_at": "2026-04-05T15:33:50.448669",
+    "updated_at": "2026-04-05T15:33:50.448669"
+  },
+  {
+    "id": "construction_engineering",
+    "code": "950000",
+    "name": "建筑工程",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括建筑设计、工程施工、工程咨询等",
+    "keywords": [
+      "建筑",
+      "工程",
+      "施工",
+      "设计",
+      "咨询"
+    ],
+    "created_at": "2026-04-05T15:33:50.448672",
+    "updated_at": "2026-04-05T15:33:50.448672"
+  },
+  {
+    "id": "other_industries",
+    "code": "999999",
+    "name": "其他行业",
+    "level": "primary",
+    "parent_id": null,
+    "description": "未分类的其他行业",
+    "keywords": [
+      "其他",
+      "未分类",
+      "杂项"
+    ],
+    "created_at": "2026-04-05T15:33:50.448674",
+    "updated_at": "2026-04-05T15:33:50.448675"
+  },
+  {
+    "id": "tech_software",
+    "code": "451010",
+    "name": "企业软件",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 企业软件",
+    "keywords": [
+      "企业软件",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448730",
+    "updated_at": "2026-04-05T15:33:50.448731"
+  },
+  {
+    "id": "tech_cloud",
+    "code": "451020",
+    "name": "云计算服务",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 云计算服务",
+    "keywords": [
+      "云计算服务",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448737",
+    "updated_at": "2026-04-05T15:33:50.448738"
+  },
+  {
+    "id": "tech_ai",
+    "code": "451030",
+    "name": "人工智能应用",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 人工智能应用",
+    "keywords": [
+      "人工智能应用",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448744",
+    "updated_at": "2026-04-05T15:33:50.448744"
+  },
+  {
+    "id": "tech_bigdata",
+    "code": "451040",
+    "name": "大数据分析",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 大数据分析",
+    "keywords": [
+      "大数据分析",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448747",
+    "updated_at": "2026-04-05T15:33:50.448747"
+  },
+  {
+    "id": "tech_cybersecurity",
+    "code": "451050",
+    "name": "网络安全",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 网络安全",
+    "keywords": [
+      "网络安全",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448750",
+    "updated_at": "2026-04-05T15:33:50.448750"
+  },
+  {
+    "id": "tech_iot",
+    "code": "451060",
+    "name": "物联网",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 物联网",
+    "keywords": [
+      "物联网",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448754",
+    "updated_at": "2026-04-05T15:33:50.448755"
+  },
+  {
+    "id": "tech_blockchain",
+    "code": "451070",
+    "name": "区块链",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 区块链",
+    "keywords": [
+      "区块链",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448758",
+    "updated_at": "2026-04-05T15:33:50.448758"
+  },
+  {
+    "id": "tech_quantum",
+    "code": "451080",
+    "name": "量子计算",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 量子计算",
+    "keywords": [
+      "量子计算",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448761",
+    "updated_at": "2026-04-05T15:33:50.448761"
+  },
+  {
+    "id": "tech_semiconductor",
+    "code": "451090",
+    "name": "半导体",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 半导体",
+    "keywords": [
+      "半导体",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448763",
+    "updated_at": "2026-04-05T15:33:50.448764"
+  },
+  {
+    "id": "tech_hardware",
+    "code": "451100",
+    "name": "硬件设备",
+    "level": "secondary",
+    "parent_id": "information_technology",
+    "description": "信息科技 - 硬件设备",
+    "keywords": [
+      "硬件设备",
+      "information_technology"
+    ],
+    "created_at": "2026-04-05T15:33:50.448768",
+    "updated_at": "2026-04-05T15:33:50.448768"
+  },
+  {
+    "id": "fin_digital_banking",
+    "code": "401010",
+    "name": "数字银行",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 数字银行",
+    "keywords": [
+      "数字银行",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448771",
+    "updated_at": "2026-04-05T15:33:50.448772"
+  },
+  {
+    "id": "fin_insurtech",
+    "code": "401020",
+    "name": "保险科技",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 保险科技",
+    "keywords": [
+      "保险科技",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448774",
+    "updated_at": "2026-04-05T15:33:50.448774"
+  },
+  {
+    "id": "fin_payments",
+    "code": "401030",
+    "name": "支付解决方案",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 支付解决方案",
+    "keywords": [
+      "支付解决方案",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448777",
+    "updated_at": "2026-04-05T15:33:50.448777"
+  },
+  {
+    "id": "fin_investment",
+    "code": "401040",
+    "name": "投资管理",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 投资管理",
+    "keywords": [
+      "投资管理",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448780",
+    "updated_at": "2026-04-05T15:33:50.448780"
+  },
+  {
+    "id": "fin_lending",
+    "code": "401050",
+    "name": "借贷平台",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 借贷平台",
+    "keywords": [
+      "借贷平台",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448783",
+    "updated_at": "2026-04-05T15:33:50.448783"
+  },
+  {
+    "id": "fin_regtech",
+    "code": "401060",
+    "name": "金融监管科技",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 金融监管科技",
+    "keywords": [
+      "金融监管科技",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448785",
+    "updated_at": "2026-04-05T15:33:50.448786"
+  },
+  {
+    "id": "fin_wealthtech",
+    "code": "401070",
+    "name": "财富科技",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 财富科技",
+    "keywords": [
+      "财富科技",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448788",
+    "updated_at": "2026-04-05T15:33:50.448788"
+  },
+  {
+    "id": "fin_cryptocurrency",
+    "code": "401080",
+    "name": "加密货币",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 加密货币",
+    "keywords": [
+      "加密货币",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448793",
+    "updated_at": "2026-04-05T15:33:50.448793"
+  },
+  {
+    "id": "fin_crowdfunding",
+    "code": "401090",
+    "name": "众筹平台",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 众筹平台",
+    "keywords": [
+      "众筹平台",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448796",
+    "updated_at": "2026-04-05T15:33:50.448797"
+  },
+  {
+    "id": "fin_remittance",
+    "code": "401100",
+    "name": "跨境汇款",
+    "level": "secondary",
+    "parent_id": "financial_services",
+    "description": "金融服务 - 跨境汇款",
+    "keywords": [
+      "跨境汇款",
+      "financial_services"
+    ],
+    "created_at": "2026-04-05T15:33:50.448799",
+    "updated_at": "2026-04-05T15:33:50.448799"
+  },
+  {
+    "id": "health_biopharma",
+    "code": "351010",
+    "name": "生物制药",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 生物制药",
+    "keywords": [
+      "生物制药",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448804",
+    "updated_at": "2026-04-05T15:33:50.448804"
+  },
+  {
+    "id": "health_genetherapy",
+    "code": "351020",
+    "name": "基因治疗",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 基因治疗",
+    "keywords": [
+      "基因治疗",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448807",
+    "updated_at": "2026-04-05T15:33:50.448807"
+  },
+  {
+    "id": "health_telemedicine",
+    "code": "351030",
+    "name": "远程医疗",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 远程医疗",
+    "keywords": [
+      "远程医疗",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448810",
+    "updated_at": "2026-04-05T15:33:50.448810"
+  },
+  {
+    "id": "health_medical_ai",
+    "code": "351040",
+    "name": "医疗AI",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 医疗AI",
+    "keywords": [
+      "医疗AI",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448814",
+    "updated_at": "2026-04-05T15:33:50.448814"
+  },
+  {
+    "id": "health_medical_devices",
+    "code": "351050",
+    "name": "医疗器械",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 医疗器械",
+    "keywords": [
+      "医疗器械",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448817",
+    "updated_at": "2026-04-05T15:33:50.448817"
+  },
+  {
+    "id": "health_health_insurance",
+    "code": "351060",
+    "name": "健康保险",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 健康保险",
+    "keywords": [
+      "健康保险",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448821",
+    "updated_at": "2026-04-05T15:33:50.448821"
+  },
+  {
+    "id": "health_digital_health",
+    "code": "351070",
+    "name": "数字健康",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 数字健康",
+    "keywords": [
+      "数字健康",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448824",
+    "updated_at": "2026-04-05T15:33:50.448825"
+  },
+  {
+    "id": "health_healthcare_it",
+    "code": "351080",
+    "name": "医疗IT",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 医疗IT",
+    "keywords": [
+      "医疗IT",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448828",
+    "updated_at": "2026-04-05T15:33:50.448829"
+  },
+  {
+    "id": "health_pharmacy",
+    "code": "351090",
+    "name": "药房服务",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 药房服务",
+    "keywords": [
+      "药房服务",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448831",
+    "updated_at": "2026-04-05T15:33:50.448832"
+  },
+  {
+    "id": "health_elderly_care",
+    "code": "351100",
+    "name": "养老护理",
+    "level": "secondary",
+    "parent_id": "healthcare",
+    "description": "医疗健康 - 养老护理",
+    "keywords": [
+      "养老护理",
+      "healthcare"
+    ],
+    "created_at": "2026-04-05T15:33:50.448834",
+    "updated_at": "2026-04-05T15:33:50.448835"
+  },
+  {
+    "id": "cg_fmcg",
+    "code": "301010",
+    "name": "快消品",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 快消品",
+    "keywords": [
+      "快消品",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448838",
+    "updated_at": "2026-04-05T15:33:50.448838"
+  },
+  {
+    "id": "cg_luxury",
+    "code": "301020",
+    "name": "奢侈品",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 奢侈品",
+    "keywords": [
+      "奢侈品",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448841",
+    "updated_at": "2026-04-05T15:33:50.448842"
+  },
+  {
+    "id": "cg_sportswear",
+    "code": "301030",
+    "name": "运动服饰",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 运动服饰",
+    "keywords": [
+      "运动服饰",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448846",
+    "updated_at": "2026-04-05T15:33:50.448847"
+  },
+  {
+    "id": "cg_beauty_care",
+    "code": "301040",
+    "name": "美妆个护",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 美妆个护",
+    "keywords": [
+      "美妆个护",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448850",
+    "updated_at": "2026-04-05T15:33:50.448850"
+  },
+  {
+    "id": "cg_maternity",
+    "code": "301050",
+    "name": "母婴用品",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 母婴用品",
+    "keywords": [
+      "母婴用品",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448853",
+    "updated_at": "2026-04-05T15:33:50.448853"
+  },
+  {
+    "id": "cg_pet_supplies",
+    "code": "301060",
+    "name": "宠物用品",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 宠物用品",
+    "keywords": [
+      "宠物用品",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448856",
+    "updated_at": "2026-04-05T15:33:50.448856"
+  },
+  {
+    "id": "cg_home_decor",
+    "code": "301070",
+    "name": "家居装饰",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 家居装饰",
+    "keywords": [
+      "家居装饰",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448859",
+    "updated_at": "2026-04-05T15:33:50.448859"
+  },
+  {
+    "id": "cg_food_beverage",
+    "code": "301080",
+    "name": "食品饮料",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 食品饮料",
+    "keywords": [
+      "食品饮料",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448862",
+    "updated_at": "2026-04-05T15:33:50.448862"
+  },
+  {
+    "id": "cg_apparel",
+    "code": "301090",
+    "name": "服装服饰",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 服装服饰",
+    "keywords": [
+      "服装服饰",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448866",
+    "updated_at": "2026-04-05T15:33:50.448866"
+  },
+  {
+    "id": "cg_jewelry",
+    "code": "301100",
+    "name": "珠宝首饰",
+    "level": "secondary",
+    "parent_id": "consumer_goods",
+    "description": "消费品 - 珠宝首饰",
+    "keywords": [
+      "珠宝首饰",
+      "consumer_goods"
+    ],
+    "created_at": "2026-04-05T15:33:50.448869",
+    "updated_at": "2026-04-05T15:33:50.448869"
+  },
+  {
+    "id": "ind_machinery",
+    "code": "201010",
+    "name": "机械设备",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 机械设备",
+    "keywords": [
+      "机械设备",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448873",
+    "updated_at": "2026-04-05T15:33:50.448873"
+  },
+  {
+    "id": "ind_automotive",
+    "code": "201020",
+    "name": "汽车制造",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 汽车制造",
+    "keywords": [
+      "汽车制造",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448876",
+    "updated_at": "2026-04-05T15:33:50.448877"
+  },
+  {
+    "id": "ind_aerospace",
+    "code": "201030",
+    "name": "航空航天",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 航空航天",
+    "keywords": [
+      "航空航天",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448879",
+    "updated_at": "2026-04-05T15:33:50.448880"
+  },
+  {
+    "id": "ind_electrical",
+    "code": "201040",
+    "name": "电气设备",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 电气设备",
+    "keywords": [
+      "电气设备",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448882",
+    "updated_at": "2026-04-05T15:33:50.448882"
+  },
+  {
+    "id": "ind_robotics",
+    "code": "201050",
+    "name": "工业机器人",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 工业机器人",
+    "keywords": [
+      "工业机器人",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448886",
+    "updated_at": "2026-04-05T15:33:50.448886"
+  },
+  {
+    "id": "ind_3d_printing",
+    "code": "201060",
+    "name": "3D打印",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 3D打印",
+    "keywords": [
+      "3D打印",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448888",
+    "updated_at": "2026-04-05T15:33:50.448889"
+  },
+  {
+    "id": "ind_precision",
+    "code": "201070",
+    "name": "精密制造",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 精密制造",
+    "keywords": [
+      "精密制造",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448892",
+    "updated_at": "2026-04-05T15:33:50.448893"
+  },
+  {
+    "id": "ind_defense",
+    "code": "201080",
+    "name": "国防工业",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 国防工业",
+    "keywords": [
+      "国防工业",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448895",
+    "updated_at": "2026-04-05T15:33:50.448896"
+  },
+  {
+    "id": "ind_shipbuilding",
+    "code": "201090",
+    "name": "造船工业",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 造船工业",
+    "keywords": [
+      "造船工业",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448899",
+    "updated_at": "2026-04-05T15:33:50.448900"
+  },
+  {
+    "id": "ind_railway",
+    "code": "201100",
+    "name": "铁路设备",
+    "level": "secondary",
+    "parent_id": "industrial_manufacturing",
+    "description": "工业制造 - 铁路设备",
+    "keywords": [
+      "铁路设备",
+      "industrial_manufacturing"
+    ],
+    "created_at": "2026-04-05T15:33:50.448902",
+    "updated_at": "2026-04-05T15:33:50.448902"
+  },
+  {
+    "id": "materials_sector_1",
+    "code": "150001",
+    "name": "原材料细分1",
+    "level": "secondary",
+    "parent_id": "materials",
+    "description": "原材料的细分领域1",
+    "keywords": [
+      "原材料细分1",
+      "原材料"
+    ],
+    "created_at": "2026-04-05T15:33:50.448927",
+    "updated_at": "2026-04-05T15:33:50.448927"
+  },
+  {
+    "id": "materials_sector_2",
+    "code": "150002",
+    "name": "原材料细分2",
+    "level": "secondary",
+    "parent_id": "materials",
+    "description": "原材料的细分领域2",
+    "keywords": [
+      "原材料细分2",
+      "原材料"
+    ],
+    "created_at": "2026-04-05T15:33:50.448932",
+    "updated_at": "2026-04-05T15:33:50.448932"
+  },
+  {
+    "id": "materials_sector_3",
+    "code": "150003",
+    "name": "原材料细分3",
+    "level": "secondary",
+    "parent_id": "materials",
+    "description": "原材料的细分领域3",
+    "keywords": [
+      "原材料细分3",
+      "原材料"
+    ],
+    "created_at": "2026-04-05T15:33:50.448936",
+    "updated_at": "2026-04-05T15:33:50.448936"
+  },
+  {
+    "id": "materials_sector_4",
+    "code": "150004",
+    "name": "原材料细分4",
+    "level": "secondary",
+    "parent_id": "materials",
+    "description": "原材料的细分领域4",
+    "keywords": [
+      "原材料细分4",
+      "原材料"
+    ],
+    "created_at": "2026-04-05T15:33:50.448939",
+    "updated_at": "2026-04-05T15:33:50.448940"
+  },
+  {
+    "id": "materials_sector_5",
+    "code": "150005",
+    "name": "原材料细分5",
+    "level": "secondary",
+    "parent_id": "materials",
+    "description": "原材料的细分领域5",
+    "keywords": [
+      "原材料细分5",
+      "原材料"
+    ],
+    "created_at": "2026-04-05T15:33:50.448943",
+    "updated_at": "2026-04-05T15:33:50.448944"
+  },
+  {
+    "id": "energy_sector_1",
+    "code": "100001",
+    "name": "能源细分1",
+    "level": "secondary",
+    "parent_id": "energy",
+    "description": "能源的细分领域1",
+    "keywords": [
+      "能源细分1",
+      "能源"
+    ],
+    "created_at": "2026-04-05T15:33:50.448949",
+    "updated_at": "2026-04-05T15:33:50.448950"
+  },
+  {
+    "id": "energy_sector_2",
+    "code": "100002",
+    "name": "能源细分2",
+    "level": "secondary",
+    "parent_id": "energy",
+    "description": "能源的细分领域2",
+    "keywords": [
+      "能源细分2",
+      "能源"
+    ],
+    "created_at": "2026-04-05T15:33:50.448954",
+    "updated_at": "2026-04-05T15:33:50.448954"
+  },
+  {
+    "id": "energy_sector_3",
+    "code": "100003",
+    "name": "能源细分3",
+    "level": "secondary",
+    "parent_id": "energy",
+    "description": "能源的细分领域3",
+    "keywords": [
+      "能源细分3",
+      "能源"
+    ],
+    "created_at": "2026-04-05T15:33:50.448957",
+    "updated_at": "2026-04-05T15:33:50.448957"
+  },
+  {
+    "id": "energy_sector_4",
+    "code": "100004",
+    "name": "能源细分4",
+    "level": "secondary",
+    "parent_id": "energy",
+    "description": "能源的细分领域4",
+    "keywords": [
+      "能源细分4",
+      "能源"
+    ],
+    "created_at": "2026-04-05T15:33:50.448960",
+    "updated_at": "2026-04-05T15:33:50.448961"
+  },
+  {
+    "id": "energy_sector_5",
+    "code": "100005",
+    "name": "能源细分5",
+    "level": "secondary",
+    "parent_id": "energy",
+    "description": "能源的细分领域5",
+    "keywords": [
+      "能源细分5",
+      "能源"
+    ],
+    "created_at": "2026-04-05T15:33:50.448963",
+    "updated_at": "2026-04-05T15:33:50.448964"
+  },
+  {
+    "id": "utilities_sector_1",
+    "code": "550001",
+    "name": "公用事业细分1",
+    "level": "secondary",
+    "parent_id": "utilities",
+    "description": "公用事业的细分领域1",
+    "keywords": [
+      "公用事业细分1",
+      "公用事业"
+    ],
+    "created_at": "2026-04-05T15:33:50.448967",
+    "updated_at": "2026-04-05T15:33:50.448968"
+  },
+  {
+    "id": "utilities_sector_2",
+    "code": "550002",
+    "name": "公用事业细分2",
+    "level": "secondary",
+    "parent_id": "utilities",
+    "description": "公用事业的细分领域2",
+    "keywords": [
+      "公用事业细分2",
+      "公用事业"
+    ],
+    "created_at": "2026-04-05T15:33:50.448974",
+    "updated_at": "2026-04-05T15:33:50.448974"
+  },
+  {
+    "id": "utilities_sector_3",
+    "code": "550003",
+    "name": "公用事业细分3",
+    "level": "secondary",
+    "parent_id": "utilities",
+    "description": "公用事业的细分领域3",
+    "keywords": [
+      "公用事业细分3",
+      "公用事业"
+    ],
+    "created_at": "2026-04-05T15:33:50.448977",
+    "updated_at": "2026-04-05T15:33:50.448978"
+  },
+  {
+    "id": "utilities_sector_4",
+    "code": "550004",
+    "name": "公用事业细分4",
+    "level": "secondary",
+    "parent_id": "utilities",
+    "description": "公用事业的细分领域4",
+    "keywords": [
+      "公用事业细分4",
+      "公用事业"
+    ],
+    "created_at": "2026-04-05T15:33:50.448980",
+    "updated_at": "2026-04-05T15:33:50.448981"
+  },
+  {
+    "id": "utilities_sector_5",
+    "code": "550005",
+    "name": "公用事业细分5",
+    "level": "secondary",
+    "parent_id": "utilities",
+    "description": "公用事业的细分领域5",
+    "keywords": [
+      "公用事业细分5",
+      "公用事业"
+    ],
+    "created_at": "2026-04-05T15:33:50.448983",
+    "updated_at": "2026-04-05T15:33:50.448984"
+  },
+  {
+    "id": "real_estate_sector_1",
+    "code": "600001",
+    "name": "房地产细分1",
+    "level": "secondary",
+    "parent_id": "real_estate",
+    "description": "房地产的细分领域1",
+    "keywords": [
+      "房地产细分1",
+      "房地产"
+    ],
+    "created_at": "2026-04-05T15:33:50.448987",
+    "updated_at": "2026-04-05T15:33:50.448987"
+  },
+  {
+    "id": "real_estate_sector_2",
+    "code": "600002",
+    "name": "房地产细分2",
+    "level": "secondary",
+    "parent_id": "real_estate",
+    "description": "房地产的细分领域2",
+    "keywords": [
+      "房地产细分2",
+      "房地产"
+    ],
+    "created_at": "2026-04-05T15:33:50.448993",
+    "updated_at": "2026-04-05T15:33:50.448994"
+  },
+  {
+    "id": "real_estate_sector_3",
+    "code": "600003",
+    "name": "房地产细分3",
+    "level": "secondary",
+    "parent_id": "real_estate",
+    "description": "房地产的细分领域3",
+    "keywords": [
+      "房地产细分3",
+      "房地产"
+    ],
+    "created_at": "2026-04-05T15:33:50.448997",
+    "updated_at": "2026-04-05T15:33:50.448997"
+  },
+  {
+    "id": "real_estate_sector_4",
+    "code": "600004",
+    "name": "房地产细分4",
+    "level": "secondary",
+    "parent_id": "real_estate",
+    "description": "房地产的细分领域4",
+    "keywords": [
+      "房地产细分4",
+      "房地产"
+    ],
+    "created_at": "2026-04-05T15:33:50.449000",
+    "updated_at": "2026-04-05T15:33:50.449000"
+  },
+  {
+    "id": "real_estate_sector_5",
+    "code": "600005",
+    "name": "房地产细分5",
+    "level": "secondary",
+    "parent_id": "real_estate",
+    "description": "房地产的细分领域5",
+    "keywords": [
+      "房地产细分5",
+      "房地产"
+    ],
+    "created_at": "2026-04-05T15:33:50.449003",
+    "updated_at": "2026-04-05T15:33:50.449004"
+  },
+  {
+    "id": "consumer_discretionary_sector_1",
+    "code": "250001",
+    "name": "可选消费细分1",
+    "level": "secondary",
+    "parent_id": "consumer_discretionary",
+    "description": "可选消费的细分领域1",
+    "keywords": [
+      "可选消费细分1",
+      "可选消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449008",
+    "updated_at": "2026-04-05T15:33:50.449008"
+  },
+  {
+    "id": "consumer_discretionary_sector_2",
+    "code": "250002",
+    "name": "可选消费细分2",
+    "level": "secondary",
+    "parent_id": "consumer_discretionary",
+    "description": "可选消费的细分领域2",
+    "keywords": [
+      "可选消费细分2",
+      "可选消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449011",
+    "updated_at": "2026-04-05T15:33:50.449012"
+  },
+  {
+    "id": "consumer_discretionary_sector_3",
+    "code": "250003",
+    "name": "可选消费细分3",
+    "level": "secondary",
+    "parent_id": "consumer_discretionary",
+    "description": "可选消费的细分领域3",
+    "keywords": [
+      "可选消费细分3",
+      "可选消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449015",
+    "updated_at": "2026-04-05T15:33:50.449016"
+  },
+  {
+    "id": "consumer_discretionary_sector_4",
+    "code": "250004",
+    "name": "可选消费细分4",
+    "level": "secondary",
+    "parent_id": "consumer_discretionary",
+    "description": "可选消费的细分领域4",
+    "keywords": [
+      "可选消费细分4",
+      "可选消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449018",
+    "updated_at": "2026-04-05T15:33:50.449019"
+  },
+  {
+    "id": "consumer_discretionary_sector_5",
+    "code": "250005",
+    "name": "可选消费细分5",
+    "level": "secondary",
+    "parent_id": "consumer_discretionary",
+    "description": "可选消费的细分领域5",
+    "keywords": [
+      "可选消费细分5",
+      "可选消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449022",
+    "updated_at": "2026-04-05T15:33:50.449023"
+  },
+  {
+    "id": "consumer_staples_sector_1",
+    "code": "300001",
+    "name": "日常消费细分1",
+    "level": "secondary",
+    "parent_id": "consumer_staples",
+    "description": "日常消费的细分领域1",
+    "keywords": [
+      "日常消费细分1",
+      "日常消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449026",
+    "updated_at": "2026-04-05T15:33:50.449026"
+  },
+  {
+    "id": "consumer_staples_sector_2",
+    "code": "300002",
+    "name": "日常消费细分2",
+    "level": "secondary",
+    "parent_id": "consumer_staples",
+    "description": "日常消费的细分领域2",
+    "keywords": [
+      "日常消费细分2",
+      "日常消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449029",
+    "updated_at": "2026-04-05T15:33:50.449029"
+  },
+  {
+    "id": "consumer_staples_sector_3",
+    "code": "300003",
+    "name": "日常消费细分3",
+    "level": "secondary",
+    "parent_id": "consumer_staples",
+    "description": "日常消费的细分领域3",
+    "keywords": [
+      "日常消费细分3",
+      "日常消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449033",
+    "updated_at": "2026-04-05T15:33:50.449034"
+  },
+  {
+    "id": "consumer_staples_sector_4",
+    "code": "300004",
+    "name": "日常消费细分4",
+    "level": "secondary",
+    "parent_id": "consumer_staples",
+    "description": "日常消费的细分领域4",
+    "keywords": [
+      "日常消费细分4",
+      "日常消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449038",
+    "updated_at": "2026-04-05T15:33:50.449038"
+  },
+  {
+    "id": "consumer_staples_sector_5",
+    "code": "300005",
+    "name": "日常消费细分5",
+    "level": "secondary",
+    "parent_id": "consumer_staples",
+    "description": "日常消费的细分领域5",
+    "keywords": [
+      "日常消费细分5",
+      "日常消费"
+    ],
+    "created_at": "2026-04-05T15:33:50.449041",
+    "updated_at": "2026-04-05T15:33:50.449042"
+  },
+  {
+    "id": "telecommunications_sector_1",
+    "code": "500001",
+    "name": "电信服务细分1",
+    "level": "secondary",
+    "parent_id": "telecommunications",
+    "description": "电信服务的细分领域1",
+    "keywords": [
+      "电信服务细分1",
+      "电信服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449045",
+    "updated_at": "2026-04-05T15:33:50.449045"
+  },
+  {
+    "id": "telecommunications_sector_2",
+    "code": "500002",
+    "name": "电信服务细分2",
+    "level": "secondary",
+    "parent_id": "telecommunications",
+    "description": "电信服务的细分领域2",
+    "keywords": [
+      "电信服务细分2",
+      "电信服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449048",
+    "updated_at": "2026-04-05T15:33:50.449048"
+  },
+  {
+    "id": "telecommunications_sector_3",
+    "code": "500003",
+    "name": "电信服务细分3",
+    "level": "secondary",
+    "parent_id": "telecommunications",
+    "description": "电信服务的细分领域3",
+    "keywords": [
+      "电信服务细分3",
+      "电信服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449051",
+    "updated_at": "2026-04-05T15:33:50.449051"
+  },
+  {
+    "id": "telecommunications_sector_4",
+    "code": "500004",
+    "name": "电信服务细分4",
+    "level": "secondary",
+    "parent_id": "telecommunications",
+    "description": "电信服务的细分领域4",
+    "keywords": [
+      "电信服务细分4",
+      "电信服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449054",
+    "updated_at": "2026-04-05T15:33:50.449055"
+  },
+  {
+    "id": "telecommunications_sector_5",
+    "code": "500005",
+    "name": "电信服务细分5",
+    "level": "secondary",
+    "parent_id": "telecommunications",
+    "description": "电信服务的细分领域5",
+    "keywords": [
+      "电信服务细分5",
+      "电信服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449060",
+    "updated_at": "2026-04-05T15:33:50.449060"
+  },
+  {
+    "id": "media_entertainment_sector_1",
+    "code": "650001",
+    "name": "传媒娱乐细分1",
+    "level": "secondary",
+    "parent_id": "media_entertainment",
+    "description": "传媒娱乐的细分领域1",
+    "keywords": [
+      "传媒娱乐细分1",
+      "传媒娱乐"
+    ],
+    "created_at": "2026-04-05T15:33:50.449064",
+    "updated_at": "2026-04-05T15:33:50.449065"
+  },
+  {
+    "id": "media_entertainment_sector_2",
+    "code": "650002",
+    "name": "传媒娱乐细分2",
+    "level": "secondary",
+    "parent_id": "media_entertainment",
+    "description": "传媒娱乐的细分领域2",
+    "keywords": [
+      "传媒娱乐细分2",
+      "传媒娱乐"
+    ],
+    "created_at": "2026-04-05T15:33:50.449069",
+    "updated_at": "2026-04-05T15:33:50.449069"
+  },
+  {
+    "id": "media_entertainment_sector_3",
+    "code": "650003",
+    "name": "传媒娱乐细分3",
+    "level": "secondary",
+    "parent_id": "media_entertainment",
+    "description": "传媒娱乐的细分领域3",
+    "keywords": [
+      "传媒娱乐细分3",
+      "传媒娱乐"
+    ],
+    "created_at": "2026-04-05T15:33:50.449072",
+    "updated_at": "2026-04-05T15:33:50.449072"
+  },
+  {
+    "id": "media_entertainment_sector_4",
+    "code": "650004",
+    "name": "传媒娱乐细分4",
+    "level": "secondary",
+    "parent_id": "media_entertainment",
+    "description": "传媒娱乐的细分领域4",
+    "keywords": [
+      "传媒娱乐细分4",
+      "传媒娱乐"
+    ],
+    "created_at": "2026-04-05T15:33:50.449075",
+    "updated_at": "2026-04-05T15:33:50.449075"
+  },
+  {
+    "id": "media_entertainment_sector_5",
+    "code": "650005",
+    "name": "传媒娱乐细分5",
+    "level": "secondary",
+    "parent_id": "media_entertainment",
+    "description": "传媒娱乐的细分领域5",
+    "keywords": [
+      "传媒娱乐细分5",
+      "传媒娱乐"
+    ],
+    "created_at": "2026-04-05T15:33:50.449079",
+    "updated_at": "2026-04-05T15:33:50.449080"
+  },
+  {
+    "id": "transportation_sector_1",
+    "code": "700001",
+    "name": "交通运输细分1",
+    "level": "secondary",
+    "parent_id": "transportation",
+    "description": "交通运输的细分领域1",
+    "keywords": [
+      "交通运输细分1",
+      "交通运输"
+    ],
+    "created_at": "2026-04-05T15:33:50.449083",
+    "updated_at": "2026-04-05T15:33:50.449083"
+  },
+  {
+    "id": "transportation_sector_2",
+    "code": "700002",
+    "name": "交通运输细分2",
+    "level": "secondary",
+    "parent_id": "transportation",
+    "description": "交通运输的细分领域2",
+    "keywords": [
+      "交通运输细分2",
+      "交通运输"
+    ],
+    "created_at": "2026-04-05T15:33:50.449086",
+    "updated_at": "2026-04-05T15:33:50.449087"
+  },
+  {
+    "id": "transportation_sector_3",
+    "code": "700003",
+    "name": "交通运输细分3",
+    "level": "secondary",
+    "parent_id": "transportation",
+    "description": "交通运输的细分领域3",
+    "keywords": [
+      "交通运输细分3",
+      "交通运输"
+    ],
+    "created_at": "2026-04-05T15:33:50.449090",
+    "updated_at": "2026-04-05T15:33:50.449091"
+  },
+  {
+    "id": "transportation_sector_4",
+    "code": "700004",
+    "name": "交通运输细分4",
+    "level": "secondary",
+    "parent_id": "transportation",
+    "description": "交通运输的细分领域4",
+    "keywords": [
+      "交通运输细分4",
+      "交通运输"
+    ],
+    "created_at": "2026-04-05T15:33:50.449095",
+    "updated_at": "2026-04-05T15:33:50.449095"
+  },
+  {
+    "id": "transportation_sector_5",
+    "code": "700005",
+    "name": "交通运输细分5",
+    "level": "secondary",
+    "parent_id": "transportation",
+    "description": "交通运输的细分领域5",
+    "keywords": [
+      "交通运输细分5",
+      "交通运输"
+    ],
+    "created_at": "2026-04-05T15:33:50.449098",
+    "updated_at": "2026-04-05T15:33:50.449099"
+  },
+  {
+    "id": "business_services_sector_1",
+    "code": "750001",
+    "name": "商业服务细分1",
+    "level": "secondary",
+    "parent_id": "business_services",
+    "description": "商业服务的细分领域1",
+    "keywords": [
+      "商业服务细分1",
+      "商业服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449101",
+    "updated_at": "2026-04-05T15:33:50.449102"
+  },
+  {
+    "id": "business_services_sector_2",
+    "code": "750002",
+    "name": "商业服务细分2",
+    "level": "secondary",
+    "parent_id": "business_services",
+    "description": "商业服务的细分领域2",
+    "keywords": [
+      "商业服务细分2",
+      "商业服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449105",
+    "updated_at": "2026-04-05T15:33:50.449105"
+  },
+  {
+    "id": "business_services_sector_3",
+    "code": "750003",
+    "name": "商业服务细分3",
+    "level": "secondary",
+    "parent_id": "business_services",
+    "description": "商业服务的细分领域3",
+    "keywords": [
+      "商业服务细分3",
+      "商业服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449107",
+    "updated_at": "2026-04-05T15:33:50.449108"
+  },
+  {
+    "id": "business_services_sector_4",
+    "code": "750004",
+    "name": "商业服务细分4",
+    "level": "secondary",
+    "parent_id": "business_services",
+    "description": "商业服务的细分领域4",
+    "keywords": [
+      "商业服务细分4",
+      "商业服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449111",
+    "updated_at": "2026-04-05T15:33:50.449111"
+  },
+  {
+    "id": "business_services_sector_5",
+    "code": "750005",
+    "name": "商业服务细分5",
+    "level": "secondary",
+    "parent_id": "business_services",
+    "description": "商业服务的细分领域5",
+    "keywords": [
+      "商业服务细分5",
+      "商业服务"
+    ],
+    "created_at": "2026-04-05T15:33:50.449115",
+    "updated_at": "2026-04-05T15:33:50.449116"
+  }
+]

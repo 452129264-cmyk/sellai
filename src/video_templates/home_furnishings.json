@@ -1,0 +1,135 @@
+{
+  "category": "home_furnishings",
+  "category_name": "家居用品",
+  "description": "适用于家具、家居装饰、厨房用品等家居住品的短视频生成模板",
+  "platforms_supported": ["instagram_reels", "xiaohongshu", "tiktok_us"],
+  "video_styles": ["lifestyle", "tutorial", "product_showcase", "before_after"],
+  "target_audiences": ["家居爱好者", "租房改造者", "新婚夫妇", "装修人群"],
+  "scene_structure": [
+    "scene_setup",
+    "product_reveal",
+    "functionality_demo",
+    "styling_options",
+    "space_impact",
+    "installation_tips",
+    "maintenance_guide",
+    "value_proposition",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "scene_setup": "展示家居场景，营造氛围和情境",
+    "product_reveal": "产品惊艳亮相，突出设计美学和功能",
+    "functionality_demo": "实际使用功能演示，展示便利性",
+    "styling_options": "多种风格搭配建议，展示多样性",
+    "space_impact": "产品对空间美感和实用的提升效果",
+    "installation_tips": "安装、组装或摆放的实用建议",
+    "maintenance_guide": "清洁、保养和维护的小贴士",
+    "value_proposition": "产品价值总结，性价比分析",
+    "outro": "购买引导，家居生活理念传达"
+  },
+  "default_transitions": [
+    "crossfade",
+    "push",
+    "zoom_out",
+    "reveal",
+    "blur_transition"
+  ],
+  "pacing_guidelines": {
+    "scene_setup_duration_seconds": 3,
+    "product_reveal_duration_seconds": 4,
+    "functionality_demo_duration_seconds": 6,
+    "styling_options_duration_seconds": 5,
+    "space_impact_duration_seconds": 4,
+    "installation_tips_duration_seconds": 3,
+    "maintenance_guide_duration_seconds": 3,
+    "value_proposition_duration_seconds": 3,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "温暖自然光，突出家居温馨感",
+    "background": "真实家居场景，有生活气息",
+    "room_styling": "整洁有序，展现设计感",
+    "camera_angles": ["广角全景", "细节特写", "使用角度", "对比视角"],
+    "color_palette": "家居风格色调，如米白、原木色、柔和色系"
+  },
+  "audio_requirements": {
+    "background_music": "轻音乐、氛围音乐、民谣或爵士",
+    "voiceover_tone": "温暖、亲切、可信赖",
+    "sound_effects": ["家具移动声", "织物声音", "家居环境音"],
+    "audio_pacing": "舒适放松，与家居氛围协调"
+  },
+  "text_overlays": {
+    "dimensions_specs": true,
+    "material_info": true,
+    "assembly_time": true,
+    "care_instructions": true,
+    "room_size_recommendation": true
+  },
+  "platform_specific_optimizations": {
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["homeinspo", "interiordesign", "homeorganization", "decorideas"],
+      "engagement_hooks": ["家居挑战", "改造前后", "空间利用技巧"]
+    },
+    "xiaohongshu": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "3:4",
+      "recommended_hashtags": ["家居好物", "装修灵感", "收纳技巧", "软装搭配"],
+      "engagement_hooks": ["好物清单", "改造心得", "使用测评"]
+    },
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["homeorganizing", "interiorstyling", "furnituremakeover"],
+      "engagement_hooks": ["快捷收纳", "家具组装", "空间改造挑战"]
+    }
+  },
+  "content_guidelines": {
+    "lifestyle": {
+      "focus_on": ["真实居住体验", "生活场景融入", "情感连接", "实用价值"],
+      "avoid": ["过度摆拍", "不自然表现", "脱离现实需求"]
+    },
+    "tutorial": {
+      "focus_on": ["实用技巧", "DIY步骤", "问题解决", "省钱方案"],
+      "avoid": ["步骤不清", "工具不全", "安全忽略"]
+    },
+    "before_after": {
+      "focus_on": ["显著变化", "过程记录", "效果对比", "价值体现"],
+      "avoid": ["虚假夸张", "不可复制性", "成本隐瞒"]
+    }
+  },
+  "demonstration_techniques": {
+    "functionality_showcase": ["多用途演示", "空间适应", "易用性展示", "耐久性表现"],
+    "styling_versatility": ["不同风格搭配", "季节变化", "房间适配", "个性化定制"],
+    "installation_process": ["工具准备", "步骤分解", "常见问题", "完成效果"]
+  },
+  "generation_presets": {
+    "quick_demo": {
+      "total_duration_seconds": 20,
+      "scene_count": 5,
+      "pacing": "moderate",
+      "focus": "核心功能和外观展示"
+    },
+    "comprehensive_guide": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "relaxed",
+      "focus": "全面使用指南和价值分析"
+    },
+    "makeover_story": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "storytelling",
+      "focus": "空间改造故事和情感共鸣"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 30,
+    "audio_quality": "192kbps",
+    "visual_atmosphere": "家居温馨感准确传达"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

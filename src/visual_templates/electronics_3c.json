@@ -1,0 +1,64 @@
+{
+  "category": "electronics_3c",
+  "name": "3C电子产品",
+  "description": "消费电子产品视觉生成模板，包括手机、电脑、耳机、智能设备等",
+  "prompt_template": "科技产品摄影，{product_name}，{product_description}，{visual_style}风格，现代感设计，清晰细节，展现科技感和功能特点",
+  "style_adaptations": {
+    "product_photography": "专业科技产品摄影，精密工业感，突出产品工艺",
+    "lifestyle": "真实使用场景，融入日常生活，展示实用价值",
+    "minimalist": "极简科技美学，干净线条，未来感设计",
+    "brand_commercial": "科技品牌广告，创新感，技术领先，用户体验",
+    "social_media": "科技博主风格，开箱展示，功能演示，吸引科技爱好者"
+  },
+  "brand_element_rules": {
+    "logo_position": "产品本体或背景适当位置，保持科技感",
+    "color_palette": "使用品牌科技色彩，冷色调为主",
+    "typography": "技术规格字体，简洁清晰，信息明确"
+  },
+  "localization_rules": {
+    "US": "美式科技感，大胆创新，商业导向，色彩活泼",
+    "CN": "中式科技感，精致工艺，重视实用性，色彩稳重",
+    "JP": "日式科技感，精密细致，人性化设计，色彩中性",
+    "KR": "韩式科技感，时尚设计，年轻化，色彩鲜艳",
+    "EU": "欧式科技感，经典设计，注重品质，色彩优雅"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "1:1",
+    "detail_level": "very_high",
+    "color_accuracy": "very_high",
+    "compression_quality": 95
+  },
+  "default_scenes": [
+    "产品正面展示",
+    "产品侧面展示",
+    "功能界面显示",
+    "使用场景演示",
+    "配件组合展示"
+  ],
+  "material_types": [
+    "metal",
+    "glass",
+    "plastic",
+    "ceramic",
+    "carbon_fiber"
+  ],
+  "lighting_presets": [
+    "studio_tech_lighting",
+    "product_glow_effect",
+    "ambient_room_light",
+    "cyberpunk_style"
+  ],
+  "composition_guidelines": [
+    "产品占据画面50-60%",
+    "突出屏幕显示内容",
+    "展示产品比例和尺寸",
+    "保持科技美学平衡"
+  ],
+  "special_features": [
+    "屏幕内容可定制",
+    "灯光反射效果",
+    "材质纹理细节",
+    "产品比例准确"
+  ]
+}

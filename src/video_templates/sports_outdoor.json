@@ -1,0 +1,135 @@
+{
+  "category": "sports_outdoor",
+  "category_name": "运动户外",
+  "description": "适用于运动装备、户外用品、健身器材等产品的短视频生成模板",
+  "platforms_supported": ["tiktok_us", "instagram_reels", "youtube_shorts"],
+  "video_styles": ["lifestyle", "product_showcase", "tutorial", "testimonial"],
+  "target_audiences": ["运动爱好者", "健身人群", "户外探险者", "体育新手"],
+  "scene_structure": [
+    "adrenaline_start",
+    "gear_introduction",
+    "performance_testing",
+    "feature_breakdown",
+    "real_world_use",
+    "safety_considerations",
+    "maintenance_tips",
+    "value_proposition",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "adrenaline_start": "动感十足的开场，展示运动场景和激情",
+    "gear_introduction": "装备外观、材质、设计的全方位展示",
+    "performance_testing": "实际使用环境中的性能表现测试",
+    "feature_breakdown": "核心技术和特色功能的详细解析",
+    "real_world_use": "真实运动场景中的使用体验分享",
+    "safety_considerations": "安全使用指南和注意事项",
+    "maintenance_tips": "清洁、保养、储存的实用建议",
+    "value_proposition": "产品价值和性价比分析",
+    "outro": "总结推荐，运动激励和安全提醒"
+  },
+  "default_transitions": [
+    "quick_cut",
+    "zoom_transition",
+    "motion_blur",
+    "speed_ramp",
+    "glitch_effect"
+  ],
+  "pacing_guidelines": {
+    "adrenaline_start_duration_seconds": 3,
+    "gear_introduction_duration_seconds": 4,
+    "performance_testing_duration_seconds": 6,
+    "feature_breakdown_duration_seconds": 4,
+    "real_world_use_duration_seconds": 5,
+    "safety_considerations_duration_seconds": 3,
+    "maintenance_tips_duration_seconds": 3,
+    "value_proposition_duration_seconds": 3,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "明亮自然光或运动场馆照明",
+    "background": "运动场馆、户外环境或专业训练场地",
+    "action_shots": "动态、活力、真实的运动镜头",
+    "camera_angles": ["动感追踪", "慢动作特写", "第一人称视角", "全景展示"],
+    "color_palette": "活力色调，突出运动装备色彩和功能"
+  },
+  "audio_requirements": {
+    "background_music": "电子、摇滚、嘻哈或激励性音乐",
+    "voiceover_tone": "专业、激情、可信赖",
+    "sound_effects": ["运动器材声", "环境音", "动作声", "碰撞声"],
+    "audio_pacing": "快节奏，充满能量和动感"
+  },
+  "text_overlays": {
+    "tech_specs": true,
+    "safety_ratings": true,
+    "weight_dimensions": true,
+    "skill_level": true,
+    "training_tips": true
+  },
+  "platform_specific_optimizations": {
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["sports", "fitness", "outdoor", "workout"],
+      "engagement_hooks": ["运动挑战", "装备测评", "技巧教学", "健身激励"]
+    },
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["sportsreels", "fitnessreels", "outdoorreels"],
+      "engagement_hooks": ["训练视频", "装备展示", "户外冒险", "安全指导"]
+    },
+    "youtube_shorts": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["sportsshorts", "fitnessshorts", "outdoorshorts"],
+      "engagement_hooks": ["完整测评", "使用教程", "效果对比", "选购指南"]
+    }
+  },
+  "content_guidelines": {
+    "lifestyle": {
+      "focus_on": ["真实运动场景", "情感激励", "社群氛围", "健康生活"],
+      "avoid": ["过度表演", "不自然表现", "危险示范"]
+    },
+    "tutorial": {
+      "focus_on": ["安全第一", "步骤清晰", "技巧实用", "循序渐进"],
+      "avoid": ["步骤跳过", "安全忽略", "专业要求过高"]
+    },
+    "testimonial": {
+      "focus_on": ["真实体验", "客观评价", "使用背景", "改进建议"],
+      "avoid": ["虚假宣传", "片面评价", "夸大效果"]
+    }
+  },
+  "demonstration_techniques": {
+    "performance_demo": ["压力测试", "极限使用", "环境适应", "耐久性展示"],
+    "feature_highlight": ["技术解析", "创新点展示", "对比优势", "实用价值"],
+    "safety_education": ["正确使用", "风险预防", "应急处理", "装备检查"]
+  },
+  "generation_presets": {
+    "quick_look": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "fast",
+      "focus": "核心功能和外观展示"
+    },
+    "detailed_review": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "moderate",
+      "focus": "全面性能测试和使用指南"
+    },
+    "adventure_story": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "dynamic",
+      "focus": "户外探险体验和装备故事"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 60,
+    "audio_quality": "256kbps",
+    "visual_dynamics": "运动动感和活力准确传达"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

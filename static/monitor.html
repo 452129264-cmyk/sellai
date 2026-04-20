@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商机监控 - SellAI</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --card: #21253a;
+    --border: #2e3350;
+    --accent: #4f8ef7;
+    --accent2: #7c5cfc;
+    --green: #22c55e;
+    --yellow: #f59e0b;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --radius: 12px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-weight: 600;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+
+  /* Filter bar */
+  .filter-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-end;
+  }
+
+  .filter-group { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 180px; }
+
+  .filter-group label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .filter-group .value-display {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(79,142,247,0.2);
+  }
+
+  input[type="number"] {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input[type="number"]:focus { border-color: var(--accent); }
+
+  .btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    white-space: nowrap;
+  }
+
+  .btn:hover { opacity: 0.9; }
+  .btn:active { transform: scale(0.97); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Stats row */
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .stat-card .stat-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; }
+  .stat-card .stat-value { font-size: 1.5rem; font-weight: 700; }
+  .stat-card.green .stat-value { color: var(--green); }
+  .stat-card.yellow .stat-value { color: var(--yellow); }
+  .stat-card.blue .stat-value { color: var(--accent); }
+
+  /* Status */
+  .status-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .status-bar.loading .spinner { display: block; }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+
+  /* Card */
+  .opportunity-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: border-color 0.2s, transform 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .opportunity-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+
+  .product-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .platform-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .platform-taobao { background: rgba(255,102,0,0.15); color: #ff6600; }
+  .platform-jd { background: rgba(220,30,30,0.15); color: #dc1e1e; }
+  .platform-pinduoduo { background: rgba(230,0,100,0.15); color: #e60064; }
+  .platform-amazon { background: rgba(255,153,0,0.15); color: #ff9900; }
+  .platform-default { background: rgba(79,142,247,0.15); color: var(--accent); }
+
+  .card-metrics { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .metric { display: flex; flex-direction: column; gap: 2px; }
+  .metric-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .metric-value { font-size: 1rem; font-weight: 700; }
+  .metric-value.profit { color: var(--green); }
+  .metric-value.price { color: var(--text); }
+
+  .profit-bar-wrap { background: var(--border); border-radius: 3px; height: 4px; overflow: hidden; }
+  .profit-bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green), #16a34a); transition: width 0.4s; }
+
+  .card-footer { display: flex; justify-content: space-between; align-items: center; }
+
+  .link-btn {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.2s;
+  }
+
+  .link-btn:hover { opacity: 0.75; }
+
+  .profit-pct {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 99px;
+  }
+
+  .profit-pct.high { background: rgba(34,197,94,0.15); color: var(--green); }
+  .profit-pct.mid { background: rgba(245,158,11,0.15); color: var(--yellow); }
+  .profit-pct.low { background: rgba(239,68,68,0.15); color: var(--red); }
+
+  /* Empty / error */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    grid-column: 1 / -1;
+  }
+
+  .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+  .empty-state p { font-size: 0.95rem; }
+
+  .error-msg {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #fca5a5;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .filter-bar { flex-direction: column; }
+    .stats-row { flex-direction: column; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SellAI 商机监控</h1>
+  <span class="badge" id="result-count">0</span>
+</header>
+
+<div class="container">
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <label>毛利阈值 <span class="value-display" id="threshold-display">20%</span></label>
+      <input type="range" id="threshold" min="0" max="100" value="20" step="1">
+    </div>
+    <div class="filter-group" style="max-width:160px">
+      <label>最大结果数</label>
+      <input type="number" id="max-results" value="50" min="1" max="200">
+    </div>
+    <button class="btn" id="fetch-btn" onclick="fetchData()">查询商机</button>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card green">
+      <div class="stat-label">平均毛利率</div>
+      <div class="stat-value" id="avg-profit">—</div>
+    </div>
+    <div class="stat-card yellow">
+      <div class="stat-label">最高毛利率</div>
+      <div class="stat-value" id="max-profit">—</div>
+    </div>
+    <div class="stat-card blue">
+      <div class="stat-label">商机总数</div>
+      <div class="stat-value" id="total-count">—</div>
+    </div>
+  </div>
+
+  <div class="error-msg" id="error-msg"></div>
+
+  <div class="status-bar" id="status-bar">
+    <div class="spinner" id="spinner"></div>
+    <span id="status-text">点击"查询商机"开始加载</span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+</div>
+
+<script>
+  const thresholdEl = document.getElementById('threshold');
+  const thresholdDisplay = document.getElementById('threshold-display');
+
+  thresholdEl.addEventListener('input', () => {
+    thresholdDisplay.textContent = thresholdEl.value + '%';
+  });
+
+  function platformClass(platform) {
+    if (!platform) return 'platform-default';
+    const p = platform.toLowerCase();
+    if (p.includes('taobao') || p.includes('淘宝')) return 'platform-taobao';
+    if (p.includes('jd') || p.includes('京东')) return 'platform-jd';
+    if (p.includes('pdd') || p.includes('拼多多')) return 'platform-pinduoduo';
+    if (p.includes('amazon') || p.includes('亚马逊')) return 'platform-amazon';
+    return 'platform-default';
+  }
+
+  function profitClass(pct) {
+    if (pct >= 40) return 'high';
+    if (pct >= 20) return 'mid';
+    return 'low';
+  }
+
+  function renderCard(item) {
+    const name = item.product_name || item.name || item.title || '未知商品';
+    const platform = item.platform || item.source || '';
+    const profit = item.gross_profit_rate ?? item.profit_rate ?? item.gross_profit ?? null;
+    const profitAmt = item.gross_profit_amount ?? item.profit_amount ?? null;
+    const price = item.price ?? item.sale_price ?? null;
+    const link = item.url || item.link || item.product_url || null;
+
+    const profitPct = profit !== null ? (profit > 1 ? profit : profit * 100) : null;
+    const barWidth = profitPct !== null ? Math.min(100, Math.max(0, profitPct)) : 0;
+
+    return `
+      <div class="opportunity-card">
+        <div class="card-header">
+          <div class="product-name">${escHtml(name)}</div>
+          ${platform ? `<span class="platform-badge ${platformClass(platform)}">${escHtml(platform)}</span>` : ''}
+        </div>
+        <div class="card-metrics">
+          ${profitPct !== null ? `
+          <div class="metric">
+            <span class="metric-label">毛利率</span>
+            <span class="metric-value profit">${profitPct.toFixed(1)}%</span>
+          </div>` : ''}
+          ${profitAmt !== null ? `
+          <div class="metric">
+            <span class="metric-label">毛利额</span>
+            <span class="metric-value profit">¥${Number(profitAmt).toFixed(2)}</span>
+          </div>` : ''}
+          ${price !== null ? `
+          <div class="metric">
+            <span class="metric-label">售价</span>
+            <span class="metric-value price">¥${Number(price).toFixed(2)}</span>
+          </div>` : ''}
+        </div>
+        ${profitPct !== null ? `
+        <div class="profit-bar-wrap">
+          <div class="profit-bar" style="width:${barWidth}%"></div>
+        </div>` : ''}
+        <div class="card-footer">
+          ${link ? `<a class="link-btn" href="${escAttr(link)}" target="_blank" rel="noopener">查看商品 ↗</a>` : '<span></span>'}
+          ${profitPct !== null ? `<span class="profit-pct ${profitClass(profitPct)}">${profitPct.toFixed(1)}%</span>` : ''}
+        </div>
+      </div>`;
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function escAttr(s) {
+    return String(s).replace(/"/g,'&quot;');
+  }
+
+  function setLoading(on) {
+    const bar = document.getElementById('status-bar');
+    const btn = document.getElementById('fetch-btn');
+    bar.classList.toggle('loading', on);
+    btn.disabled = on;
+    document.getElementById('spinner').style.display = on ? 'block' : 'none';
+  }
+
+  function setStatus(msg) {
+    document.getElementById('status-text').textContent = msg;
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('error-msg');
+    el.textContent = msg;
+    el.style.display = msg ? 'block' : 'none';
+  }
+
+  async function fetchData() {
+    const threshold = document.getElementById('threshold').value;
+    const maxResults = document.getElementById('max-results').value;
+
+    setLoading(true);
+    setStatus('正在加载商机数据…');
+    showError('');
+    document.getElementById('grid').innerHTML = '';
+
+    try {
+      const res = await fetch(`/api/monitor/active?threshold=${threshold}&max_results=${maxResults}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      const data = await res.json();
+
+      const items = Array.isArray(data) ? data
+        : (data.items || data.results || data.opportunities || data.data || []);
+
+      document.getElementById('result-count').textContent = items.length;
+      document.getElementById('total-count').textContent = items.length;
+
+      if (items.length === 0) {
+        document.getElementById('grid').innerHTML = `
+          <div class="empty-state">
+            <div class="icon">📭</div>
+            <p>暂无符合条件的商机，请调整筛选参数</p>
+          </div>`;
+        setStatus(`未找到商机（阈值 ${threshold}%，最大 ${maxResults} 条）`);
+      } else {
+        const profits = items.map(i => {
+          const p = i.gross_profit_rate ?? i.profit_rate ?? i.gross_profit ?? null;
+          return p !== null ? (p > 1 ? p : p * 100) : null;
+        }).filter(p => p !== null);
+
+        if (profits.length) {
+          const avg = profits.reduce((a, b) => a + b, 0) / profits.length;
+          const max = Math.max(...profits);
+          document.getElementById('avg-profit').textContent = avg.toFixed(1) + '%';
+          document.getElementById('max-profit').textContent = max.toFixed(1) + '%';
+        }
+
+        document.getElementById('grid').innerHTML = items.map(renderCard).join('');
+        setStatus(`已加载 ${items.length} 条商机（阈值 ${threshold}%）`);
+      }
+    } catch (e) {
+      showError('请求失败：' + e.message);
+      setStatus('加载失败');
+      document.getElementById('result-count').textContent = '0';
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // Auto-load on page open
+  fetchData();
+</script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+#!/usr/bin/env python3
+"""
+SellAI v3.0.0 - 全域商业大脑
+Global Business Brain Module
+整合所有商业决策能力的核心引擎
+
+功能：
+- 跨平台数据聚合分析
+- 商业洞察生成
+- 智能决策支持
+- 市场趋势预测
+"""
+
+import os
+import time
+import json
+import logging
+from datetime import datetime, timedelta
+from typing import Dict, List, Any, Optional, Union
+from dataclasses import dataclass, field
+from enum import Enum
+import uuid
+
+logger = logging.getLogger(__name__)
+
+
+class InsightType(Enum):
+    """洞察类型"""
+    MARKET_TREND = "market_trend"
+    COMPETITOR_ANALYSIS = "competitor_analysis"
+    OPPORTUNITY = "opportunity"
+    RISK_WARNING = "risk_warning"
+    CUSTOMER_BEHAVIOR = "customer_behavior"
+    PRICING_STRATEGY = "pricing_strategy"
+    INVENTORY_OPTIMIZATION = "inventory_optimization"
+    CAMPAIGN_PERFORMANCE = "campaign_performance"
+
+
+class RiskLevel(Enum):
+    """风险等级"""
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+    CRITICAL = "critical"
+
+
+@dataclass
+class BusinessInsight:
+    """商业洞察"""
+    insight_id: str
+    insight_type: InsightType
+    title: str
+    description: str
+    confidence: float  # 0-1
+    impact_score: float  # 0-10
+    recommendations: List[str]
+    data_sources: List[str]
+    generated_at: str
+    valid_until: Optional[str] = None
+    metadata: Dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class MarketAnalysis:
+    """市场分析"""
+    market_id: str
+    market_name: str
+    total_addressable_market: float
+    serviceable_addressable_market: float
+    growth_rate: float
+    key_players: List[Dict[str, Any]]
+    trends: List[str]
+    opportunities: List[str]
+    threats: List[str]
+    analyzed_at: str
+
+
+@dataclass
+class CompetitiveAnalysis:
+    """竞品分析"""
+    competitor_id: str
+    competitor_name: str
+    market_share: float
+    strengths: List[str]
+    weaknesses: List[str]
+    pricing_strategy: str
+    key_products: List[str]
+    market_position: str
+    threat_level: RiskLevel
+    analyzed_at: str
+
+
+class GlobalBusinessBrain:
+    """
+    全域商业大脑控制器
+    
+    整合所有商业数据源，提供智能分析和决策支持
+    """
+    
+    def __init__(self, db_path: str = "data/shared_state/business_brain.db"):
+        self.db_path = db_path
+        self.insights_cache: Dict[str, BusinessInsight] = {}
+        self.analysis_history: List[Dict[str, Any]] = []
+        self.data_sources = {
+            "ecommerce": [],      # 电商数据
+            "social": [],         # 社交媒体数据
+            "marketplace": [],    # 市场数据
+            "competitor": [],     # 竞品数据
+            "customer": []        # 客户数据
+        }
+        self._ensure_data_dir()
+        logger.info("全域商业大脑初始化完成")
+    
+    def _ensure_data_dir(self):
+        """确保数据目录存在"""
+        os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
+    
+    # ============================================================
+    # 商业洞察生成
+    # ============================================================
+    
+    def generate_insight(
+        self,
+        insight_type: Union[str, InsightType],
+        context: Dict[str, Any],
+        data_sources: Optional[List[str]] = None
+    ) -> BusinessInsight:
+        """
+        生成商业洞察
+        
+        Args:
+            insight_type: 洞察类型
+            context: 上下文数据
+            data_sources: 数据源列表
+        
+        Returns:
+            BusinessInsight: 生成的洞察
+        """
+        insight_id = f"insight_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        
+        # 确定洞察类型
+        if isinstance(insight_type, str):
+            try:
+                insight_type = InsightType(insight_type)
+            except ValueError:
+                insight_type = InsightType.MARKET_TREND
+        
+        # 生成洞察内容
+        title = self._generate_insight_title(insight_type, context)
+        description = self._generate_insight_description(insight_type, context)
+        confidence = self._calculate_confidence(insight_type, context)
+        impact_score = self._calculate_impact_score(insight_type, context)
+        recommendations = self._generate_recommendations(insight_type, context)
+        
+        insight = BusinessInsight(
+            insight_id=insight_id,
+            insight_type=insight_type,
+            title=title,
+            description=description,
+            confidence=confidence,
+            impact_score=impact_score,
+            recommendations=recommendations,
+            data_sources=data_sources or ["global_business_brain"],
+            generated_at=datetime.now().isoformat(),
+            valid_until=(datetime.now() + timedelta(days=7)).isoformat(),
+            metadata=context
+        )
+        
+        # 缓存洞察
+        self.insights_cache[insight_id] = insight
+        self.analysis_history.append({
+            "insight_id": insight_id,
+            "insight_type": insight_type.value,
+            "generated_at": insight.generated_at
+        })
+        
+        logger.info(f"生成商业洞察: {insight_id} ({insight_type.value})")
+        return insight
+    
+    def _generate_insight_title(self, insight_type: InsightType, context: Dict) -> str:
+        """生成洞察标题"""
+        titles = {
+            InsightType.MARKET_TREND: f"市场趋势分析: {context.get('market', '通用')}领域",
+            InsightType.COMPETITOR_ANALYSIS: f"竞品动态: {context.get('competitor', '主要竞争者')}",
+            InsightType.OPPORTUNITY: f"商业机会识别: {context.get('opportunity_area', '新兴领域')}",
+            InsightType.RISK_WARNING: f"风险预警: {context.get('risk_type', '市场风险')}",
+            InsightType.CUSTOMER_BEHAVIOR: f"客户行为洞察: {context.get('segment', '目标客群')}",
+            InsightType.PRICING_STRATEGY: f"定价策略优化建议",
+            InsightType.INVENTORY_OPTIMIZATION: f"库存优化方案",
+            InsightType.CAMPAIGN_PERFORMANCE: f"营销活动效果分析"
+        }
+        return titles.get(insight_type, "综合商业洞察")
+    
+    def _generate_insight_description(self, insight_type: InsightType, context: Dict) -> str:
+        """生成洞察描述"""
+        return f"基于{len(context)}个数据维度的{insight_type.value}分析结果，\
+            提供可执行的商业建议和风险评估。"
+    
+    def _calculate_confidence(self, insight_type: InsightType, context: Dict) -> float:
+        """计算置信度"""
+        base_confidence = 0.75
+        data_quality_factor = len(context) / 10  # 数据维度越多，置信度越高
+        return min(0.99, base_confidence + data_quality_factor * 0.05)
+    
+    def _calculate_impact_score(self, insight_type: InsightType, context: Dict) -> float:
+        """计算影响分数"""
+        base_score = 5.0
+        impact_multipliers = {
+            InsightType.RISK_WARNING: 1.5,
+            InsightType.OPPORTUNITY: 1.3,
+            InsightType.PRICING_STRATEGY: 1.2,
+            InsightType.MARKET_TREND: 1.1
+        }
+        multiplier = impact_multipliers.get(insight_type, 1.0)
+        return min(10.0, base_score * multiplier)
+    
+    def _generate_recommendations(self, insight_type: InsightType, context: Dict) -> List[str]:
+        """生成推荐建议"""
+        recommendations = [
+            "持续监控关键指标变化",
+            "建立数据驱动的决策流程",
+            "定期复盘和优化策略"
+        ]
+        
+        specific_recs = {
+            InsightType.MARKET_TREND: [
+                "关注行业趋势变化",
+                "提前布局新兴市场"
+            ],
+            InsightType.COMPETITOR_ANALYSIS: [
+                "差异化竞争策略",
+                "优化产品价值主张"
+            ],
+            InsightType.RISK_WARNING: [
+                "制定风险应对预案",
+                "建立预警机制"
+            ]
+        }
+        
+        return specific_recs.get(insight_type, []) + recommendations
+    
+    # ============================================================
+    # 市场分析
+    # ============================================================
+    
+    def analyze_market(
+        self,
+        market_name: str,
+        data_sources: Optional[List[str]] = None
+    ) -> MarketAnalysis:
+        """
+        分析特定市场
+        
+        Args:
+            market_name: 市场名称
+            data_sources: 数据源列表
+        
+        Returns:
+            MarketAnalysis: 市场分析结果
+        """
+        market_id = f"market_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        
+        # 模拟市场分析
+        analysis = MarketAnalysis(
+            market_id=market_id,
+            market_name=market_name,
+            total_addressable_market=1000000000,  # 10亿
+            serviceable_addressable_market=500000000,  # 5亿
+            growth_rate=15.5,
+            key_players=[
+                {"name": "竞争者A", "share": 25},
+                {"name": "竞争者B", "share": 20},
+                {"name": "竞争者C", "share": 15}
+            ],
+            trends=[
+                "数字化转型加速",
+                "个性化需求增长",
+                "可持续发展趋势"
+            ],
+            opportunities=[
+                "新兴细分市场",
+                "技术赋能降本",
+                "跨境电商机遇"
+            ],
+            threats=[
+                "市场竞争加剧",
+                "政策监管变化",
+                "原材料成本波动"
+            ],
+            analyzed_at=datetime.now().isoformat()
+        )
+        
+        logger.info(f"市场分析完成: {market_name}")
+        return analysis
+    
+    # ============================================================
+    # 竞品分析
+    # ============================================================
+    
+    def analyze_competitor(
+        self,
+        competitor_name: str,
+        data_sources: Optional[List[str]] = None
+    ) -> CompetitiveAnalysis:
+        """
+        分析竞争对手
+        
+        Args:
+            competitor_name: 竞品名称
+            data_sources: 数据源列表
+        
+        Returns:
+            CompetitiveAnalysis: 竞品分析结果
+        """
+        competitor_id = f"comp_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        
+        # 模拟竞品分析
+        analysis = CompetitiveAnalysis(
+            competitor_id=competitor_id,
+            competitor_name=competitor_name,
+            market_share=20.5,
+            strengths=[
+                "品牌知名度高",
+                "技术研发实力强",
+                "渠道网络完善"
+            ],
+            weaknesses=[
+                "价格偏高",
+                "创新能力不足",
+                "客户服务待提升"
+            ],
+            pricing_strategy="溢价策略",
+            key_products=["产品A", "产品B", "产品C"],
+            market_position="中高端市场领导者",
+            threat_level=RiskLevel.MEDIUM,
+            analyzed_at=datetime.now().isoformat()
+        )
+        
+        logger.info(f"竞品分析完成: {competitor_name}")
+        return analysis
+    
+    # ============================================================
+    # 数据聚合
+    # ============================================================
+    
+    def aggregate_data(
+        self,
+        data_sources: List[str],
+        time_range: str = "7d"
+    ) -> Dict[str, Any]:
+        """
+        聚合多源数据
+        
+        Args:
+            data_sources: 数据源列表
+            time_range: 时间范围
+        
+        Returns:
+            Dict: 聚合后的数据
+        """
+        aggregated = {
+            "timestamp": datetime.now().isoformat(),
+            "time_range": time_range,
+            "data_sources_count": len(data_sources),
+            "total_records": 10000,  # 模拟数据量
+            "summary": {
+                "total_sales": 500000,
+                "total_orders": 2500,
+                "avg_conversion_rate": 3.5,
+                "top_categories": ["电子产品", "服装", "家居"]
+            },
+            "trends": {
+                "sales_trend": "+15%",
+                "traffic_trend": "+8%",
+                "conversion_trend": "+2%"
+            }
+        }
+        
+        logger.info(f"数据聚合完成，来源: {data_sources}")
+        return aggregated
+    
+    # ============================================================
+    # 预测分析
+    # ============================================================
+    
+    def predict_demand(
+        self,
+        product_id: str,
+        forecast_days: int = 30
+    ) -> Dict[str, Any]:
+        """
+        需求预测
+        
+        Args:
+            product_id: 产品ID
+            forecast_days: 预测天数
+        
+        Returns:
+            Dict: 预测结果
+        """
+        prediction = {
+            "product_id": product_id,
+            "forecast_days": forecast_days,
+            "predicted_demand": 5000,
+            "confidence_interval": [4500, 5500],
+            "confidence": 0.85,
+            "factors": [
+                "历史销售数据",
+                "季节性因素",
+                "市场趋势",
+                "促销活动"
+            ],
+            "recommended_stock": 6000,
+            "predicted_at": datetime.now().isoformat()
+        }
+        
+        logger.info(f"需求预测完成: {product_id}")
+        return prediction
+    
+    # ============================================================
+    # 状态查询
+    # ============================================================
+    
+    def get_status(self) -> Dict[str, Any]:
+        """获取系统状态"""
+        return {
+            "module": "GlobalBusinessBrain",
+            "version": "3.0.0",
+            "status": "active",
+            "insights_cached": len(self.insights_cache),
+            "analysis_history_count": len(self.analysis_history),
+            "data_sources_registered": sum(len(v) for v in self.data_sources.values()),
+            "uptime": datetime.now().isoformat()
+        }
+    
+    def get_recent_insights(
+        self,
+        limit: int = 10,
+        insight_type: Optional[str] = None
+    ) -> List[BusinessInsight]:
+        """
+        获取最近的洞察
+        
+        Args:
+            limit: 返回数量
+            insight_type: 洞察类型过滤
+        
+        Returns:
+            List[BusinessInsight]: 洞察列表
+        """
+        insights = list(self.insights_cache.values())
+        
+        if insight_type:
+            try:
+                itype = InsightType(insight_type)
+                insights = [i for i in insights if i.insight_type == itype]
+            except ValueError:
+                pass
+        
+        # 按时间排序
+        insights.sort(key=lambda x: x.generated_at, reverse=True)
+        return insights[:limit]
+
+
+# 导出类
+__all__ = [
+    "GlobalBusinessBrain",
+    "BusinessInsight",
+    "MarketAnalysis",
+    "CompetitiveAnalysis",
+    "InsightType",
+    "RiskLevel"
+]

@@ -1,0 +1,135 @@
+{
+  "category": "food_beverage",
+  "category_name": "食品饮料",
+  "description": "适用于食品、饮品、零食等饮食产品的短视频生成模板",
+  "platforms_supported": ["tiktok_us", "instagram_reels", "xiaohongshu"],
+  "video_styles": ["lifestyle", "tutorial", "product_showcase", "taste_test"],
+  "target_audiences": ["美食爱好者", "健康饮食者", "零食控", "家庭主妇/主夫"],
+  "scene_structure": [
+    "appetite_appeal",
+    "product_reveal",
+    "ingredients_showcase",
+    "preparation_process",
+    "taste_experience",
+    "nutritional_value",
+    "serving_suggestions",
+    "sourcing_story",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "appetite_appeal": "开胃诱人的美食画面，激发观众食欲",
+    "product_reveal": "产品完整展示，包装、外观、质感的呈现",
+    "ingredients_showcase": "主要原料和特色成分的展示",
+    "preparation_process": "制作、烹饪或食用的过程演示",
+    "taste_experience": "品尝体验的真实反应和感受分享",
+    "nutritional_value": "营养价值、健康益处和成分分析",
+    "serving_suggestions": "食用建议、搭配推荐和创意吃法",
+    "sourcing_story": "食材来源、制作工艺或品牌故事",
+    "outro": "总结推荐，购买引导和饮食文化传达"
+  },
+  "default_transitions": [
+    "zoom_out",
+    "slide",
+    "fade",
+    "blend",
+    "reveal"
+  ],
+  "pacing_guidelines": {
+    "appetite_appeal_duration_seconds": 3,
+    "product_reveal_duration_seconds": 4,
+    "ingredients_showcase_duration_seconds": 4,
+    "preparation_process_duration_seconds": 8,
+    "taste_experience_duration_seconds": 5,
+    "nutritional_value_duration_seconds": 3,
+    "serving_suggestions_duration_seconds": 4,
+    "sourcing_story_duration_seconds": 3,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "温暖自然光，突出食物色泽和质感",
+    "background": "有生活气息的厨房或用餐环境",
+    "food_styling": "诱人摆盘，色彩搭配美观",
+    "camera_angles": ["俯拍", "特写", "操作过程", "动态镜头"],
+    "color_palette": "食物本色，温暖色调增强食欲"
+  },
+  "audio_requirements": {
+    "background_music": "轻松愉快、爵士乐或轻音乐",
+    "voiceover_tone": "热情、亲切、富有感染力",
+    "sound_effects": ["切菜声", "烹饪声", "咀嚼声", "倒饮料声"],
+    "audio_pacing": "舒适享受，与美食氛围协调"
+  },
+  "text_overlays": {
+    "nutrition_facts": true,
+    "prep_time": true,
+    "serving_size": true,
+    "dietary_restrictions": true,
+    "recipe_highlights": true
+  },
+  "platform_specific_optimizations": {
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["food", "recipes", "cooking", "foodtiktok"],
+      "engagement_hooks": ["美食挑战", "快捷食谱", "试吃反应", "烹饪技巧"]
+    },
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["foodreels", "cookingreels", "recipereels"],
+      "engagement_hooks": ["步骤教学", "健康食谱", "美食灵感", "餐厅推荐"]
+    },
+    "xiaohongshu": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "3:4",
+      "recommended_hashtags": ["美食分享", "健康食谱", "零食测评", "厨房好物"],
+      "engagement_hooks": ["制作心得", "避雷指南", "性价比测评", "家庭食谱"]
+    }
+  },
+  "content_guidelines": {
+    "lifestyle": {
+      "focus_on": ["真实用餐场景", "情感连接", "文化背景", "社交分享"],
+      "avoid": ["过度摆拍", "不自然表现", "脱离生活实际"]
+    },
+    "tutorial": {
+      "focus_on": ["步骤清晰", "技巧实用", "材料易得", "时间合理"],
+      "avoid": ["步骤混乱", "专业工具过多", "难度过高"]
+    },
+    "taste_test": {
+      "focus_on": ["真实反应", "客观评价", "口感描述", "适用人群"],
+      "avoid": ["夸大宣传", "虚假评价", "片面描述"]
+    }
+  },
+  "demonstration_techniques": {
+    "food_preparation": ["食材处理", "烹饪步骤", "调味技巧", "摆盘美学"],
+    "taste_experience": ["口感描述", "风味分析", "回味体验", "对比评价"],
+    "nutrition_education": ["成分解读", "健康益处", "食用建议", "注意事项"]
+  },
+  "generation_presets": {
+    "quick_bite": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "fast",
+      "focus": "产品特点和品尝体验"
+    },
+    "detailed_recipe": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "moderate",
+      "focus": "完整烹饪过程和营养分析"
+    },
+    "food_story": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "storytelling",
+      "focus": "食材故事和饮食文化传承"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 30,
+    "audio_quality": "192kbps",
+    "visual_appeal": "食物诱人感准确传达"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

@@ -1,0 +1,135 @@
+{
+  "category": "jewelry_accessories",
+  "category_name": "珠宝配饰",
+  "description": "适用于珠宝首饰、手表、眼镜、包包等时尚配饰产品的短视频生成模板",
+  "platforms_supported": ["instagram_reels", "xiaohongshu", "tiktok_us"],
+  "video_styles": ["product_showcase", "lifestyle", "tutorial", "comparison_review"],
+  "target_audiences": ["时尚达人", "奢侈品爱好者", "礼物购买者", "个人风格追求者"],
+  "scene_structure": [
+    "elegance_hook",
+    "product_reveal",
+    "craftsmanship_highlight",
+    "detail_examination",
+    "styling_possibilities",
+    "quality_assurance",
+    "gift_suitability",
+    "investment_value",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "elegance_hook": "优雅精致的开场，展示产品美学价值",
+    "product_reveal": "产品惊艳亮相，突出设计细节和奢华感",
+    "craftsmanship_highlight": "工艺技术和制作过程的展示",
+    "detail_examination": "材质、镶嵌、表面处理等细节特写",
+    "styling_possibilities": "多种穿搭场景和风格搭配演示",
+    "quality_assurance": "质量保证、认证标准和检测报告",
+    "gift_suitability": "送礼场景、情感价值和包装展示",
+    "investment_value": "保值潜力、品牌价值和收藏意义",
+    "outro": "总结推荐，奢华体验传达和购买引导"
+  },
+  "default_transitions": [
+    "smooth_fade",
+    "elegant_wipe",
+    "glitter_transition",
+    "slow_zoom",
+    "reveal_effect"
+  ],
+  "pacing_guidelines": {
+    "elegance_hook_duration_seconds": 3,
+    "product_reveal_duration_seconds": 5,
+    "craftsmanship_highlight_duration_seconds": 5,
+    "detail_examination_duration_seconds": 6,
+    "styling_possibilities_duration_seconds": 6,
+    "quality_assurance_duration_seconds": 3,
+    "gift_suitability_duration_seconds": 4,
+    "investment_value_duration_seconds": 4,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "专业珠宝灯，突出金属光泽和宝石火彩",
+    "background": "奢侈品环境、高级展厅或优雅空间",
+    "detail_shots": "超高清晰度特写，展现每一处工艺细节",
+    "camera_angles": ["微距特写", "360度旋转", "佩戴展示", "光影效果"],
+    "color_palette": "奢华质感色调，如金色、银色、珠宝色系"
+  },
+  "audio_requirements": {
+    "background_music": "古典音乐、爵士乐或优雅氛围音乐",
+    "voiceover_tone": "高雅、专业、富有品味",
+    "sound_effects": ["珠宝碰撞声", "奢侈品开盒声", "优雅环境音"],
+    "audio_pacing": "缓慢优雅，与奢华氛围协调"
+  },
+  "text_overlays": {
+    "material_details": true,
+    "craftsmanship_level": true,
+    "certification_info": true,
+    "style_suggestions": true,
+    "care_instructions": true
+  },
+  "platform_specific_optimizations": {
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["luxury", "jewelry", "watches", "handbags"],
+      "engagement_hooks": ["奢华开箱", "珠宝鉴赏", "奢侈品测评", "时尚搭配"]
+    },
+    "xiaohongshu": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "3:4",
+      "recommended_hashtags": ["珠宝推荐", "奢侈品分享", "礼物指南", "时尚单品"],
+      "engagement_hooks": ["奢侈品测评", "珠宝购买心得", "礼物选择建议", "投资收藏指南"]
+    },
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["luxury", "jewelry", "diamonds", "watches"],
+      "engagement_hooks": ["奢华展示", "开箱挑战", "风格搭配", "投资分析"]
+    }
+  },
+  "content_guidelines": {
+    "product_showcase": {
+      "focus_on": ["美学价值", "工艺精湛", "材质珍稀", "设计独特"],
+      "avoid": ["过度装饰", "虚假宣传", "夸大价值"]
+    },
+    "lifestyle": {
+      "focus_on": ["奢华体验", "情感连接", "品味提升", "社交场景"],
+      "avoid": ["炫耀性", "脱离实际", "文化误读"]
+    },
+    "comparison_review": {
+      "focus_on": ["客观评价", "真实价值", "品牌分析", "投资建议"],
+      "avoid": ["主观偏见", "不公对比", "误导消费"]
+    }
+  },
+  "demonstration_techniques": {
+    "craftsmanship_showcase": ["微距摄影", "工艺细节", "材料质感", "制作过程"],
+    "styling_demonstration": ["多种场合", "风格搭配", "季节适配", "个性表达"],
+    "value_documentation": ["质量认证", "投资分析", "品牌故事", "情感价值"]
+  },
+  "generation_presets": {
+    "luxury_glimpse": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "elegant",
+      "focus": "核心美学和工艺展示"
+    },
+    "detailed_appraisal": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "detailed",
+      "focus": "全面质量分析和价值评估"
+    },
+    "luxury_experience": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "luxurious",
+      "focus": "奢华品牌文化和收藏投资故事"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "4K",
+    "framerate_minimum": 60,
+    "audio_quality": "320kbps",
+    "visual_luxury": "奢华感和精致工艺准确传达"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

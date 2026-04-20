@@ -1,0 +1,404 @@
+#!/usr/bin/env python3
+"""
+SellAI v3.0.0 - 邀请裂变系统
+Invitation Fission Manager
+邀请奖励、裂变活动、推荐分成
+
+功能：
+- 邀请链接生成
+- 奖励规则配置
+- 裂变活动管理
+- 佣金计算与分发
+"""
+
+import os
+import time
+import logging
+from datetime import datetime, timedelta
+from typing import Dict, List, Any, Optional
+from dataclasses import dataclass, field
+from enum import Enum
+import uuid
+
+logger = logging.getLogger(__name__)
+
+
+class RewardType(Enum):
+    """奖励类型"""
+    CASH = "cash"
+    CREDIT = "credit"
+    DISCOUNT = "discount"
+    SUBSCRIPTION = "subscription"
+    POINTS = "points"
+
+
+class FissionStatus(Enum):
+    """裂变状态"""
+    DRAFT = "draft"
+    ACTIVE = "active"
+    PAUSED = "paused"
+    COMPLETED = "completed"
+    CANCELLED = "cancelled"
+
+
+@dataclass
+class Invitation:
+    """邀请记录"""
+    invitation_id: str
+    inviter_id: str
+    invitee_id: Optional[str]
+    invitation_code: str
+    reward_claimed: bool = False
+    reward_type: Optional[RewardType] = None
+    reward_amount: float = 0.0
+    created_at: str = field(default_factory=lambda: datetime.now().isoformat())
+    converted_at: Optional[str] = None
+    metadata: Dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class RewardRule:
+    """奖励规则"""
+    rule_id: str
+    name: str
+    description: str
+    reward_type: RewardType
+    reward_amount: float
+    condition_type: str  # first_purchase, milestone, referral_count
+    condition_value: float
+    max_rewards: Optional[int] = None
+    active: bool = True
+    created_at: str = field(default_factory=lambda: datetime.now().isoformat())
+    expires_at: Optional[str] = None
+
+
+@dataclass
+class FissionCampaign:
+    """裂变活动"""
+    campaign_id: str
+    name: str
+    description: str
+    status: FissionStatus
+    reward_rules: List[str]  # rule_ids
+    target_users: List[str]  # user_ids
+    referral_limit: int  # 每个用户最多邀请数
+    start_date: str
+    end_date: str
+    stats: Dict[str, Any] = field(default_factory=dict)
+    created_at: str = field(default_factory=lambda: datetime.now().isoformat())
+
+
+class InvitationFissionManager:
+    """
+    邀请裂变管理器
+    
+    管理邀请奖励和裂变活动
+    """
+    
+    def __init__(self, db_path: str = "data/shared_state/invitation_fission.db"):
+        self.db_path = db_path
+        self.invitations: Dict[str, Invitation] = {}
+        self.reward_rules: Dict[str, RewardRule] = {}
+        self.campaigns: Dict[str, FissionCampaign] = {}
+        self.user_rewards: Dict[str, List[Dict]] = {}  # user_id -> rewards
+        self._ensure_data_dir()
+        self._init_default_rules()
+        logger.info("邀请裂变系统初始化完成")
+    
+    def _ensure_data_dir(self):
+        """确保数据目录存在"""
+        os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
+    
+    def _init_default_rules(self):
+        """初始化默认奖励规则"""
+        default_rules = [
+            RewardRule(
+                rule_id="rule_001",
+                name="首邀奖励",
+                description="邀请新用户完成注册",
+                reward_type=RewardType.CREDIT,
+                reward_amount=50,
+                condition_type="first_purchase",
+                condition_value=1
+            ),
+            RewardRule(
+                rule_id="rule_002",
+                name="邀请达人",
+                description="邀请5位新用户",
+                reward_type=RewardType.CASH,
+                reward_amount=100,
+                condition_type="milestone",
+                condition_value=5
+            ),
+            RewardRule(
+                rule_id="rule_003",
+                name="超级推手",
+                description="邀请20位新用户",
+                reward_type=RewardType.CASH,
+                reward_amount=500,
+                condition_type="milestone",
+                condition_value=20
+            )
+        ]
+        
+        for rule in default_rules:
+            self.reward_rules[rule.rule_id] = rule
+    
+    # ============================================================
+    # 邀请管理
+    # ============================================================
+    
+    def generate_invitation_code(self, user_id: str) -> str:
+        """生成邀请码"""
+        # 简单邀请码生成
+        prefix = user_id[:4].upper()
+        random_part = uuid.uuid4().hex[:6].upper()
+        return f"INV-{prefix}-{random_part}"
+    
+    def create_invitation(self, inviter_id: str) -> Invitation:
+        """创建邀请"""
+        invitation_id = f"inv_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        code = self.generate_invitation_code(inviter_id)
+        
+        invitation = Invitation(
+            invitation_id=invitation_id,
+            inviter_id=inviter_id,
+            invitee_id=None,
+            invitation_code=code
+        )
+        
+        self.invitations[invitation_id] = invitation
+        logger.info(f"创建邀请: {invitation_id} by {inviter_id}")
+        return invitation
+    
+    def convert_invitation(self, invitation_id: str, invitee_id: str) -> Invitation:
+        """转换邀请（被邀请人注册）"""
+        invitation = self.invitations.get(invitation_id)
+        if not invitation:
+            raise ValueError("邀请不存在")
+        
+        invitation.invitee_id = invitee_id
+        invitation.converted_at = datetime.now().isoformat()
+        
+        # 发放奖励
+        self._process_invitation_reward(invitation)
+        
+        logger.info(f"邀请转换: {invitation_id} -> {invitee_id}")
+        return invitation
+    
+    def _process_invitation_reward(self, invitation: Invitation):
+        """处理邀请奖励"""
+        # 应用首邀奖励规则
+        for rule in self.reward_rules.values():
+            if not rule.active:
+                continue
+            
+            if rule.condition_type == "first_purchase":
+                invitation.reward_claimed = True
+                invitation.reward_type = rule.reward_type
+                invitation.reward_amount = rule.reward_amount
+                
+                # 记录用户奖励
+                self.add_user_reward(
+                    invitation.inviter_id,
+                    rule.reward_type,
+                    rule.reward_amount,
+                    f"邀请奖励: {rule.name}"
+                )
+                break
+    
+    def get_inviter_stats(self, inviter_id: str) -> Dict[str, Any]:
+        """获取邀请者统计"""
+        user_invitations = [i for i in self.invitations.values() if i.inviter_id == inviter_id]
+        converted = [i for i in user_invitations if i.converted_at]
+        
+        total_rewards = sum(
+            r["amount"] for rewards in self.user_rewards.get(inviter_id, [])
+            for r in [rewards]
+        )
+        
+        return {
+            "total_invitations": len(user_invitations),
+            "converted_count": len(converted),
+            "pending_count": len(user_invitations) - len(converted),
+            "total_rewards_earned": total_rewards,
+            "conversion_rate": round(len(converted) / len(user_invitations) * 100, 2) if user_invitations else 0
+        }
+    
+    # ============================================================
+    # 奖励管理
+    # ============================================================
+    
+    def add_user_reward(self, user_id: str, reward_type: RewardType,
+                        amount: float, source: str):
+        """添加用户奖励"""
+        if user_id not in self.user_rewards:
+            self.user_rewards[user_id] = []
+        
+        reward = {
+            "reward_id": f"rew_{int(time.time())}_{uuid.uuid4().hex[:8]}",
+            "type": reward_type.value,
+            "amount": amount,
+            "source": source,
+            "created_at": datetime.now().isoformat()
+        }
+        
+        self.user_rewards[user_id].append(reward)
+        logger.info(f"添加奖励: {user_id} - {amount} {reward_type.value}")
+        return reward
+    
+    def get_user_rewards(self, user_id: str, limit: int = 50) -> List[Dict]:
+        """获取用户奖励"""
+        rewards = self.user_rewards.get(user_id, [])
+        rewards.sort(key=lambda x: x["created_at"], reverse=True)
+        return rewards[:limit]
+    
+    def get_user_balance(self, user_id: str) -> Dict[str, float]:
+        """获取用户余额"""
+        rewards = self.user_rewards.get(user_id, [])
+        
+        balance = {
+            "cash": 0.0,
+            "credit": 0.0,
+            "points": 0.0
+        }
+        
+        for reward in rewards:
+            if reward["type"] == "cash":
+                balance["cash"] += reward["amount"]
+            elif reward["type"] == "credit":
+                balance["credit"] += reward["amount"]
+            elif reward["type"] == "points":
+                balance["points"] += reward["amount"]
+        
+        return balance
+    
+    # ============================================================
+    # 活动管理
+    # ============================================================
+    
+    def create_campaign(
+        self,
+        name: str,
+        description: str,
+        reward_rule_ids: List[str],
+        start_date: str,
+        end_date: str,
+        referral_limit: int = 100
+    ) -> FissionCampaign:
+        """创建裂变活动"""
+        campaign_id = f"camp_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        
+        campaign = FissionCampaign(
+            campaign_id=campaign_id,
+            name=name,
+            description=description,
+            status=FissionStatus.ACTIVE,
+            reward_rules=reward_rule_ids,
+            target_users=[],
+            referral_limit=referral_limit,
+            start_date=start_date,
+            end_date=end_date,
+            stats={
+                "total_invitations": 0,
+                "converted_count": 0,
+                "total_rewards_distributed": 0
+            }
+        )
+        
+        self.campaigns[campaign_id] = campaign
+        logger.info(f"创建裂变活动: {campaign_id} - {name}")
+        return campaign
+    
+    def get_campaign(self, campaign_id: str) -> Optional[FissionCampaign]:
+        """获取活动"""
+        return self.campaigns.get(campaign_id)
+    
+    def update_campaign_stats(self, campaign_id: str):
+        """更新活动统计"""
+        campaign = self.campaigns.get(campaign_id)
+        if not campaign:
+            return
+        
+        # 统计该活动的邀请
+        active_invitations = [
+            i for i in self.invitations.values()
+            if i.converted_at and 
+            campaign.start_date <= i.created_at <= campaign.end_date
+        ]
+        
+        campaign.stats = {
+            "total_invitations": len(active_invitations),
+            "converted_count": len([i for i in active_invitations if i.converted_at]),
+            "total_rewards_distributed": sum(
+                i.reward_amount for i in active_invitations if i.reward_claimed
+            )
+        }
+    
+    # ============================================================
+    # 奖励规则
+    # ============================================================
+    
+    def create_reward_rule(
+        self,
+        name: str,
+        description: str,
+        reward_type: RewardType,
+        reward_amount: float,
+        condition_type: str,
+        condition_value: float,
+        **kwargs
+    ) -> RewardRule:
+        """创建奖励规则"""
+        rule_id = f"rule_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        
+        rule = RewardRule(
+            rule_id=rule_id,
+            name=name,
+            description=description,
+            reward_type=reward_type,
+            reward_amount=reward_amount,
+            condition_type=condition_type,
+            condition_value=condition_value,
+            **kwargs
+        )
+        
+        self.reward_rules[rule_id] = rule
+        logger.info(f"创建奖励规则: {rule_id} - {name}")
+        return rule
+    
+    def get_reward_rules(self, active_only: bool = True) -> List[RewardRule]:
+        """获取奖励规则"""
+        rules = list(self.reward_rules.values())
+        if active_only:
+            rules = [r for r in rules if r.active]
+        return rules
+    
+    # ============================================================
+    # 状态查询
+    # ============================================================
+    
+    def get_status(self) -> Dict[str, Any]:
+        """获取系统状态"""
+        return {
+            "module": "InvitationFissionManager",
+            "version": "3.0.0",
+            "status": "active",
+            "total_invitations": len(self.invitations),
+            "converted_invitations": len([i for i in self.invitations.values() if i.converted_at]),
+            "active_campaigns": len([c for c in self.campaigns.values() if c.status == FissionStatus.ACTIVE]),
+            "reward_rules": len(self.reward_rules),
+            "active_users": len(self.user_rewards),
+            "uptime": datetime.now().isoformat()
+        }
+
+
+# 导出
+__all__ = [
+    "InvitationFissionManager",
+    "Invitation",
+    "RewardRule",
+    "FissionCampaign",
+    "RewardType",
+    "FissionStatus"
+]

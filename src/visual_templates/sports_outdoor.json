@@ -1,0 +1,81 @@
+{
+  "category": "sports_outdoor",
+  "name": "运动户外",
+  "description": "运动和户外产品视觉生成模板，包括运动装备、户外用品、健身器材、运动服饰等",
+  "prompt_template": "运动产品摄影，{product_name}，{product_description}，{visual_style}风格，动感活力，展示产品功能和耐用性，激发运动热情",
+  "style_adaptations": {
+    "product_photography": "专业运动摄影，突出产品设计和功能特点",
+    "lifestyle": "真实运动场景，展示使用效果和运动表现",
+    "minimalist": "现代运动美学，简洁设计，突出功能性",
+    "brand_commercial": "运动品牌广告，激情活力，挑战精神，健康生活",
+    "social_media": "运动博主风格，装备评测，训练技巧，比赛记录"
+  },
+  "brand_element_rules": {
+    "logo_position": "服装或装备明显位置，融入运动场景",
+    "color_palette": "使用品牌运动色彩，活力动感色调",
+    "typography": "运动风格字体，力量感，体现运动精神"
+  },
+  "localization_rules": {
+    "US": "美式运动风格，竞技性强，大众化，色彩鲜明",
+    "CN": "中式运动风格，全民健身，实用耐用，色彩传统",
+    "JP": "日式运动风格，技术精细，品质保证，色彩中性",
+    "KR": "韩式运动风格，时尚运动，潮流结合，色彩明亮",
+    "EU": "欧式运动风格，经典传承，专业高端，色彩优雅"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "16:9",
+    "detail_level": "high",
+    "color_accuracy": "high",
+    "compression_quality": 90
+  },
+  "default_scenes": [
+    "产品单独展示",
+    "户外使用场景",
+    "运动动作演示",
+    "功能细节特写",
+    "装备组合展示"
+  ],
+  "material_types": [
+    "synthetic_fabric",
+    "waterproof_membrane",
+    "rubber",
+    "carbon_fiber",
+    "metal_alloy"
+  ],
+  "lighting_presets": [
+    "outdoor_daylight",
+    "studio_action_light",
+    "gym_ambient",
+    "dramatic_sports_light"
+  ],
+  "composition_guidelines": [
+    "产品占据画面50-60%",
+    "突出运动动态感",
+    "展示环境适应性",
+    "保持画面活力激情"
+  ],
+  "sport_types": [
+    "running",
+    "cycling",
+    "hiking",
+    "fitness",
+    "team_sports",
+    "water_sports"
+  ],
+  "outdoor_environments": [
+    "mountain",
+    "forest",
+    "beach",
+    "urban",
+    "desert",
+    "snow"
+  ],
+  "performance_factors": [
+    "durability",
+    "breathability",
+    "water_resistance",
+    "lightweight",
+    "flexibility"
+  ]
+}

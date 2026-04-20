@@ -1,0 +1,103 @@
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
+from typing import Optional, List
+import os
+import re
+import httpx
+
+router = APIRouter()
+
+class MessageCreate(BaseModel):
+    content: str
+
+
+def _detect_language(text: str) -> str:
+    """Detect the dominant language of the input text."""
+    cjk_counts = {
+        "zh": len(re.findall(r'[\u4e00-\u9fff\u3400-\u4dbf]', text)),
+        "ja": len(re.findall(r'[\u3040-\u309f\u30a0-\u30ff]', text)),
+        "ko": len(re.findall(r'[\uac00-\ud7af\u1100-\u11ff]', text)),
+    }
+    dominant_cjk = max(cjk_counts, key=cjk_counts.get)
+    if cjk_counts[dominant_cjk] > 0:
+        return dominant_cjk
+    latin = len(re.findall(r'[a-zA-Z]', text))
+    arabic = len(re.findall(r'[\u0600-\u06ff]', text))
+    if arabic > latin:
+        return "ar"
+    if latin > 0:
+        return "en"
+    return "zh"  # default
+
+
+_SYSTEM_PROMPTS = {
+    "zh": (
+        "你是SellAI，一位经验丰富的电商销售顾问，专注于商机挖掘、选品策略与客户转化。"
+        "回复原则：①用简洁专业的语气，②主动追问关键信息（每次只问一个问题），"
+        "③给出具体可执行的建议（含平台、品类、价格区间等细节），"
+        "④用数据支撑观点（如毛利率、市场规模、增长趋势）。回复不超过200字。"
+    ),
+    "en": (
+        "You are SellAI, an experienced e-commerce sales advisor specializing in opportunity discovery, "
+        "product selection, and customer conversion. Guidelines: ①Use concise, professional tone. "
+        "②Proactively ask one clarifying question at a time. ③Give specific, actionable advice "
+        "(include platform, category, price range). ④Back opinions with data (margin, market size, trends). "
+        "Reply under 200 words."
+    ),
+    "ja": (
+        "あなたはSellAI、経験豊富な電商セールスアドバイザーです。商機発掘・商品選定・顧客転換を専門とします。"
+        "①簡潔でプロフェッショナルな口調、②重要情報を一度に一つだけ追加質問、"
+        "③具体的で実行可能なアドバイス（プラットフォーム・カテゴリ・価格帯を含む）、"
+        "④データで裏付け（粗利率・市場規模・成長トレンド）。200字以内で返答してください。"
+    ),
+    "ko": (
+        "당신은 SellAI, 전자상거래 전문 영업 어드바이저입니다. 비즈니스 기회 발굴, 상품 선정, 고객 전환을 전문으로 합니다. "
+        "①간결하고 전문적인 어조, ②한 번에 하나의 핵심 질문으로 추가 확인, "
+        "③구체적이고 실행 가능한 조언(플랫폼·카테고리·가격대 포함), "
+        "④데이터 기반 의견(마진율·시장 규모·성장 트렌드). 200자 이내로 답변해 주세요."
+    ),
+    "ar": (
+        "أنت SellAI، مستشار مبيعات تجارة إلكترونية متمرس. تخصصك: اكتشاف الفرص، اختيار المنتجات، تحويل العملاء. "
+        "①أسلوب مهني موجز، ②اطرح سؤالاً توضيحياً واحداً في كل مرة، "
+        "③قدّم نصائح محددة وقابلة للتنفيذ (المنصة، الفئة، نطاق السعر)، "
+        "④ادعم آراءك بالبيانات (هامش الربح، حجم السوق، اتجاهات النمو). الرد في 200 كلمة أو أقل."
+    ),
+}
+
+
+@router.post("/avatars/{avatar_id}/messages")
+async def send_message(avatar_id: str, body: MessageCreate):
+    """发送消息给分身，自动调用千问回复，语言与用户输入保持一致"""
+    lang = _detect_language(body.content)
+    system_prompt = _SYSTEM_PROMPTS.get(lang, _SYSTEM_PROMPTS["zh"])
+
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(
+                "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {os.getenv('BAILIAN_API_KEY')}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": "qwen-max",
+                    "messages": [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": body.content},
+                    ],
+                },
+            )
+            result = response.json()
+            reply = result["choices"][0]["message"]["content"]
+    except Exception as e:
+        reply = f"AI service unavailable: {e}" if lang == "en" else f"AI服务暂时不可用: {e}"
+
+    return {"reply": reply, "role": "assistant", "detected_lang": lang}
+
+@router.get("/avatars")
+async def list_avatars():
+    return {"avatars": []}
+
+@router.post("/avatars")
+async def create_avatar(name: str, personality: str = "通用"):
+    return {"id": "test", "name": name, "personality": personality}

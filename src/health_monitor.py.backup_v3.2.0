@@ -1,0 +1,380 @@
+#!/usr/bin/env python3
+"""
+SellAI v3.0.0 - 健康监控系统
+Health Monitor Module
+实时监控应用健康状态、性能指标、异常告警
+
+功能：
+- 系统健康检查
+- 性能指标监控
+- 异常检测与告警
+- 定时健康报告
+"""
+
+import os
+import time
+import psutil
+import logging
+from datetime import datetime, timedelta
+from typing import Dict, List, Any, Optional
+from dataclasses import dataclass, field
+import uuid
+from enum import Enum
+
+logger = logging.getLogger(__name__)
+
+
+class HealthStatus(Enum):
+    """健康状态"""
+    HEALTHY = "healthy"
+    WARNING = "warning"
+    CRITICAL = "critical"
+    UNKNOWN = "unknown"
+
+
+@dataclass
+class HealthCheck:
+    """健康检查记录"""
+    check_id: str
+    component: str
+    status: HealthStatus
+    response_time: float  # ms
+    details: Dict[str, Any] = field(default_factory=dict)
+    timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
+
+
+@dataclass
+class Metric:
+    """性能指标"""
+    metric_id: str
+    name: str
+    value: float
+    unit: str
+    tags: Dict[str, str] = field(default_factory=dict)
+    timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
+
+
+@dataclass
+class Alert:
+    """告警"""
+    alert_id: str
+    level: str  # info, warning, error, critical
+    title: str
+    message: str
+    component: str
+    acknowledged: bool = False
+    resolved: bool = False
+    created_at: str = field(default_factory=lambda: datetime.now().isoformat())
+    acknowledged_at: Optional[str] = None
+    resolved_at: Optional[str] = None
+
+
+class HealthMonitor:
+    """
+    健康监控系统
+    
+    实时监控应用各项指标
+    """
+    
+    def __init__(self, db_path: str = "data/shared_state/health_monitor.db"):
+        self.db_path = db_path
+        self.checks: List[HealthCheck] = []
+        self.metrics: List[Metric] = []
+        self.alerts: List[Alert] = []
+        self.thresholds = {
+            "cpu_percent": 80,
+            "memory_percent": 85,
+            "disk_percent": 90,
+            "response_time_ms": 500,
+            "error_rate": 5
+        }
+        self._ensure_data_dir()
+        logger.info("健康监控系统初始化完成")
+    
+    def _ensure_data_dir(self):
+        """确保数据目录存在"""
+        os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
+    
+    # ============================================================
+    # 健康检查
+    # ============================================================
+    
+    def check_component(self, component: str) -> HealthCheck:
+        """检查组件健康"""
+        check_id = f"check_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        
+        # 模拟检查
+        status = HealthStatus.HEALTHY
+        response_time = 50.0
+        details = {}
+        
+        # CPU检查
+        if component == "system":
+            cpu = psutil.cpu_percent(interval=0.1)
+            memory = psutil.virtual_memory().percent
+            disk = psutil.disk_usage('/').percent
+            
+            details = {
+                "cpu_percent": cpu,
+                "memory_percent": memory,
+                "disk_percent": disk
+            }
+            
+            if cpu > self.thresholds["cpu_percent"]:
+                status = HealthStatus.WARNING
+            if memory > self.thresholds["memory_percent"]:
+                status = HealthStatus.WARNING
+            if disk > self.thresholds["disk_percent"]:
+                status = HealthStatus.CRITICAL
+        
+        elif component == "database":
+            # 模拟数据库检查
+            details = {"connection_pool": 10, "active_connections": 5}
+            response_time = 25.0
+        
+        elif component == "cache":
+            details = {"hit_rate": 85.5, "miss_rate": 14.5}
+            response_time = 5.0
+        
+        elif component == "api":
+            details = {"endpoints": 45, "active_endpoints": 44}
+            response_time = 120.0
+        
+        check = HealthCheck(
+            check_id=check_id,
+            component=component,
+            status=status,
+            response_time=response_time,
+            details=details
+        )
+        
+        self.checks.append(check)
+        return check
+    
+    def check_all(self) -> Dict[str, HealthCheck]:
+        """检查所有组件"""
+        components = ["system", "database", "cache", "api", "storage"]
+        results = {}
+        
+        for comp in components:
+            results[comp] = self.check_component(comp)
+        
+        return results
+    
+    # ============================================================
+    # 指标收集
+    # ============================================================
+    
+    def record_metric(self, name: str, value: float, unit: str = "",
+                      tags: Dict[str, str] = None) -> Metric:
+        """记录指标"""
+        metric_id = f"metric_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        
+        metric = Metric(
+            metric_id=metric_id,
+            name=name,
+            value=value,
+            unit=unit,
+            tags=tags or {}
+        )
+        
+        self.metrics.append(metric)
+        
+        # 检查阈值
+        self._check_metric_threshold(metric)
+        
+        return metric
+    
+    def _check_metric_threshold(self, metric: Metric):
+        """检查指标阈值"""
+        thresholds = {
+            "cpu_percent": ("cpu", "warning"),
+            "memory_percent": ("memory", "warning"),
+            "response_time": ("api", "warning")
+        }
+        
+        if metric.name in thresholds:
+            comp, level = thresholds[metric.name]
+            threshold = self.thresholds.get(metric.name)
+            
+            if threshold and metric.value > threshold:
+                self.create_alert(
+                    level=level,
+                    title=f"{metric.name}超出阈值",
+                    message=f"{metric.name}={metric.value}{metric.unit}, 阈值={threshold}",
+                    component=comp
+                )
+    
+    def get_metrics(self, name: str = None, start_time: str = None,
+                    end_time: str = None, limit: int = 100) -> List[Metric]:
+        """获取指标"""
+        metrics = self.metrics
+        
+        if name:
+            metrics = [m for m in metrics if m.name == name]
+        
+        if start_time:
+            metrics = [m for m in metrics if m.timestamp >= start_time]
+        
+        if end_time:
+            metrics = [m for m in metrics if m.timestamp <= end_time]
+        
+        return metrics[-limit:]
+    
+    def get_metric_summary(self, name: str, period: str = "1h") -> Dict:
+        """获取指标摘要"""
+        now = datetime.now()
+        
+        if period == "1h":
+            start = now - timedelta(hours=1)
+        elif period == "24h":
+            start = now - timedelta(days=1)
+        elif period == "7d":
+            start = now - timedelta(days=7)
+        else:
+            start = now - timedelta(hours=1)
+        
+        metrics = [m for m in self.metrics
+                   if m.name == name and datetime.fromisoformat(m.timestamp) > start]
+        
+        if not metrics:
+            return {"count": 0}
+        
+        values = [m.value for m in metrics]
+        return {
+            "count": len(values),
+            "min": min(values),
+            "max": max(values),
+            "avg": sum(values) / len(values),
+            "latest": values[-1]
+        }
+    
+    # ============================================================
+    # 告警管理
+    # ============================================================
+    
+    def create_alert(self, level: str, title: str, message: str,
+                     component: str) -> Alert:
+        """创建告警"""
+        alert_id = f"alert_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+        
+        alert = Alert(
+            alert_id=alert_id,
+            level=level,
+            title=title,
+            message=message,
+            component=component
+        )
+        
+        self.alerts.append(alert)
+        logger.warning(f"告警 [{level}]: {title} - {message}")
+        
+        return alert
+    
+    def acknowledge_alert(self, alert_id: str) -> Optional[Alert]:
+        """确认告警"""
+        for alert in self.alerts:
+            if alert.alert_id == alert_id:
+                alert.acknowledged = True
+                alert.acknowledged_at = datetime.now().isoformat()
+                return alert
+        return None
+    
+    def resolve_alert(self, alert_id: str) -> Optional[Alert]:
+        """解决告警"""
+        for alert in self.alerts:
+            if alert.alert_id == alert_id:
+                alert.resolved = True
+                alert.resolved_at = datetime.now().isoformat()
+                return alert
+        return None
+    
+    def get_alerts(self, level: str = None, acknowledged: bool = None,
+                   resolved: bool = None, limit: int = 50) -> List[Alert]:
+        """获取告警"""
+        alerts = self.alerts
+        
+        if level:
+            alerts = [a for a in alerts if a.level == level]
+        
+        if acknowledged is not None:
+            alerts = [a for a in alerts if a.acknowledged == acknowledged]
+        
+        if resolved is not None:
+            alerts = [a for a in alerts if a.resolved == resolved]
+        
+        alerts.sort(key=lambda x: x.created_at, reverse=True)
+        return alerts[:limit]
+    
+    # ============================================================
+    # 状态与报告
+    # ============================================================
+    
+    def get_status(self) -> Dict[str, Any]:
+        """获取系统状态"""
+        now = datetime.now()
+        
+        # 计算健康评分
+        recent_checks = [c for c in self.checks
+                        if (now - datetime.fromisoformat(c.timestamp)).total_seconds() < 3600]
+        
+        if recent_checks:
+            healthy_count = len([c for c in recent_checks if c.status == HealthStatus.HEALTHY])
+            health_score = healthy_count / len(recent_checks) * 100
+        else:
+            health_score = 100
+        
+        return {
+            "module": "HealthMonitor",
+            "version": "3.0.0",
+            "status": "active",
+            "health_score": round(health_score, 1),
+            "total_checks": len(self.checks),
+            "total_metrics": len(self.metrics),
+            "total_alerts": len(self.alerts),
+            "unacknowledged_alerts": len([a for a in self.alerts if not a.acknowledged]),
+            "uptime": now.isoformat()
+        }
+    
+    def generate_report(self, period: str = "24h") -> Dict:
+        """生成健康报告"""
+        now = datetime.now()
+        
+        if period == "24h":
+            start = now - timedelta(days=1)
+        elif period == "7d":
+            start = now - timedelta(days=7)
+        else:
+            start = now - timedelta(days=1)
+        
+        recent_checks = [c for c in self.checks
+                        if datetime.fromisoformat(c.timestamp) > start]
+        recent_alerts = [a for a in self.alerts
+                        if datetime.fromisoformat(a.created_at) > start]
+        
+        avg_response = sum(c.response_time for c in recent_checks) / len(recent_checks) if recent_checks else 0
+        
+        return {
+            "period": period,
+            "start_time": start.isoformat(),
+            "end_time": now.isoformat(),
+            "checks_performed": len(recent_checks),
+            "alerts_triggered": len(recent_alerts),
+            "average_response_time_ms": round(avg_response, 2),
+            "critical_issues": len([a for a in recent_alerts if a.level == "critical"]),
+            "recommendations": [
+                "继续监控系统性能",
+                "定期检查告警",
+                "优化响应时间"
+            ]
+        }
+
+
+# 导出
+__all__ = [
+    "HealthMonitor",
+    "HealthCheck",
+    "Metric",
+    "Alert",
+    "HealthStatus"
+]

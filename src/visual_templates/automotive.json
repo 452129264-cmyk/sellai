@@ -1,0 +1,81 @@
+{
+  "category": "automotive",
+  "name": "汽车用品",
+  "description": "汽车相关产品视觉生成模板，包括汽车配件、保养用品、装饰品、车载设备等",
+  "prompt_template": "汽车产品摄影，{product_name}，{product_description}，{visual_style}风格，工业质感，展示产品设计和实用功能，吸引汽车爱好者",
+  "style_adaptations": {
+    "product_photography": "专业汽车配件摄影，突出产品设计和工业质感",
+    "lifestyle": "真实使用场景，展示安装效果和使用便利性",
+    "minimalist": "现代汽车美学，简洁设计，突出功能性",
+    "brand_commercial": "汽车品牌广告，性能可靠，品质保证，驾驶体验",
+    "social_media": "汽车博主风格，配件评测，安装教程，使用心得"
+  },
+  "brand_element_rules": {
+    "logo_position": "产品表面或包装明显位置，融入汽车场景",
+    "color_palette": "使用品牌汽车色彩，工业稳重色调",
+    "typography": "汽车风格字体，力量感，体现机械美学"
+  },
+  "localization_rules": {
+    "US": "美式汽车文化，粗犷实用，改装文化，色彩鲜明",
+    "CN": "中式汽车市场，家庭实用，性价比高，色彩稳重",
+    "JP": "日式汽车工艺，精密细致，可靠耐用，色彩中性",
+    "KR": "韩式汽车设计，时尚造型，科技感，色彩现代",
+    "EU": "欧式汽车传统，经典设计，豪华品质，色彩优雅"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "16:9",
+    "detail_level": "high",
+    "color_accuracy": "high",
+    "compression_quality": 90
+  },
+  "default_scenes": [
+    "产品单独展示",
+    "汽车安装场景",
+    "功能细节特写",
+    "不同型号对比",
+    "使用效果演示"
+  ],
+  "material_types": [
+    "metal",
+    "plastic",
+    "rubber",
+    "leather",
+    "carbon_fiber",
+    "glass"
+  ],
+  "lighting_presets": [
+    "studio_industrial_light",
+    "garage_ambient",
+    "car_showroom",
+    "outdoor_vehicle_shoot"
+  ],
+  "composition_guidelines": [
+    "产品占据画面50-60%",
+    "突出工业设计感",
+    "展示安装适配性",
+    "保持画面力量感"
+  ],
+  "vehicle_types": [
+    "sedan",
+    "suv",
+    "truck",
+    "motorcycle",
+    "electric_vehicle",
+    "luxury_car"
+  ],
+  "product_categories": [
+    "maintenance",
+    "accessories",
+    "performance",
+    "interior",
+    "exterior",
+    "safety"
+  ],
+  "installation_methods": [
+    "plug_and_play",
+    "professional_install",
+    "diy_friendly",
+    "tool_required"
+  ]
+}

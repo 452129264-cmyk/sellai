@@ -1,0 +1,75 @@
+{
+  "category": "home_furnishings",
+  "name": "家居用品",
+  "description": "家居装饰和家具产品视觉生成模板，包括家具、家纺、装饰品、厨房用品等",
+  "prompt_template": "家居产品摄影，{product_name}，{product_description}，{visual_style}风格，温馨舒适感，展示家居美学和实用功能，营造生活氛围",
+  "style_adaptations": {
+    "product_photography": "专业家居摄影，展示产品设计和工艺细节",
+    "lifestyle": "真实家居场景，融入家庭生活，展示使用效果",
+    "minimalist": "北欧极简风格，干净空间，自然元素",
+    "brand_commercial": "家居品牌广告，生活方式定位，情感共鸣",
+    "social_media": "家居博主风格，室内装饰灵感，搭配建议"
+  },
+  "brand_element_rules": {
+    "logo_position": "背景墙或产品标签位置，融入家居环境",
+    "color_palette": "使用品牌家居色彩，温馨舒适色调",
+    "typography": "家居风格字体，柔和易读，体现生活美学"
+  },
+  "localization_rules": {
+    "US": "美式家居风格，宽敞舒适，实用主义，色彩温暖",
+    "CN": "中式家居风格，传统韵味，精致典雅，色彩庄重",
+    "JP": "日式家居风格，简约禅意，自然材料，色彩淡雅",
+    "KR": "韩式家居风格，现代温馨，清新设计，色彩柔和",
+    "EU": "欧式家居风格，经典优雅，艺术装饰，色彩丰富"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "4:3",
+    "detail_level": "high",
+    "color_accuracy": "high",
+    "compression_quality": 90
+  },
+  "default_scenes": [
+    "产品单独展示",
+    "室内场景布置",
+    "功能使用演示",
+    "不同风格搭配",
+    "细节特写展示"
+  ],
+  "material_types": [
+    "wood",
+    "fabric",
+    "metal",
+    "glass",
+    "ceramic",
+    "rattan"
+  ],
+  "lighting_presets": [
+    "natural_daylight",
+    "warm_ambient_light",
+    "studio_soft_light",
+    "evening_cozy_light"
+  ],
+  "composition_guidelines": [
+    "产品与环境比例协调",
+    "展示空间感和功能性",
+    "突出家居美学特点",
+    "保持画面温馨舒适"
+  ],
+  "room_types": [
+    "living_room",
+    "bedroom",
+    "kitchen",
+    "bathroom",
+    "study_room",
+    "dining_room"
+  ],
+  "design_styles": [
+    "modern",
+    "traditional",
+    "scandinavian",
+    "industrial",
+    "bohemian",
+    "minimalist"
+  ]
+}

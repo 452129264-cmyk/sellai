@@ -1,0 +1,80 @@
+{
+  "category": "jewelry_accessories",
+  "name": "珠宝配饰",
+  "description": "珠宝和配饰产品视觉生成模板，包括首饰、手表、眼镜、包包等",
+  "prompt_template": "珠宝产品摄影，{product_name}，{product_description}，{visual_style}风格，精致奢华，展示产品设计和材质美感，吸引时尚消费者",
+  "style_adaptations": {
+    "product_photography": "专业珠宝摄影，突出产品设计和材质细节",
+    "lifestyle": "真实佩戴场景，展示搭配效果和时尚感",
+    "minimalist": "现代珠宝美学，简洁设计，突出材质质感",
+    "brand_commercial": "珠宝品牌广告，奢华体验，身份象征，情感价值",
+    "social_media": "时尚博主风格，配饰搭配，品牌评测，潮流趋势"
+  },
+  "brand_element_rules": {
+    "logo_position": "产品表面或包装精致位置，融入奢华氛围",
+    "color_palette": "使用品牌珠宝色彩，高贵典雅色调",
+    "typography": "奢侈品牌字体，优雅华丽，体现高端定位"
+  },
+  "localization_rules": {
+    "US": "美式珠宝风格，大胆个性，多样化，色彩鲜明",
+    "CN": "中式珠宝风格，传统工艺，吉祥寓意，色彩传统",
+    "JP": "日式珠宝风格，精致简约，自然元素，色彩淡雅",
+    "KR": "韩式珠宝风格，时尚设计，潮流元素，色彩明亮",
+    "EU": "欧式珠宝风格，经典传承，艺术设计，色彩优雅"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "1:1",
+    "detail_level": "very_high",
+    "color_accuracy": "very_high",
+    "compression_quality": 95
+  },
+  "default_scenes": [
+    "产品单独展示",
+    "佩戴效果演示",
+    "材质细节特写",
+    "不同款式对比",
+    "品牌包装展示"
+  ],
+  "material_types": [
+    "gold",
+    "silver",
+    "platinum",
+    "diamond",
+    "pearl",
+    "crystal",
+    "leather"
+  ],
+  "lighting_presets": [
+    "jewelry_studio_light",
+    "luxury_ambient",
+    "dramatic_gem_light",
+    "soft_elegant_light"
+  ],
+  "composition_guidelines": [
+    "产品占据画面70-80%",
+    "突出材质和工艺",
+    "展示佩戴美感",
+    "保持画面奢华精致"
+  ],
+  "jewelry_types": [
+    "necklace",
+    "bracelet",
+    "earrings",
+    "ring",
+    "watch",
+    "brooch"
+  ],
+  "target_gender": [
+    "women",
+    "men",
+    "unisex"
+  ],
+  "occasion_types": [
+    "everyday",
+    "business",
+    "party",
+    "wedding",
+    "formal"
+  ]
+}

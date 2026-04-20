@@ -1,0 +1,64 @@
+{
+  "taobao": {
+    "app_key": "",
+    "app_secret": "",
+    "access_token": "",
+    "redirect_uri": "",
+    "status": "pending",
+    "description": "淘宝开放平台应用凭证"
+  },
+  "pdd": {
+    "client_id": "",
+    "client_secret": "",
+    "access_token": "",
+    "status": "pending",
+    "description": "拼多多开放平台应用凭证"
+  },
+  "douyin": {
+    "app_id": "",
+    "app_secret": "",
+    "access_token": "",
+    "sandbox_mode": false,
+    "redirect_uri": "",
+    "status": "pending",
+    "description": "抖音开放平台应用凭证"
+  },
+  "bailian": {
+    "api_key": "",
+    "base_url": "https://dashscope.aliyuncs.com",
+    "models": {
+      "text2image": "wanx-v1",
+      "image2image": "image-synthesis",
+      "virtual_model": "virtualmodel-v2",
+      "ai_tryon": "ai-tryon",
+      "poster": "wanx-poster",
+      "background": "background-generation"
+    },
+    "timeouts": {
+      "task_submit": 30,
+      "task_query": 10,
+      "task_poll": 60
+    },
+    "polling": {
+      "max_attempts": 60,
+      "interval": 2
+    },
+    "retry": {
+      "max_attempts": 3,
+      "backoff_factor": 1.5
+    },
+    "status": "pending",
+    "description": "阿里云百炼图片生成API凭证"
+  },
+  "settings": {
+    "default_platform": "all",
+    "request_timeout": 30,
+    "max_retries": 3,
+    "enable_cache": true,
+    "cache_ttl": 300
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/ecommerce.log"
+  }
+}

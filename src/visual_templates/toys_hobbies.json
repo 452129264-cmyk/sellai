@@ -1,0 +1,80 @@
+{
+  "category": "toys_hobbies",
+  "name": "玩具爱好",
+  "description": "玩具和爱好产品视觉生成模板，包括儿童玩具、模型、手工艺、收藏品等",
+  "prompt_template": "玩具产品摄影，{product_name}，{product_description}，{visual_style}风格，趣味创意，展示产品设计和娱乐功能，吸引儿童和家长",
+  "style_adaptations": {
+    "product_photetry": "专业玩具摄影，突出产品设计和色彩丰富性",
+    "lifestyle": "真实玩耍场景，展示使用乐趣和互动性",
+    "minimalist": "现代玩具美学，简洁设计，突出创意",
+    "brand_commercial": "玩具品牌广告，快乐童年，创造力培养，家庭时光",
+    "social_media": "玩具博主风格，开箱评测，玩法演示，收藏分享"
+  },
+  "brand_element_rules": {
+    "logo_position": "产品包装明显位置，融入趣味场景",
+    "color_palette": "使用品牌玩具色彩，鲜艳活泼色调",
+    "typography": "趣味字体，可爱易读，体现玩具特色"
+  },
+  "localization_rules": {
+    "US": "美式玩具风格，创意多样，流行文化，色彩鲜明",
+    "CN": "中式玩具风格，教育性，传统文化元素，色彩传统",
+    "JP": "日式玩具风格，精致设计，动漫元素，色彩柔和",
+    "KR": "韩式玩具风格，时尚可爱，流行趋势，色彩明亮",
+    "EU": "欧式玩具风格，经典传承，高品质，色彩优雅"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "1:1",
+    "detail_level": "high",
+    "color_accuracy": "high",
+    "compression_quality": 90
+  },
+  "default_scenes": [
+    "产品包装展示",
+    "玩耍场景演示",
+    "功能细节特写",
+    "不同款式组合",
+    "创意玩法展示"
+  ],
+  "material_types": [
+    "plastic",
+    "wood",
+    "fabric",
+    "metal",
+    "rubber",
+    "paper"
+  ],
+  "lighting_presets": [
+    "studio_playful_light",
+    "natural_room_light",
+    "colorful_led_effects",
+    "children_room_ambient"
+  ],
+  "composition_guidelines": [
+    "产品占据画面60-70%",
+    "突出趣味和互动",
+    "展示功能多样性",
+    "保持画面欢乐活泼"
+  ],
+  "age_groups": [
+    "toddler",
+    "preschool",
+    "school_age",
+    "teen",
+    "adult"
+  ],
+  "hobby_categories": [
+    "collectibles",
+    "crafts",
+    "models",
+    "puzzles",
+    "games",
+    "educational"
+  ],
+  "safety_features": [
+    "non_toxic",
+    "choking_hazard_free",
+    "rounded_edges",
+    "durable_construction"
+  ]
+}

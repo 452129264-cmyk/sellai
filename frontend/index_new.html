@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellAI 智能电商助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        body { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .glass { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .btn-primary { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
+        .btn-primary:hover { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); }
+    </style>
+</head>
+<body class="min-h-screen text-white">
+    <!-- 顶部导航 -->
+    <nav class="glass fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center font-bold text-lg">S</div>
+                <span class="text-xl font-semibold">SellAI</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="status-indicator" class="flex items-center gap-2 text-sm">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    API 在线
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="pt-24 px-6 pb-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- 欢迎区域 -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    智能电商助手
+                </h1>
+                <p class="text-slate-400 text-lg">AI 驱动的电商运营、商机发现、内容创作平台</p>
+            </div>
+
+            <!-- 功能卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                
+                <!-- 商品搜索 -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold">商品搜索</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">多平台商品搜索，支持淘宝、拼多多、抖音</p>
+                    <div class="flex gap-2">
+                        <input id="search-keyword" type="text" placeholder="输入商品关键词" 
+                            class="flex-1 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-sm focus:outline-none focus:border-blue-500">
+                        <button onclick="searchProducts()" class="btn-primary px-4 py-2 rounded-lg text-sm font-medium">
+                            搜索
+                        </button>
+                    </div>
+                    <div id="search-results" class="mt-4 text-sm"></div>
+                </div>
+
+                <!-- 商业洞察 -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold">商业洞察</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">AI 分析市场趋势，发现商业机会</p>
+                    <div class="flex gap-2">
+                        <input id="market-name" type="text" placeholder="输入市场/品类名称" 
+                            class="flex-1 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-sm focus:outline-none focus:border-purple-500">
+                        <button onclick="getBusinessInsight()" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-sm font-medium">
+                            分析
+                        </button>
+                    </div>
+                    <div id="insight-results" class="mt-4 text-sm"></div>
+                </div>
+
+                <!-- API 状态 -->
+                <div class="glass rounded-2xl p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold">系统状态</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">查看 API 运行状态和模块信息</p>
+                    <button onclick="checkAPIStatus()" class="w-full btn-primary py-2 rounded-lg text-sm font-medium">
+                        检查状态
+                    </button>
+                    <div id="status-results" class="mt-4 text-sm"></div>
+                </div>
+
+            </div>
+
+            <!-- 数据面板 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- 模块状态 -->
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-lg font-semibold mb-4">活跃模块</h3>
+                    <div id="modules-list" class="space-y-2">
+                        <p class="text-slate-400 text-sm">点击"检查状态"查看模块信息</p>
+                    </div>
+                </div>
+
+                <!-- 快捷操作 -->
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-lg font-semibold mb-4">快捷操作</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="searchProducts('手机壳')" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-lg text-sm">
+                            🔍 热门商品
+                        </button>
+                        <button onclick="getBusinessInsight('电子产品')" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-lg text-sm">
+                            📊 市场分析
+                        </button>
+                        <button onclick="openAPI('docs')" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-lg text-sm">
+                            📚 API 文档
+                        </button>
+                        <button onclick="openAPI('modules')" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-lg text-sm">
+                            ⚙️ 模块管理
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const API_URL = 'https://genuine-insight-production-15b4.up.railway.app';
+
+        async function searchProducts(keyword) {
+            if (typeof keyword !== 'string') {
+                keyword = document.getElementById('search-keyword').value;
+            }
+            if (!keyword) {
+                alert('请输入搜索关键词');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = '<p class="text-blue-400">搜索中...</p>';
+            
+            try {
+                const response = await fetch(`${API_URL}/api/ecommerce/search`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ keyword: keyword, platform: 'all', page: 1, page_size: 5 })
+                });
+                const data = await response.json();
+                
+                if (data.products && data.products.length > 0) {
+                    resultsDiv.innerHTML = data.products.map(p => 
+                        `<div class="p-2 bg-slate-800 rounded mb-2">
+                            <p class="font-medium">${p.title || p.name || '商品'}</p>
+                            <p class="text-slate-400">¥${p.price || '未知'} | ${p.platform || '未知平台'}</p>
+                        </div>`
+                    ).join('');
+                } else {
+                    resultsDiv.innerHTML = '<p class="text-slate-400">暂无搜索结果（需配置电商API密钥）</p>';
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="text-red-400">搜索失败: ${error.message}</p>`;
+            }
+        }
+
+        async function getBusinessInsight(market) {
+            if (typeof market !== 'string') {
+                market = document.getElementById('market-name').value;
+            }
+            if (!market) {
+                alert('请输入市场名称');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('insight-results');
+            resultsDiv.innerHTML = '<p class="text-purple-400">分析中...</p>';
+            
+            try {
+                const response = await fetch(`${API_URL}/api/v3/business/insight`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ market_name: market })
+                });
+                const data = await response.json();
+                resultsDiv.innerHTML = `<div class="p-3 bg-slate-800 rounded">
+                    <p class="font-medium mb-2">市场分析: ${market}</p>
+                    <pre class="text-slate-400 text-xs overflow-auto">${JSON.stringify(data, null, 2)}</pre>
+                </div>`;
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="text-red-400">分析失败: ${error.message}</p>`;
+            }
+        }
+
+        async function checkAPIStatus() {
+            const resultsDiv = document.getElementById('status-results');
+            const modulesDiv = document.getElementById('modules-list');
+            const statusIndicator = document.getElementById('status-indicator');
+            
+            resultsDiv.innerHTML = '<p class="text-green-400">检查中...</p>';
+            
+            try {
+                const response = await fetch(`${API_URL}/api/v3/modules`);
+                const data = await response.json();
+                
+                resultsDiv.innerHTML = `<p class="text-green-400">✓ API 正常运行</p>
+                    <p class="text-slate-400 mt-1">版本: ${data.version}</p>
+                    <p class="text-slate-400">活跃模块: ${data.total_active}个</p>`;
+                
+                // 显示模块列表
+                let modulesHtml = '';
+                for (const [version, modules] of Object.entries(data.modules)) {
+                    const activeModules = Object.entries(modules).filter(([k, v]) => v).map(([k, v]) => k);
+                    if (activeModules.length > 0) {
+                        modulesHtml += `<div class="mb-3">
+                            <p class="text-xs text-slate-500 mb-1">${version}</p>
+                            <div class="flex flex-wrap gap-1">
+                                ${activeModules.map(m => `<span class="px-2 py-1 bg-green-500/20 text-green-400 rounded text-xs">${m}</span>`).join('')}
+                            </div>
+                        </div>`;
+                    }
+                }
+                modulesDiv.innerHTML = modulesHtml || '<p class="text-slate-400 text-sm">无活跃模块</p>';
+                
+                statusIndicator.innerHTML = '<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> API 在线';
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="text-red-400">✗ API 连接失败</p>`;
+                statusIndicator.innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500"></span> API 离线';
+            }
+        }
+
+        function openAPI(page) {
+            const urls = {
+                'docs': `${API_URL}/docs`,
+                'modules': `${API_URL}/api/v3/modules`
+            };
+            window.open(urls[page], '_blank');
+        }
+
+        // 页面加载时检查状态
+        window.onload = () => checkAPIStatus();
+    </script>
+</body>
+</html>

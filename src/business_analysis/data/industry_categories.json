@@ -1,0 +1,182 @@
+[
+  {
+    "id": "information_technology",
+    "code": "450000",
+    "name": "信息科技",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括软件、硬件、半导体、互联网服务等",
+    "keywords": ["软件", "硬件", "互联网", "云计算", "人工智能"]
+  },
+  {
+    "id": "financial_services",
+    "code": "400000",
+    "name": "金融服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括银行、保险、证券、支付等金融服务",
+    "keywords": ["银行", "保险", "证券", "支付", "金融科技"]
+  },
+  {
+    "id": "healthcare",
+    "code": "350000",
+    "name": "医疗健康",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括制药、医疗器械、医疗服务、健康管理等",
+    "keywords": ["制药", "医疗", "健康", "生物科技", "医疗服务"]
+  },
+  {
+    "id": "consumer_goods",
+    "code": "300000",
+    "name": "消费品",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括食品饮料、个人用品、家居用品、服装服饰等",
+    "keywords": ["食品", "饮料", "日用品", "服装", "家居"]
+  },
+  {
+    "id": "industrial_manufacturing",
+    "code": "200000",
+    "name": "工业制造",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括机械设备、汽车制造、航空航天、电气设备等",
+    "keywords": ["机械", "汽车", "航空", "制造", "电气"]
+  },
+  {
+    "id": "materials",
+    "code": "150000",
+    "name": "原材料",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括金属矿产、化学制品、建筑材料、林业造纸等",
+    "keywords": ["金属", "矿产", "化工", "建材", "造纸"]
+  },
+  {
+    "id": "energy",
+    "code": "100000",
+    "name": "能源",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括石油天然气、煤炭、可再生能源、电力等",
+    "keywords": ["石油", "天然气", "煤炭", "新能源", "电力"]
+  },
+  {
+    "id": "utilities",
+    "code": "550000",
+    "name": "公用事业",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括水务、燃气、电力供应、废物处理等",
+    "keywords": ["水务", "燃气", "电力供应", "废物处理", "公用事业"]
+  },
+  {
+    "id": "real_estate",
+    "code": "600000",
+    "name": "房地产",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括房地产开发、物业管理、房地产服务等",
+    "keywords": ["房地产", "开发", "物业", "地产服务", "建筑"]
+  },
+  {
+    "id": "consumer_discretionary",
+    "code": "250000",
+    "name": "可选消费",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括汽车、家电、娱乐、旅游等非必需品消费",
+    "keywords": ["汽车", "家电", "娱乐", "旅游", "奢侈品"]
+  },
+  {
+    "id": "consumer_staples",
+    "code": "300500",
+    "name": "日常消费",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括零售、分销、食品服务等必需品消费",
+    "keywords": ["零售", "超市", "食品", "分销", "必需品"]
+  },
+  {
+    "id": "telecommunications",
+    "code": "500000",
+    "name": "电信服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括有线通信、无线通信、卫星通信等",
+    "keywords": ["电信", "通信", "移动", "网络", "卫星"]
+  },
+  {
+    "id": "media_entertainment",
+    "code": "650000",
+    "name": "传媒娱乐",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括广播电视、电影、出版、游戏等",
+    "keywords": ["媒体", "娱乐", "影视", "出版", "游戏"]
+  },
+  {
+    "id": "transportation",
+    "code": "700000",
+    "name": "交通运输",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括航空、铁路、公路、海运等",
+    "keywords": ["运输", "航空", "铁路", "物流", "海运"]
+  },
+  {
+    "id": "business_services",
+    "code": "750000",
+    "name": "商业服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括专业服务、商务支持、人力资源等",
+    "keywords": ["服务", "咨询", "人力资源", "商务", "专业"]
+  },
+  {
+    "id": "education_services",
+    "code": "800000",
+    "name": "教育服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括学前教育、K12教育、高等教育、职业教育等",
+    "keywords": ["教育", "培训", "学校", "职业教育", "在线教育"]
+  },
+  {
+    "id": "environmental_services",
+    "code": "850000",
+    "name": "环保服务",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括环境治理、资源回收、生态修复等",
+    "keywords": ["环保", "环境", "治理", "回收", "生态"]
+  },
+  {
+    "id": "agriculture_fishing",
+    "code": "900000",
+    "name": "农业牧渔",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括种植业、畜牧业、渔业、林业等",
+    "keywords": ["农业", "种植", "畜牧", "渔业", "林业"]
+  },
+  {
+    "id": "construction_engineering",
+    "code": "950000",
+    "name": "建筑工程",
+    "level": "primary",
+    "parent_id": null,
+    "description": "包括建筑设计、工程施工、工程咨询等",
+    "keywords": ["建筑", "工程", "施工", "设计", "咨询"]
+  },
+  {
+    "id": "other_industries",
+    "code": "999999",
+    "name": "其他行业",
+    "level": "primary",
+    "parent_id": null,
+    "description": "未分类的其他行业",
+    "keywords": ["其他", "未分类", "杂项"]
+  }
+]

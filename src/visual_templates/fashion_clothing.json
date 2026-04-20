@@ -1,0 +1,59 @@
+{
+  "category": "fashion_clothing",
+  "name": "时尚服装",
+  "description": "服装类产品视觉生成模板，包括上衣、裤子、裙子、外套等",
+  "prompt_template": "专业产品摄影，{product_name}，{product_description}，{visual_style}风格，高质量细节，干净背景，自然光影，展示产品设计特点和面料质感",
+  "style_adaptations": {
+    "product_photography": "专业产品摄影，工作室灯光，纯色背景，突出产品细节",
+    "lifestyle": "生活方式场景，模特穿着，真实环境，自然情感表达",
+    "minimalist": "极简设计，留白充足，简洁构图，突出产品轮廓",
+    "brand_commercial": "品牌商业广告，高级感，有故事性，突出品牌价值",
+    "social_media": "社交媒体风格，吸引眼球，适合分享，有互动元素"
+  },
+  "brand_element_rules": {
+    "logo_position": "右下角，大小适中，不遮挡产品主体",
+    "color_palette": "使用品牌主色调作为背景或点缀色",
+    "typography": "使用品牌字体添加产品名称或标语"
+  },
+  "localization_rules": {
+    "US": "美式风格，大胆直接，商业感强，色彩鲜明",
+    "CN": "中式风格，精致含蓄，重视细节，色彩传统",
+    "JP": "日式风格，简约自然，注重平衡，色彩柔和",
+    "KR": "韩式风格，清新时尚，年轻化，色彩明亮",
+    "EU": "欧式风格，优雅经典，注重质感，色彩稳重"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "1:1",
+    "detail_level": "high",
+    "color_accuracy": "high",
+    "compression_quality": 95
+  },
+  "default_scenes": [
+    "产品正面展示",
+    "产品背面展示",
+    "细节特写（面料、纽扣、标签等）",
+    "模特穿着效果",
+    "搭配展示"
+  ],
+  "material_types": [
+    "cotton",
+    "denim",
+    "wool",
+    "silk",
+    "polyester",
+    "leather"
+  ],
+  "lighting_presets": [
+    "studio_softbox",
+    "natural_window_light",
+    "ring_light",
+    "dramatic_side_light"
+  ],
+  "composition_guidelines": [
+    "产品占据画面60-70%",
+    "留白充足便于电商展示",
+    "突出核心卖点",
+    "保持视觉焦点"
+  ]
+}

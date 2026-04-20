@@ -1,0 +1,135 @@
+{
+  "category": "toys_hobbies",
+  "category_name": "玩具爱好",
+  "description": "适用于玩具、游戏、手工艺品、收藏品等娱乐爱好产品的短视频生成模板",
+  "platforms_supported": ["tiktok_us", "instagram_reels", "xiaohongshu"],
+  "video_styles": ["product_showcase", "tutorial", "lifestyle", "review_comparison"],
+  "target_audiences": ["玩具爱好者", "手工艺者", "收藏家", "亲子家庭", "游戏玩家"],
+  "scene_structure": [
+    "fun_hook",
+    "product_unboxing",
+    "feature_exploration",
+    "play_demonstration",
+    "creative_possibilities",
+    "educational_value",
+    "community_aspects",
+    "collectibility_factor",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "fun_hook": "趣味性强的开场，展示玩具的娱乐潜力",
+    "product_unboxing": "开箱过程，展示包装设计和内容物",
+    "feature_exploration": "特色功能和设计亮点的详细探索",
+    "play_demonstration": "实际玩耍和互动体验演示",
+    "creative_possibilities": "创意玩法和个性化定制的可能性",
+    "educational_value": "对儿童发展或技能培养的教育意义",
+    "community_aspects": "社群交流、比赛活动和分享平台",
+    "collectibility_factor": "收藏价值、稀有性和增值潜力",
+    "outro": "总结推荐，购买引导和乐趣分享"
+  },
+  "default_transitions": [
+    "bounce_effect",
+    "zoom_whirl",
+    "cartoon_transition",
+    "pop_effect",
+    "reveal"
+  ],
+  "pacing_guidelines": {
+    "fun_hook_duration_seconds": 3,
+    "product_unboxing_duration_seconds": 5,
+    "feature_exploration_duration_seconds": 5,
+    "play_demonstration_duration_seconds": 6,
+    "creative_possibilities_duration_seconds": 4,
+    "educational_value_duration_seconds": 3,
+    "community_aspects_duration_seconds": 3,
+    "collectibility_factor_duration_seconds": 3,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "明亮活泼，突出玩具色彩和质感",
+    "background": "游戏空间、儿童房间或趣味环境",
+    "action_shots": "动态、互动、真实的玩耍镜头",
+    "camera_angles": ["儿童视角", "互动视角", "特写镜头", "全景展示"],
+    "color_palette": "鲜艳多样，适合玩具的欢乐氛围"
+  },
+  "audio_requirements": {
+    "background_music": "欢快、卡通、电子或游戏音乐",
+    "voiceover_tone": "热情、有趣、充满活力",
+    "sound_effects": ["玩具声音", "欢笑声", "游戏音效", "神奇效果音"],
+    "audio_pacing": "活泼有趣，节奏感强"
+  },
+  "text_overviews": {
+    "age_recommendation": true,
+    "skill_level": true,
+    "playtime_estimate": true,
+    "educational_benefits": true,
+    "social_opportunities": true
+  },
+  "platform_specific_optimizations": {
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["toys", "games", "hobbies", "playtime"],
+      "engagement_hooks": ["玩具挑战", "玩法教学", "创意展示", "儿童娱乐"]
+    },
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["toyreels", "gamereels", "hobbyreels"],
+      "engagement_hooks": ["拆箱视频", "创意玩法", "收藏展示", "亲子互动"]
+    },
+    "xiaohongshu": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "3:4",
+      "recommended_hashtags": ["玩具推荐", "亲子玩具", "益智玩具", "手工艺品"],
+      "engagement_hooks": ["育儿经验", "创意手工", "玩具测评", "家庭娱乐"]
+    }
+  },
+  "content_guidelines": {
+    "product_showcase": {
+      "focus_on": ["趣味性", "互动性", "创意空间", "家庭价值"],
+      "avoid": ["过度商业化", "危险示范", "不适合年龄段"]
+    },
+    "tutorial": {
+      "focus_on": ["步骤清晰", "安全第一", "创造力培养", "家庭参与"],
+      "avoid": ["复杂步骤", "危险材料", "过高要求"]
+    },
+    "review_comparison": {
+      "focus_on": ["真实体验", "客观评价", "适用建议", "长期价值"],
+      "avoid": ["片面观点", "利益驱动", "虚假推荐"]
+    }
+  },
+  "demonstration_techniques": {
+    "play_demonstration": ["多种玩法", "互动体验", "创意发挥", "年龄适配"],
+    "feature_exploration": ["创新设计", "教育功能", "安全特性", "可扩展性"],
+    "value_highlight": ["娱乐价值", "教育意义", "家庭纽带", "技能发展"]
+  },
+  "generation_presets": {
+    "quick_demo": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "fast",
+      "focus": "核心玩法和外观展示"
+    },
+    "detailed_review": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "moderate",
+      "focus": "全面功能演示和体验分享"
+    },
+    "family_fun": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "relaxed",
+      "focus": "亲子互动和家庭娱乐场景"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 30,
+    "audio_quality": "192kbps",
+    "visual_energy": "玩具的乐趣和活力准确传达"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

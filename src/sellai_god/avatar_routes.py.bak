@@ -1,0 +1,77 @@
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
+from typing import Optional, List
+import os
+import re
+import httpx
+
+router = APIRouter()
+
+class MessageCreate(BaseModel):
+    content: str
+
+
+def _detect_language(text: str) -> str:
+    """Detect the dominant language of the input text."""
+    cjk_counts = {
+        "zh": len(re.findall(r'[\u4e00-\u9fff\u3400-\u4dbf]', text)),
+        "ja": len(re.findall(r'[\u3040-\u309f\u30a0-\u30ff]', text)),
+        "ko": len(re.findall(r'[\uac00-\ud7af\u1100-\u11ff]', text)),
+    }
+    dominant_cjk = max(cjk_counts, key=cjk_counts.get)
+    if cjk_counts[dominant_cjk] > 0:
+        return dominant_cjk
+    latin = len(re.findall(r'[a-zA-Z]', text))
+    arabic = len(re.findall(r'[\u0600-\u06ff]', text))
+    if arabic > latin:
+        return "ar"
+    if latin > 0:
+        return "en"
+    return "zh"  # default
+
+
+_SYSTEM_PROMPTS = {
+    "zh": "你是SellAI销售助手，专注电商商机挖掘与客户跟进。请用简洁专业的中文回复，不超过150字。",
+    "en": "You are SellAI, an e-commerce sales assistant specializing in opportunity discovery and customer follow-up. Reply concisely in English, under 150 words.",
+    "ja": "あなたはSellAIという電商セールスアシスタントです。商機発掘と顧客フォローアップを専門とします。150字以内で簡潔な日本語で返答してください。",
+    "ko": "당신은 SellAI 전자상거래 영업 어시스턴트입니다. 비즈니스 기회 발굴과 고객 후속 조치를 전문으로 합니다. 150자 이내로 간결한 한국어로 답변해 주세요.",
+    "ar": "أنت SellAI، مساعد مبيعات التجارة الإلكترونية. ردّ بإيجاز باللغة العربية في 150 كلمة أو أقل.",
+}
+
+
+@router.post("/avatars/{avatar_id}/messages")
+async def send_message(avatar_id: str, body: MessageCreate):
+    """发送消息给分身，自动调用千问回复，语言与用户输入保持一致"""
+    lang = _detect_language(body.content)
+    system_prompt = _SYSTEM_PROMPTS.get(lang, _SYSTEM_PROMPTS["zh"])
+
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(
+                "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {os.getenv('BAILIAN_API_KEY')}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": "qwen-turbo",
+                    "messages": [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": body.content},
+                    ],
+                },
+            )
+            result = response.json()
+            reply = result["choices"][0]["message"]["content"]
+    except Exception as e:
+        reply = f"AI service unavailable: {e}" if lang == "en" else f"AI服务暂时不可用: {e}"
+
+    return {"reply": reply, "role": "assistant", "detected_lang": lang}
+
+@router.get("/avatars")
+async def list_avatars():
+    return {"avatars": []}
+
+@router.post("/avatars")
+async def create_avatar(name: str, personality: str = "通用"):
+    return {"id": "test", "name": name, "personality": personality}

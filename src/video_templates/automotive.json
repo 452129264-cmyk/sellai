@@ -1,0 +1,135 @@
+{
+  "category": "automotive",
+  "category_name": "汽车用品",
+  "description": "适用于汽车配件、保养用品、装饰品等汽车相关产品的短视频生成模板",
+  "platforms_supported": ["tiktok_us", "youtube_shorts", "instagram_reels"],
+  "video_styles": ["product_showcase", "tutorial", "comparison_review", "lifestyle"],
+  "target_audiences": ["汽车爱好者", "车主", "DIY修车者", "汽车改装爱好者"],
+  "scene_structure": [
+    "car_enthusiasm_hook",
+    "product_introduction",
+    "technical_specifications",
+    "installation_demo",
+    "performance_impact",
+    "safety_considerations",
+    "maintenance_requirements",
+    "value_justification",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "car_enthusiasm_hook": "汽车场景开场，展示产品应用环境",
+    "product_introduction": "产品外观、材质、工艺的全面展示",
+    "technical_specifications": "技术参数和性能指标的详细解析",
+    "installation_demo": "安装过程和操作技巧演示",
+    "performance_impact": "安装前后性能对比和实际效果",
+    "safety_considerations": "安全使用指南和注意事项",
+    "maintenance_requirements": "日常保养和定期检查建议",
+    "value_justification": "产品价值和投资回报分析",
+    "outro": "总结推荐，购买建议和车友邀请"
+  },
+  "default_transitions": [
+    "speed_ramp",
+    "pan_transition",
+    "glitch_effect",
+    "fade_out",
+    "zoom_whirl"
+  ],
+  "pacing_guidelines": {
+    "car_enthusiasm_hook_duration_seconds": 3,
+    "product_introduction_duration_seconds": 4,
+    "technical_specifications_duration_seconds": 4,
+    "installation_demo_duration_seconds": 8,
+    "performance_impact_duration_seconds": 5,
+    "safety_considerations_duration_seconds": 3,
+    "maintenance_requirements_duration_seconds": 3,
+    "value_justification_duration_seconds": 3,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "清晰明亮，适合机械细节展示",
+    "background": "车库、车间或汽车相关环境",
+    "detail_shots": "高清特写，展现产品工艺和安装细节",
+    "camera_angles": ["专业视角", "操作视角", "对比镜头", "动态展示"],
+    "color_palette": "工业感色调，如金属色、黑色、专业色系"
+  },
+  "audio_requirements": {
+    "background_music": "工业电子、摇滚或汽车主题音乐",
+    "voiceover_tone": "专业、权威、可信赖",
+    "sound_effects": ["引擎声", "工具声", "机械音效", "启动声"],
+    "audio_pacing": "节奏紧凑，专业感强"
+  },
+  "text_overlays": {
+    "tech_specs": true,
+    "compatibility_info": true,
+    "installation_time": true,
+    "safety_ratings": true,
+    "performance_data": true
+  },
+  "platform_specific_optimizations": {
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["car", "automotive", "cars", "carmodification"],
+      "engagement_hooks": ["汽车挑战", "改装展示", "DIY教学", "性能测评"]
+    },
+    "youtube_shorts": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["carshorts", "automotiveshorts", "carmodificationshorts"],
+      "engagement_hooks": ["详细测评", "安装教程", "效果对比", "购买指南"]
+    },
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["carreels", "automotivereels", "carmodificationreels"],
+      "engagement_hooks": ["改装故事", "车主分享", "技巧教学", "社群交流"]
+    }
+  },
+  "content_guidelines": {
+    "product_showcase": {
+      "focus_on": ["技术细节", "性能提升", "安装便捷性", "质量保证"],
+      "avoid": ["过度美化", "虚假承诺", "安全忽略"]
+    },
+    "tutorial": {
+      "focus_on": ["安全第一", "步骤清晰", "工具要求", "常见问题"],
+      "avoid": ["危险操作", "步骤跳过", "专业要求过高"]
+    },
+    "comparison_review": {
+      "focus_on": ["客观数据", "真实体验", "优劣分析", "适用场景"],
+      "avoid": ["主观偏见", "不公对比", "误导信息"]
+    }
+  },
+  "demonstration_techniques": {
+    "installation_demo": ["工具准备", "步骤分解", "关键要点", "完成检查"],
+    "performance_showcase": ["前后对比", "数据测量", "实际体验", "长期效果"],
+    "safety_education": ["风险预防", "正确使用", "维护计划", "应急措施"]
+  },
+  "generation_presets": {
+    "quick_look": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "fast",
+      "focus": "核心功能和外观展示"
+    },
+    "detailed_guide": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "moderate",
+      "focus": "全面安装教程和性能分析"
+    },
+    "car_enthusiast": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "detailed",
+      "focus": "汽车改装文化和车主社群故事"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 60,
+    "audio_quality": "256kbps",
+    "visual_precision": "机械细节和工艺清晰展示"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

@@ -1,0 +1,135 @@
+{
+  "category": "beauty_cosmetics",
+  "category_name": "美妆护肤",
+  "description": "适用于化妆品、护肤品、个人护理产品的短视频生成模板",
+  "platforms_supported": ["tiktok_us", "instagram_reels", "xiaohongshu"],
+  "video_styles": ["tutorial", "product_showcase", "routine_demo", "review_comparison"],
+  "target_audiences": ["美妆爱好者", "护肤新手", "时尚女性", "男性护肤群体"],
+  "scene_structure": [
+    "problem_statement",
+    "product_introduction",
+    "ingredient_breakdown",
+    "application_demo",
+    "before_after",
+    "long_term_benefits",
+    "tips_warnings",
+    "alternatives_comparison",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "problem_statement": "针对特定肌肤问题或需求进行描述",
+    "product_introduction": "产品包装、质地、香气的展示",
+    "ingredient_breakdown": "核心成分解析和功效说明",
+    "application_demo": "实际使用步骤和技巧演示",
+    "before_after": "使用前后对比效果展示",
+    "long_term_benefits": "长期使用的改善效果和优势",
+    "tips_warnings": "使用建议、注意事项和常见误区",
+    "alternatives_comparison": "同类产品对比和适用人群分析",
+    "outro": "总结推荐，购买指导和皮肤护理理念"
+  },
+  "default_transitions": [
+    "quick_cut",
+    "zoom_in",
+    "overlay",
+    "glitter_effect",
+    "blend"
+  ],
+  "pacing_guidelines": {
+    "problem_statement_duration_seconds": 3,
+    "product_introduction_duration_seconds": 4,
+    "ingredient_breakdown_duration_seconds": 5,
+    "application_demo_duration_seconds": 8,
+    "before_after_duration_seconds": 4,
+    "long_term_benefits_duration_seconds": 3,
+    "tips_warnings_duration_seconds": 3,
+    "alternatives_comparison_duration_seconds": 4,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "明亮自然光，准确呈现肤色和产品颜色",
+    "background": "简洁明亮，专业美妆工作室风格",
+    "product_shots": "高清晰度特写，展现产品细节",
+    "camera_angles": ["面部特写", "手部操作", "侧面视角", "放大细节"],
+    "color_palette": "明亮清新，突出产品色彩和质感"
+  },
+  "audio_requirements": {
+    "background_music": "轻快流行、R&B或电子音乐",
+    "voiceover_tone": "专业、亲切、富有感染力",
+    "sound_effects": ["点击声", "开瓶声", "涂抹声", "过渡音效"],
+    "audio_pacing": "节奏适中，重点信息突出"
+  },
+  "text_overlays": {
+    "ingredient_list": true,
+    "skin_type_recommendation": true,
+    "usage_frequency": true,
+    "key_benefits": true,
+    "price_range": true
+  },
+  "platform_specific_optimizations": {
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["beauty", "skincare", "makeuptutorial", "selfcare"],
+      "engagement_hooks": ["美妆挑战", "护肤流程", "产品测试", "肤质测试"]
+    },
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["beautyhacks", "skincareroutine", "makeupreels"],
+      "engagement_hooks": ["购物功能", "心得分享", "使用对比", "专业建议"]
+    },
+    "xiaohongshu": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "3:4",
+      "recommended_hashtags": ["护肤心得", "美妆教程", "好物推荐", "抗老精华"],
+      "engagement_hooks": ["成分分析", "肤质适配", "性价比测评", "避雷指南"]
+    }
+  },
+  "content_guidelines": {
+    "tutorial": {
+      "focus_on": ["步骤清晰", "技巧演示", "常见问题", "效果对比"],
+      "avoid": ["步骤过快", "手法模糊", "效果夸大"]
+    },
+    "product_showcase": {
+      "focus_on": ["产品质感", "成分功效", "适用场景", "用户体验"],
+      "avoid": ["过度滤镜", "虚假宣传", "不实效果"]
+    },
+    "review_comparison": {
+      "focus_on": ["客观评价", "数据对比", "肤质适配", "性价比分析"],
+      "avoid": ["偏见评价", "不公对比", "夸大宣传"]
+    }
+  },
+  "demonstration_techniques": {
+    "application_showcase": ["手法演示", "用量指导", "工具使用", "技巧分享"],
+    "ingredient_education": ["成分解析", "功效说明", "安全等级", "组合建议"],
+    "effect_documentation": ["过程记录", "效果对比", "时间线展示", "真实反馈"]
+  },
+  "generation_presets": {
+    "quick_tip": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "fast",
+      "focus": "核心功效和使用技巧"
+    },
+    "comprehensive_review": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "detailed",
+      "focus": "全面评测和成分分析"
+    },
+    "routine_guide": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "relaxed",
+      "focus": "日常护肤流程和产品搭配"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 30,
+    "audio_quality": "192kbps",
+    "visual_clarity": "产品细节和肤色准确呈现"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

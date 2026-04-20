@@ -1,0 +1,81 @@
+{
+  "category": "beauty_cosmetics",
+  "name": "美妆护肤",
+  "description": "美妆和护肤产品视觉生成模板，包括化妆品、护肤品、香水、美妆工具等",
+  "prompt_template": "美妆产品摄影，{product_name}，{product_description}，{visual_style}风格，精致细节，展示产品质地和色彩效果，吸引美妆爱好者",
+  "style_adaptations": {
+    "product_photography": "专业美妆摄影，突出产品设计和包装细节",
+    "lifestyle": "真实使用场景，展示妆容效果和护肤过程",
+    "minimalist": "纯净美学，简洁背景，突出产品本身",
+    "brand_commercial": "美妆品牌广告，时尚感，美丽愿景，情感连接",
+    "social_media": "美妆博主风格，试用展示，效果对比，教程分享"
+  },
+  "brand_element_rules": {
+    "logo_position": "产品包装或背景适当位置，保持精致感",
+    "color_palette": "使用品牌美妆色彩，女性化色调",
+    "typography": "优雅字体，体现美妆品牌个性"
+  },
+  "localization_rules": {
+    "US": "美式美妆风格，大胆色彩，多样包容，个性化表达",
+    "CN": "中式美妆风格，精致细腻，自然妆感，传统元素",
+    "JP": "日式美妆风格，清新自然，透明感，可爱元素",
+    "KR": "韩式美妆风格，水光肌，流行趋势，偶像风格",
+    "EU": "欧式美妆风格，高级优雅，经典美学，奢华感"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "1:1",
+    "detail_level": "very_high",
+    "color_accuracy": "very_high",
+    "compression_quality": 95
+  },
+  "default_scenes": [
+    "产品包装展示",
+    "质地特写展示",
+    "上妆效果演示",
+    "产品对比展示",
+    "护肤流程展示"
+  ],
+  "material_types": [
+    "liquid",
+    "cream",
+    "powder",
+    "stick",
+    "gel",
+    "oil"
+  ],
+  "lighting_presets": [
+    "beauty_dish_lighting",
+    "soft_window_light",
+    "studio_ring_light",
+    "dramatic_beauty_light"
+  ],
+  "composition_guidelines": [
+    "产品占据画面70-80%",
+    "突出质地和色彩",
+    "展示使用前后对比",
+    "保持画面精致优雅"
+  ],
+  "product_types": [
+    "foundation",
+    "lipstick",
+    "eyeshadow",
+    "skincare",
+    "perfume",
+    "makeup_tools"
+  ],
+  "skin_types": [
+    "dry",
+    "oily",
+    "combination",
+    "sensitive",
+    "normal"
+  ],
+  "makeup_looks": [
+    "natural",
+    "glam",
+    "editorial",
+    "bridal",
+    "party"
+  ]
+}

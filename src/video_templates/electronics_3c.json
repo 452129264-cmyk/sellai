@@ -1,0 +1,135 @@
+{
+  "category": "electronics_3c",
+  "category_name": "3C电子产品",
+  "description": "适用于智能手机、平板电脑、耳机等数码产品的短视频生成模板",
+  "platforms_supported": ["tiktok_us", "youtube_shorts", "instagram_reels", "xiaohongshu"],
+  "video_styles": ["product_showcase", "comparison", "tutorial", "testimonial"],
+  "target_audiences": ["科技爱好者", "早期采用者", "学生群体", "专业人士"],
+  "scene_structure": [
+    "attention_grabber",
+    "unboxing",
+    "design_overview",
+    "key_specs",
+    "performance_demo",
+    "unique_features",
+    "pros_cons",
+    "purchase_guidance",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "attention_grabber": "炫酷开场，快速展示产品最吸引人的特点",
+    "unboxing": "开箱过程，展示包装设计和配件",
+    "design_overview": "产品设计、材质、手感的详细展示",
+    "key_specs": "核心参数和技术的可视化展示",
+    "performance_demo": "实际使用场景中的性能表现",
+    "unique_features": "区别于竞品的独特功能或创新点",
+    "pros_cons": "客观优缺点分析，帮助消费者决策",
+    "purchase_guidance": "购买建议、性价比分析、适用人群",
+    "outro": "总结推荐，关注引导和互动邀请"
+  },
+  "default_transitions": [
+    "wipe",
+    "zoom",
+    "glitch_effect",
+    "split_screen",
+    "morph"
+  ],
+  "pacing_guidelines": {
+    "attention_grabber_duration_seconds": 3,
+    "unboxing_duration_seconds": 5,
+    "design_overview_duration_seconds": 4,
+    "key_specs_duration_seconds": 4,
+    "performance_demo_duration_seconds": 6,
+    "unique_features_duration_seconds": 4,
+    "pros_cons_duration_seconds": 3,
+    "purchase_guidance_duration_seconds": 3,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "专业打光，突出产品质感和细节",
+    "background": "科技感或简约风格背景",
+    "product_handling": "专业、稳定的产品展示技巧",
+    "camera_angles": ["特写镜头", "旋转展示", "慢动作", "动态追踪"],
+    "color_palette": "科技感色调，如蓝色、银色、黑色"
+  },
+  "audio_requirements": {
+    "background_music": "电子、氛围音乐或科技感音效",
+    "voiceover_tone": "专业、权威、清晰",
+    "sound_effects": ["点击声", "提示音", "过渡音效", "产品音效"],
+    "audio_pacing": "信息密度高，节奏紧凑"
+  },
+  "text_overlays": {
+    "specifications": true,
+    "price_comparison": true,
+    "rating_scores": true,
+    "key_benefits": true,
+    "affiliate_links": true
+  },
+  "platform_specific_optimizations": {
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["tech", "gadgets", "unboxing", "productreview"],
+      "engagement_hooks": ["科技挑战", "功能演示", "投票互动"]
+    },
+    "youtube_shorts": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["shorts", "techreview", "gadgetreview"],
+      "engagement_hooks": ["频道订阅", "评论互动", "收藏提醒"]
+    },
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["techreels", "gadgetreels", "productdemo"],
+      "engagement_hooks": ["购物功能", "故事分享", "产品标签"]
+    }
+  },
+  "content_guidelines": {
+    "product_showcase": {
+      "focus_on": ["工业设计", "屏幕显示", "性能表现", "用户体验"],
+      "avoid": ["过度特效", "信息不准确", "片面评价"]
+    },
+    "comparison": {
+      "focus_on": ["客观对比", "数据可视化", "使用场景", "价值分析"],
+      "avoid": ["偏见倾向", "不公平比较", "误导性信息"]
+    },
+    "tutorial": {
+      "focus_on": ["步骤清晰", "实用技巧", "问题解决", "隐藏功能"],
+      "avoid": ["步骤过快", "过于技术化", "不完整演示"]
+    }
+  },
+  "technical_display_methods": {
+    "spec_visualization": ["信息图表", "动画展示", "对比图表", "进度条"],
+    "performance_demo": ["游戏测试", "应用启动", "续航测试", "温度监测"],
+    "feature_highlight": ["画中画", "分屏对比", "放大特写", "慢动作"]
+  },
+  "generation_presets": {
+    "quick_look": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "fast",
+      "focus": "外观设计和核心功能"
+    },
+    "detailed_review": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "moderate",
+      "focus": "全面评测和性能分析"
+    },
+    "comparison_guide": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "varied",
+      "focus": "多产品对比和购买建议"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 60,
+    "audio_quality": "256kbps",
+    "visual_detail": "产品细节清晰可见"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

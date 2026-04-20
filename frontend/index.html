@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellAI - 智能电商AI助手</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        dark: {
+                            100: '#1e293b',
+                            200: '#1a2234',
+                            300: '#151c2c',
+                            400: '#111827',
+                            500: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-dark-500 text-gray-100 font-['Inter'] min-h-screen">
+    <!-- 顶部导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 h-16 bg-dark-300/95 backdrop-blur-md border-b border-gray-700/50 z-50">
+        <div class="h-full px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/20">
+                    <i class="fas fa-robot text-white text-lg"></i>
+                </div>
+                <span class="text-xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">SellAI</span>
+            </div>
+            
+            <!-- 导航链接 -->
+            <div class="hidden md:flex items-center space-x-1">
+                <a href="#dashboard" class="nav-link active" data-page="dashboard">
+                    <i class="fas fa-home mr-2"></i>仪表盘
+                </a>
+                <a href="#social" class="nav-link" data-page="social">
+                    <i class="fas fa-share-alt mr-2"></i>社媒绑定
+                </a>
+                <a href="#shops" class="nav-link" data-page="shops">
+                    <i class="fas fa-store mr-2"></i>店铺绑定
+                </a>
+                <a href="#opportunities" class="nav-link" data-page="opportunities">
+                    <i class="fas fa-lightbulb mr-2"></i>商机分析
+                </a>
+                <a href="#images" class="nav-link" data-page="images">
+                    <i class="fas fa-image mr-2"></i>图片生成
+                </a>
+                <a href="#avatars" class="nav-link" data-page="avatars">
+                    <i class="fas fa-user-robot mr-2"></i>分身管理
+                </a>
+            </div>
+            
+            <!-- 用户菜单 -->
+            <div class="flex items-center space-x-4">
+                <!-- API状态指示 -->
+                <div id="api-status" class="hidden md:flex items-center space-x-2 px-3 py-1.5 bg-dark-200 rounded-full text-xs">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-gray-400">API正常</span>
+                </div>
+                
+                <!-- 通知按钮 -->
+                <button class="relative p-2 rounded-lg hover:bg-dark-200 transition-colors">
+                    <i class="fas fa-bell text-gray-400 hover:text-white"></i>
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full text-xs flex items-center justify-center">3</span>
+                </button>
+                
+                <!-- 用户头像 -->
+                <div class="relative group">
+                    <button class="flex items-center space-x-2 p-2 rounded-lg hover:bg-dark-200 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                            <span class="text-sm font-semibold">U</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs text-gray-400"></i>
+                    </button>
+                    
+                    <!-- 用户下拉菜单 -->
+                    <div class="absolute right-0 top-full mt-2 w-48 bg-dark-200 rounded-xl shadow-xl border border-gray-700/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="p-3 border-b border-gray-700/50">
+                            <p class="font-medium">用户账号</p>
+                            <p class="text-xs text-gray-400">user@example.com</p>
+                        </div>
+                        <div class="p-2">
+                            <a href="#settings" class="flex items-center px-3 py-2 rounded-lg hover:bg-dark-100 transition-colors">
+                                <i class="fas fa-cog mr-3 text-gray-400"></i>
+                                设置
+                            </a>
+                            <a href="#" class="flex items-center px-3 py-2 rounded-lg hover:bg-dark-100 transition-colors text-red-400">
+                                <i class="fas fa-sign-out-alt mr-3"></i>
+                                退出登录
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-dark-200 transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 移动端侧边导航 -->
+    <div id="mobile-sidebar" class="fixed inset-0 z-50 md:hidden">
+        <div class="absolute inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-64 bg-dark-300 transform translate-x-full transition-transform">
+            <div class="p-4 border-b border-gray-700/50">
+                <div class="flex items-center justify-between">
+                    <span class="text-lg font-bold">菜单</span>
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-dark-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-4 space-y-2">
+                <a href="#dashboard" class="mobile-nav-link" data-page="dashboard">
+                    <i class="fas fa-home mr-3"></i>仪表盘
+                </a>
+                <a href="#social" class="mobile-nav-link" data-page="social">
+                    <i class="fas fa-share-alt mr-3"></i>社媒绑定
+                </a>
+                <a href="#shops" class="mobile-nav-link" data-page="shops">
+                    <i class="fas fa-store mr-3"></i>店铺绑定
+                </a>
+                <a href="#opportunities" class="mobile-nav-link" data-page="opportunities">
+                    <i class="fas fa-lightbulb mr-3"></i>商机分析
+                </a>
+                <a href="#images" class="mobile-nav-link" data-page="images">
+                    <i class="fas fa-image mr-3"></i>图片生成
+                </a>
+                <a href="#avatars" class="mobile-nav-link" data-page="avatars">
+                    <i class="fas fa-user-robot mr-3"></i>分身管理
+                </a>
+                <a href="#settings" class="mobile-nav-link" data-page="settings">
+                    <i class="fas fa-cog mr-3"></i>设置
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <main class="pt-16 min-h-screen">
+        <!-- 仪表盘页面 -->
+        <div id="page-dashboard" class="page-content active">
+            <div class="p-6 space-y-6">
+                <!-- 欢迎横幅 -->
+                <div class="bg-gradient-to-r from-primary-600/20 via-primary-500/10 to-purple-600/20 rounded-2xl p-6 border border-primary-500/20">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold mb-2">欢迎回来! 👋</h1>
+                            <p class="text-gray-400">今天是发现新商机的好日子，让我们开始吧</p>
+                        </div>
+                        <button onclick="startOpportunityScan()" class="mt-4 md:mt-0 px-6 py-3 bg-primary-600 hover:bg-primary-700 rounded-xl font-medium transition-all flex items-center shadow-lg shadow-primary-500/25">
+                            <i class="fas fa-rocket mr-2"></i>
+                            开始扫描
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 统计卡片 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="stat-card">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">今日商机</p>
+                                <p class="text-3xl font-bold mt-1" id="today-opportunities">0</p>
+                                <p class="text-xs text-green-400 mt-1">↑ 0 较昨日</p>
+                            </div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/10 flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-2xl text-green-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">活跃分身</p>
+                                <p class="text-3xl font-bold mt-1" id="active-avatars">0</p>
+                                <p class="text-xs text-blue-400 mt-1">运行中</p>
+                            </div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center">
+                                <i class="fas fa-user-robot text-2xl text-blue-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">已绑定店铺</p>
+                                <p class="text-3xl font-bold mt-1" id="bound-shops">0</p>
+                                <p class="text-xs text-purple-400 mt-1">个平台</p>
+                            </div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/10 flex items-center justify-center">
+                                <i class="fas fa-store text-2xl text-purple-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">社媒账号</p>
+                                <p class="text-3xl font-bold mt-1" id="social-accounts">0</p>
+                                <p class="text-xs text-orange-400 mt-1">已绑定</p>
+                            </div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center">
+                                <i class="fas fa-share-alt text-2xl text-orange-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 主要内容区 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- 商机列表 -->
+                    <div class="lg:col-span-2 bg-dark-300 rounded-2xl border border-gray-700/50 overflow-hidden">
+                        <div class="p-4 border-b border-gray-700/50 flex items-center justify-between">
+                            <h2 class="text-lg font-semibold flex items-center">
+                                <i class="fas fa-fire text-orange-400 mr-2"></i>
+                                热门商机
+                            </h2>
+                            <a href="#opportunities" class="text-primary-400 hover:text-primary-300 text-sm flex items-center">
+                                查看全部
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                        <div id="opportunity-list" class="divide-y divide-gray-700/30">
+                            <!-- 商机卡片将通过JS动态加载 -->
+                            <div class="p-8 text-center text-gray-500">
+                                <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                                <p>正在加载商机...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 快捷操作 -->
+                    <div class="space-y-4">
+                        <!-- 快捷操作卡片 -->
+                        <div class="bg-dark-300 rounded-2xl border border-gray-700/50 p-4">
+                            <h2 class="text-lg font-semibold mb-4 flex items-center">
+                                <i class="fas fa-bolt text-yellow-400 mr-2"></i>
+                                快捷操作
+                            </h2>
+                            <div class="space-y-3">
+                                <button onclick="switchPage('social')" class="w-full p-3 bg-dark-200 hover:bg-dark-100 rounded-xl flex items-center transition-colors group">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-link text-blue-400"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="font-medium">绑定社媒账号</p>
+                                        <p class="text-xs text-gray-400">Facebook、TikTok等</p>
+                                    </div>
+                                </button>
+                                
+                                <button onclick="switchPage('shops')" class="w-full p-3 bg-dark-200 hover:bg-dark-100 rounded-xl flex items-center transition-colors group">
+                                    <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-store text-purple-400"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="font-medium">绑定电商店铺</p>
+                                        <p class="text-xs text-gray-400">淘宝、Shopify等</p>
+                                    </div>
+                                </button>
+                                
+                                <button onclick="switchPage('images')" class="w-full p-3 bg-dark-200 hover:bg-dark-100 rounded-xl flex items-center transition-colors group">
+                                    <div class="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-magic text-pink-400"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="font-medium">AI生成图片</p>
+                                        <p class="text-xs text-gray-400">文生图、图生图</p>
+                                    </div>
+                                </button>
+                                
+                                <button onclick="switchPage('avatars')" class="w-full p-3 bg-dark-200 hover:bg-dark-100 rounded-xl flex items-center transition-colors group">
+                                    <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-robot text-green-400"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="font-medium">创建AI分身</p>
+                                        <p class="text-xs text-gray-400">自动化运营助手</p>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 系统状态 -->
+                        <div class="bg-dark-300 rounded-2xl border border-gray-700/50 p-4">
+                            <h2 class="text-lg font-semibold mb-4 flex items-center">
+                                <i class="fas fa-server text-green-400 mr-2"></i>
+                                系统状态
+                            </h2>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-2 bg-dark-200 rounded-lg">
+                                    <span class="text-sm text-gray-400">API服务</span>
+                                    <span class="flex items-center text-green-400 text-sm">
+                                        <span class="w-2 h-2 rounded-full bg-green-400 mr-2"></span>
+                                        正常
+                                    </span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-dark-200 rounded-lg">
+                                    <span class="text-sm text-gray-400">数据同步</span>
+                                    <span class="flex items-center text-green-400 text-sm">
+                                        <span class="w-2 h-2 rounded-full bg-green-400 mr-2"></span>
+                                        已同步
+                                    </span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-dark-200 rounded-lg">
+                                    <span class="text-sm text-gray-400">最后更新</span>
+                                    <span class="text-sm" id="last-update">--</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 社媒绑定页面 -->
+        <div id="page-social" class="page-content">
+            <div class="p-6 space-y-6">
+                <!-- 页面标题 -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold mb-1">社媒账号绑定</h1>
+                        <p class="text-gray-400">连接您的社交媒体账号，实现跨平台内容管理</p>
+                    </div>
+                    <button onclick="refreshSocialAccounts()" class="mt-4 md:mt-0 px-4 py-2 bg-dark-300 hover:bg-dark-200 rounded-xl border border-gray-700/50 transition-colors flex items-center">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        刷新状态
+                    </button>
+                </div>
+                
+                <!-- 平台网格 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="social-platforms">
+                    <!-- 平台卡片将通过JS动态加载 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 店铺绑定页面 -->
+        <div id="page-shops" class="page-content">
+            <div class="p-6 space-y-6">
+                <!-- 页面标题 -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold mb-1">店铺绑定管理</h1>
+                        <p class="text-gray-400">连接您的电商平台，实现多店铺统一管理</p>
+                    </div>
+                    <button onclick="refreshShopAccounts()" class="mt-4 md:mt-0 px-4 py-2 bg-dark-300 hover:bg-dark-200 rounded-xl border border-gray-700/50 transition-colors flex items-center">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        刷新状态
+                    </button>
+                </div>
+                
+                <!-- 平台网格 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="shop-platforms">
+                    <!-- 店铺平台卡片将通过JS动态加载 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 商机分析页面 -->
+        <div id="page-opportunities" class="page-content">
+            <div class="p-6 space-y-6">
+                <!-- 页面标题 -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold mb-1">商机分析</h1>
+                        <p class="text-gray-400">发现高利润潜力的商品机会</p>
+                    </div>
+                    <button onclick="startOpportunityScan()" class="mt-4 md:mt-0 px-6 py-3 bg-primary-600 hover:bg-primary-700 rounded-xl font-medium transition-all flex items-center shadow-lg shadow-primary-500/25">
+                        <i class="fas fa-search mr-2"></i>
+                        扫描商机
+                    </button>
+                </div>
+                
+                <!-- 筛选器 -->
+                <div class="bg-dark-300 rounded-2xl border border-gray-700/50 p-4">
+                    <div class="flex flex-wrap gap-3">
+                        <select id="opportunity-filter-category" class="px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500">
+                            <option value="">全部分类</option>
+                            <option value="electronics">电子产品</option>
+                            <option value="fashion">服装鞋包</option>
+                            <option value="home">家居用品</option>
+                            <option value="beauty">美妆护肤</option>
+                            <option value="sports">运动户外</option>
+                            <option value="toys">母婴玩具</option>
+                        </select>
+                        <select id="opportunity-filter-margin" class="px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500">
+                            <option value="">全部毛利</option>
+                            <option value="60">60%以上</option>
+                            <option value="50">50%以上</option>
+                            <option value="40">40%以上</option>
+                            <option value="30">30%以上</option>
+                        </select>
+                        <select id="opportunity-filter-source" class="px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500">
+                            <option value="">全部来源</option>
+                            <option value="alibaba">Alibaba</option>
+                            <option value="amazon">Amazon</option>
+                            <option value="ebay">eBay</option>
+                            <option value="etsy">Etsy</option>
+                            <option value="aliexpress">AliExpress</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- 商机列表 -->
+                <div id="opportunities-full-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- 商机卡片将通过JS动态加载 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 图片生成页面 -->
+        <div id="page-images" class="page-content">
+            <div class="p-6 space-y-6">
+                <!-- 页面标题 -->
+                <div>
+                    <h1 class="text-2xl font-bold mb-1">AI图片生成</h1>
+                    <p class="text-gray-400">使用百炼AI生成高质量商品图片</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- 左侧：输入控制 -->
+                    <div class="bg-dark-300 rounded-2xl border border-gray-700/50 p-6">
+                        <!-- Tab切换 -->
+                        <div class="flex space-x-1 mb-6 bg-dark-200 rounded-xl p-1">
+                            <button class="image-tab-btn active flex-1 px-4 py-2 rounded-lg transition-colors" data-tab="text2image">
+                                <i class="fas fa-pen-fancy mr-2"></i>文生图
+                            </button>
+                            <button class="image-tab-btn flex-1 px-4 py-2 rounded-lg transition-colors" data-tab="image2image">
+                                <i class="fas fa-exchange-alt mr-2"></i>图生图
+                            </button>
+                        </div>
+                        
+                        <!-- 文生图表单 -->
+                        <div id="text2image-form" class="image-form active">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">图片描述</label>
+                                <textarea id="image-prompt" rows="4" class="w-full px-4 py-3 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500 resize-none" placeholder="描述你想要生成的图片，如：时尚运动鞋，简约白色背景，商业摄影风格，高清细节..."></textarea>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">图片尺寸</label>
+                                    <select id="image-size" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500">
+                                        <option value="1024x1024">1:1 (1024×1024)</option>
+                                        <option value="1024x1792">9:16 (1024×1792)</option>
+                                        <option value="1792x1024">16:9 (1792×1024)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">生成数量</label>
+                                    <select id="image-count" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500">
+                                        <option value="1">1张</option>
+                                        <option value="2">2张</option>
+                                        <option value="4">4张</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- 参考图片上传（图生图模式） -->
+                            <div id="ref-image-upload" class="mb-4 hidden">
+                                <label class="block text-sm font-medium mb-2">参考图片</label>
+                                <div class="border-2 border-dashed border-gray-700/50 rounded-xl p-6 text-center hover:border-primary-500/50 transition-colors cursor-pointer" onclick="document.getElementById('ref-image-input').click()">
+                                    <i class="fas fa-cloud-upload-alt text-3xl text-gray-500 mb-2"></i>
+                                    <p class="text-sm text-gray-400">点击或拖拽上传图片</p>
+                                    <input type="file" id="ref-image-input" class="hidden" accept="image/*" onchange="handleRefImageUpload(event)">
+                                </div>
+                            </div>
+                            
+                            <button onclick="generateImage()" class="w-full py-3 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-xl font-medium transition-all flex items-center justify-center shadow-lg shadow-primary-500/25">
+                                <i class="fas fa-magic mr-2"></i>
+                                开始生成
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧：图片展示 -->
+                    <div class="bg-dark-300 rounded-2xl border border-gray-700/50 p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold">生成结果</h3>
+                            <button onclick="downloadAllImages()" class="text-sm text-primary-400 hover:text-primary-300 flex items-center">
+                                <i class="fas fa-download mr-1"></i>
+                                下载全部
+                            </button>
+                        </div>
+                        
+                        <div id="generated-images" class="grid grid-cols-2 gap-3">
+                            <div class="aspect-square bg-dark-200 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-700/50">
+                                <div class="text-center text-gray-500">
+                                    <i class="fas fa-image text-3xl mb-2"></i>
+                                    <p class="text-sm">生成的图片将显示在这里</p>
+                                </div>
+                            </div>
+                            <div class="aspect-square bg-dark-200 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-700/50">
+                                <div class="text-center text-gray-500">
+                                    <i class="fas fa-image text-3xl mb-2"></i>
+                                    <p class="text-sm">生成的图片将显示在这里</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 生成历史 -->
+                        <div class="mt-6">
+                            <h3 class="font-semibold mb-3">最近生成</h3>
+                            <div id="image-history" class="space-y-2 max-h-48 overflow-y-auto">
+                                <p class="text-sm text-gray-500 text-center py-4">暂无历史记录</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 分身管理页面 -->
+        <div id="page-avatars" class="page-content">
+            <div class="p-6 space-y-6">
+                <!-- 页面标题 -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold mb-1">AI分身管理</h1>
+                        <p class="text-gray-400">创建和管理您的AI运营助手</p>
+                    </div>
+                    <button onclick="showCreateAvatarModal()" class="mt-4 md:mt-0 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-medium transition-all flex items-center shadow-lg shadow-purple-500/25">
+                        <i class="fas fa-plus mr-2"></i>
+                        创建分身
+                    </button>
+                </div>
+                
+                <!-- 分身模板 -->
+                <div class="bg-dark-300 rounded-2xl border border-gray-700/50 p-4">
+                    <h2 class="text-lg font-semibold mb-4 flex items-center">
+                        <i class="fas fa-layer-group text-purple-400 mr-2"></i>
+                        分身模板
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                        <div class="avatar-template p-4 bg-dark-200 rounded-xl border border-gray-700/50 hover:border-purple-500/50 transition-colors cursor-pointer" data-template="tiktok">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center mb-3">
+                                <i class="fab fa-tiktok text-xl text-pink-400"></i>
+                            </div>
+                            <h3 class="font-medium mb-1">TikTok专家</h3>
+                            <p class="text-xs text-gray-400">短视频内容创作、热点分析</p>
+                        </div>
+                        <div class="avatar-template p-4 bg-dark-200 rounded-xl border border-gray-700/50 hover:border-purple-500/50 transition-colors cursor-pointer" data-template="seo">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-3">
+                                <i class="fas fa-search text-xl text-blue-400"></i>
+                            </div>
+                            <h3 class="font-medium mb-1">SEO大师</h3>
+                            <p class="text-xs text-gray-400">搜索引擎优化、关键词分析</p>
+                        </div>
+                        <div class="avatar-template p-4 bg-dark-200 rounded-xl border border-gray-700/50 hover:border-purple-500/50 transition-colors cursor-pointer" data-template="ecommerce">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-3">
+                                <i class="fas fa-shopping-cart text-xl text-green-400"></i>
+                            </div>
+                            <h3 class="font-medium mb-1">电商专家</h3>
+                            <p class="text-xs text-gray-400">选品分析、定价策略</p>
+                        </div>
+                        <div class="avatar-template p-4 bg-dark-200 rounded-xl border border-gray-700/50 hover:border-purple-500/50 transition-colors cursor-pointer" data-template="negotiation">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 flex items-center justify-center mb-3">
+                                <i class="fas fa-handshake text-xl text-orange-400"></i>
+                            </div>
+                            <h3 class="font-medium mb-1">达人谈判</h3>
+                            <p class="text-xs text-gray-400">KOL合作、商务洽谈</p>
+                        </div>
+                        <div class="avatar-template p-4 bg-dark-200 rounded-xl border border-gray-700/50 hover:border-purple-500/50 transition-colors cursor-pointer" data-template="general">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-500/20 to-slate-500/20 flex items-center justify-center mb-3">
+                                <i class="fas fa-robot text-xl text-gray-400"></i>
+                            </div>
+                            <h3 class="font-medium mb-1">通用助手</h3>
+                            <p class="text-xs text-gray-400">日常运营辅助、多场景</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 我的分身列表 -->
+                <div class="bg-dark-300 rounded-2xl border border-gray-700/50 overflow-hidden">
+                    <div class="p-4 border-b border-gray-700/50 flex items-center justify-between">
+                        <h2 class="text-lg font-semibold flex items-center">
+                            <i class="fas fa-users text-primary-400 mr-2"></i>
+                            我的分身
+                        </h2>
+                        <span id="avatar-count" class="text-sm text-gray-400">0 个分身</span>
+                    </div>
+                    <div id="avatar-list" class="divide-y divide-gray-700/30">
+                        <div class="p-8 text-center text-gray-500">
+                            <i class="fas fa-user-robot text-3xl mb-2"></i>
+                            <p>暂无分身，点击上方模板或按钮创建</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设置页面 -->
+        <div id="page-settings" class="page-content">
+            <div class="p-6 space-y-6">
+                <!-- 页面标题 -->
+                <div>
+                    <h1 class="text-2xl font-bold mb-1">系统设置</h1>
+                    <p class="text-gray-400">配置您的SellAI助手</p>
+                </div>
+                
+                <!-- 设置分组 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- 左侧菜单 -->
+                    <div class="bg-dark-300 rounded-2xl border border-gray-700/50 p-4">
+                        <nav class="space-y-1">
+                            <a href="#settings-profile" class="settings-nav-link active flex items-center px-4 py-3 rounded-xl transition-colors" data-section="profile">
+                                <i class="fas fa-user mr-3 text-gray-400"></i>
+                                个人资料
+                            </a>
+                            <a href="#settings-api" class="settings-nav-link flex items-center px-4 py-3 rounded-xl transition-colors" data-section="api">
+                                <i class="fas fa-key mr-3 text-gray-400"></i>
+                                API配置
+                            </a>
+                            <a href="#settings-notifications" class="settings-nav-link flex items-center px-4 py-3 rounded-xl transition-colors" data-section="notifications">
+                                <i class="fas fa-bell mr-3 text-gray-400"></i>
+                                通知设置
+                            </a>
+                            <a href="#settings-monitor" class="settings-nav-link flex items-center px-4 py-3 rounded-xl transition-colors" data-section="monitor">
+                                <i class="fas fa-eye mr-3 text-gray-400"></i>
+                                监控设置
+                            </a>
+                        </nav>
+                    </div>
+                    
+                    <!-- 右侧内容 -->
+                    <div class="lg:col-span-2 space-y-4">
+                        <!-- 个人资料 -->
+                        <div id="settings-profile" class="settings-section active bg-dark-300 rounded-2xl border border-gray-700/50 p-6">
+                            <h2 class="text-lg font-semibold mb-4">个人资料</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-3xl font-bold">
+                                        U
+                                    </div>
+                                    <button class="px-4 py-2 bg-dark-200 hover:bg-dark-100 border border-gray-700/50 rounded-xl transition-colors">
+                                        更换头像
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">用户名</label>
+                                        <input type="text" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" value="SellAI_User">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">邮箱</label>
+                                        <input type="email" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" value="user@example.com">
+                                    </div>
+                                </div>
+                                <button class="px-6 py-2 bg-primary-600 hover:bg-primary-700 rounded-xl font-medium transition-colors">
+                                    保存更改
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- API配置 -->
+                        <div id="settings-api" class="settings-section bg-dark-300 rounded-2xl border border-gray-700/50 p-6">
+                            <h2 class="text-lg font-semibold mb-4">API配置</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">API地址</label>
+                                    <input type="text" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" value="https://sellai-production-8397.up.railway.app">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">API密钥</label>
+                                    <div class="relative">
+                                        <input type="password" id="api-key-input" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500 pr-10" value="sk-xxxxxxxxxxxxx">
+                                        <button onclick="toggleApiKeyVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-dark-200 rounded-xl">
+                                    <div>
+                                        <p class="font-medium">Mock模式</p>
+                                        <p class="text-xs text-gray-400">使用模拟数据进行离线预览</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" id="mock-mode-toggle" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+                                    </label>
+                                </div>
+                                <button onclick="saveApiSettings()" class="px-6 py-2 bg-primary-600 hover:bg-primary-700 rounded-xl font-medium transition-colors">
+                                    保存设置
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 通知设置 -->
+                        <div id="settings-notifications" class="settings-section bg-dark-300 rounded-2xl border border-gray-700/50 p-6">
+                            <h2 class="text-lg font-semibold mb-4">通知设置</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 bg-dark-200 rounded-xl">
+                                    <div>
+                                        <p class="font-medium">邮件通知</p>
+                                        <p class="text-xs text-gray-400">发现新商机时发送邮件</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-dark-200 rounded-xl">
+                                    <div>
+                                        <p class="font-medium">浏览器通知</p>
+                                        <p class="text-xs text-gray-400">实时推送重要更新</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-dark-200 rounded-xl">
+                                    <div>
+                                        <p class="font-medium">通知阈值</p>
+                                        <p class="text-xs text-gray-400">仅通知高于此毛利的商机</p>
+                                    </div>
+                                    <select class="px-4 py-2 bg-dark-100 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500">
+                                        <option>60%</option>
+                                        <option selected>50%</option>
+                                        <option>40%</option>
+                                        <option>30%</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 监控设置 -->
+                        <div id="settings-monitor" class="settings-section bg-dark-300 rounded-2xl border border-gray-700/50 p-6">
+                            <h2 class="text-lg font-semibold mb-4">监控设置</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 bg-dark-200 rounded-xl">
+                                    <div>
+                                        <p class="font-medium">自动监控</p>
+                                        <p class="text-xs text-gray-400">定时扫描新商机</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" checked>
+                                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">扫描间隔</label>
+                                    <select class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500">
+                                        <option>每15分钟</option>
+                                        <option selected>每30分钟</option>
+                                        <option>每1小时</option>
+                                        <option>每6小时</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">毛利门槛</label>
+                                    <input type="range" min="30" max="80" value="45" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                                    <div class="flex justify-between text-xs text-gray-400 mt-1">
+                                        <span>30%</span>
+                                        <span>当前: 45%</span>
+                                        <span>80%</span>
+                                    </div>
+                                </div>
+                                <button class="px-6 py-2 bg-primary-600 hover:bg-primary-700 rounded-xl font-medium transition-colors">
+                                    保存设置
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Toast通知 -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 space-y-3"></div>
+    
+    <!-- 模态框：绑定社媒账号 -->
+    <div id="modal-social-bind" class="modal hidden">
+        <div class="modal-overlay" onclick="closeModal('modal-social-bind')"></div>
+        <div class="modal-content bg-dark-300 rounded-2xl border border-gray-700/50 w-full max-w-md">
+            <div class="p-4 border-b border-gray-700/50 flex items-center justify-between">
+                <h3 class="text-lg font-semibold" id="social-bind-title">绑定账号</h3>
+                <button onclick="closeModal('modal-social-bind')" class="p-2 hover:bg-dark-200 rounded-lg transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">平台</label>
+                    <input type="text" id="social-bind-platform" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl" readonly>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">API密钥</label>
+                    <input type="password" id="social-bind-api-key" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" placeholder="请输入API密钥">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Access Token</label>
+                    <input type="password" id="social-bind-token" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" placeholder="请输入Access Token">
+                </div>
+                <p class="text-xs text-gray-500">* 请从对应平台的开发者平台获取API凭证</p>
+                <div class="flex space-x-3 pt-2">
+                    <button onclick="closeModal('modal-social-bind')" class="flex-1 px-4 py-2 bg-dark-200 hover:bg-dark-100 border border-gray-700/50 rounded-xl transition-colors">
+                        取消
+                    </button>
+                    <button onclick="bindSocialAccount()" class="flex-1 px-4 py-2 bg-primary-600 hover:bg-primary-700 rounded-xl font-medium transition-colors">
+                        确认绑定
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 模态框：绑定店铺 -->
+    <div id="modal-shop-bind" class="modal hidden">
+        <div class="modal-overlay" onclick="closeModal('modal-shop-bind')"></div>
+        <div class="modal-content bg-dark-300 rounded-2xl border border-gray-700/50 w-full max-w-lg">
+            <div class="p-4 border-b border-gray-700/50 flex items-center justify-between">
+                <h3 class="text-lg font-semibold" id="shop-bind-title">添加店铺</h3>
+                <button onclick="closeModal('modal-shop-bind')" class="p-2 hover:bg-dark-200 rounded-lg transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">平台</label>
+                        <input type="text" id="shop-bind-platform" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl" readonly>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">店铺名称</label>
+                        <input type="text" id="shop-bind-name" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" placeholder="我的店铺">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">API Key / App Key</label>
+                    <input type="password" id="shop-bind-api-key" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" placeholder="请输入API Key">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">API Secret</label>
+                    <input type="password" id="shop-bind-secret" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" placeholder="请输入API Secret">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">店铺ID / Store ID</label>
+                    <input type="text" id="shop-bind-store-id" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" placeholder="请输入店铺ID">
+                </div>
+                <div class="flex space-x-3 pt-2">
+                    <button onclick="testShopConnection()" class="px-4 py-2 bg-dark-200 hover:bg-dark-100 border border-gray-700/50 rounded-xl transition-colors flex items-center">
+                        <i class="fas fa-plug mr-2"></i>
+                        测试连接
+                    </button>
+                    <button onclick="closeModal('modal-shop-bind')" class="flex-1 px-4 py-2 bg-dark-200 hover:bg-dark-100 border border-gray-700/50 rounded-xl transition-colors">
+                        取消
+                    </button>
+                    <button onclick="bindShopAccount()" class="flex-1 px-4 py-2 bg-primary-600 hover:bg-primary-700 rounded-xl font-medium transition-colors">
+                        确认绑定
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 模态框：创建分身 -->
+    <div id="modal-create-avatar" class="modal hidden">
+        <div class="modal-overlay" onclick="closeModal('modal-create-avatar')"></div>
+        <div class="modal-content bg-dark-300 rounded-2xl border border-gray-700/50 w-full max-w-lg">
+            <div class="p-4 border-b border-gray-700/50 flex items-center justify-between">
+                <h3 class="text-lg font-semibold">创建AI分身</h3>
+                <button onclick="closeModal('modal-create-avatar')" class="p-2 hover:bg-dark-200 rounded-lg transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">分身名称</label>
+                    <input type="text" id="avatar-name" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500" placeholder="给分身起个名字">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">分身模板</label>
+                    <select id="avatar-template" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500">
+                        <option value="tiktok">TikTok专家</option>
+                        <option value="seo">SEO大师</option>
+                        <option value="ecommerce">电商专家</option>
+                        <option value="negotiation">达人谈判</option>
+                        <option value="general">通用助手</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">分身描述（可选）</label>
+                    <textarea id="avatar-description" rows="3" class="w-full px-4 py-2 bg-dark-200 border border-gray-700/50 rounded-xl focus:outline-none focus:border-primary-500 resize-none" placeholder="描述分身的主要职责和能力"></textarea>
+                </div>
+                <div class="flex space-x-3 pt-2">
+                    <button onclick="closeModal('modal-create-avatar')" class="flex-1 px-4 py-2 bg-dark-200 hover:bg-dark-100 border border-gray-700/50 rounded-xl transition-colors">
+                        取消
+                    </button>
+                    <button onclick="createAvatar()" class="flex-1 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-medium transition-colors">
+                        创建分身
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 加载动画 -->
+    <div id="loading-overlay" class="fixed inset-0 bg-dark-500/80 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-primary-500/30 border-t-primary-500 rounded-full animate-spin mb-4"></div>
+            <p class="text-lg font-medium" id="loading-text">加载中...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/mock-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

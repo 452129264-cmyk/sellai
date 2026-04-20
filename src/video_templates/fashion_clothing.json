@@ -1,0 +1,122 @@
+{
+  "category": "fashion_clothing",
+  "category_name": "时尚服装",
+  "description": "适用于时尚服装、服饰配件的短视频生成模板",
+  "platforms_supported": ["tiktok_us", "instagram_reels", "xiaohongshu"],
+  "video_styles": ["product_showcase", "lifestyle", "tutorial", "promotional"],
+  "target_audiences": ["时尚爱好者", "年轻潮流群体", "在线购物者"],
+  "scene_structure": [
+    "intro",
+    "product_hero_shot",
+    "features_highlight",
+    "styling_options",
+    "social_proof",
+    "call_to_action",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "intro": "引人入胜的开场，快速展示产品核心卖点",
+    "product_hero_shot": "产品全景展示，突出设计细节和质感",
+    "features_highlight": "关键功能特写，展示面料、工艺、创新点",
+    "styling_options": "不同穿搭场景演示，展示搭配可能性",
+    "social_proof": "用户评价、时尚达人推荐或社交媒体热度",
+    "call_to_action": "明确的购买引导，优惠信息或限时活动",
+    "outro": "品牌信息强化，关注引导或下期预告"
+  },
+  "default_transitions": [
+    "quick_cut",
+    "smooth_crossfade",
+    "zoom_transition",
+    "slide_effect"
+  ],
+  "pacing_guidelines": {
+    "intro_duration_seconds": 3,
+    "feature_highlight_duration_seconds": 4,
+    "styling_duration_seconds": 5,
+    "social_proof_duration_seconds": 3,
+    "call_to_action_duration_seconds": 3,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "自然光或专业柔光，突出面料质感",
+    "background": "简洁现代，或与产品风格相符的场景",
+    "model_requirements": "符合目标受众审美的模特",
+    "camera_angles": ["全身", "半身特写", "细节特写", "动态走动"],
+    "color_palette": "与产品配色协调，突出服装主色调"
+  },
+  "audio_requirements": {
+    "background_music": "现代流行、电子或R&B风格",
+    "voiceover_tone": "时尚自信、亲切自然",
+    "sound_effects": ["点击声", "滑动声", "服饰摩擦声"],
+    "audio_pacing": "节奏感强，与视频剪辑节奏同步"
+  },
+  "text_overlays": {
+    "key_features": true,
+    "price_information": true,
+    "limited_time_offer": true,
+    "hashtags": true,
+    "call_to_action_text": true
+  },
+  "platform_specific_optimizations": {
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["fashion", "style", "outfitinspo", "clothinghaul"],
+      "engagement_hooks": ["挑战参与", "趋势音乐", "互动贴纸"]
+    },
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["fashionreels", "outfitideas", "styleinspo"],
+      "engagement_hooks": ["购物标签", "故事分享", "保存提示"]
+    },
+    "xiaohongshu": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "3:4",
+      "recommended_hashtags": ["穿搭分享", "好物推荐", "日常穿搭"],
+      "engagement_hooks": ["笔记关联", "收藏清单", "购买链接"]
+    }
+  },
+  "content_guidelines": {
+    "product_showcase": {
+      "focus_on": ["设计细节", "面料质感", "版型剪裁", "颜色搭配"],
+      "avoid": ["过多文字覆盖", "杂乱背景", "过度滤镜"]
+    },
+    "lifestyle": {
+      "focus_on": ["真实场景", "自然互动", "情绪表达", "故事性"],
+      "avoid": ["僵硬摆拍", "不自然表现", "过度表演"]
+    },
+    "tutorial": {
+      "focus_on": ["步骤清晰", "实用技巧", "示范演示", "关键要点"],
+      "avoid": ["步骤过快", "信息过载", "专业术语"]
+    }
+  },
+  "generation_presets": {
+    "short_quick": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "fast",
+      "music_tempo": "high"
+    },
+    "standard_detailed": {
+      "total_duration_seconds": 30,
+      "scene_count": 7,
+      "pacing": "moderate",
+      "music_tempo": "medium"
+    },
+    "comprehensive": {
+      "total_duration_seconds": 60,
+      "scene_count": 10,
+      "pacing": "varied",
+      "music_tempo": "dynamic"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 30,
+    "audio_quality": "192kbps",
+    "color_accuracy": "服装颜色真实还原"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

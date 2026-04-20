@@ -1,0 +1,82 @@
+{
+  "category": "books_stationery",
+  "name": "图书文具",
+  "description": "图书和文具产品视觉生成模板，包括书籍、笔记本、笔、办公用品等",
+  "prompt_template": "文化产品摄影，{product_name}，{product_description}，{visual_style}风格，文艺质感，展示产品设计和实用功能，吸引学习爱好者",
+  "style_adaptations": {
+    "product_photography": "专业文化产品摄影，突出产品设计和材质质感",
+    "lifestyle": "真实使用场景，展示学习和创作过程",
+    "minimalist": "简约文具美学，干净设计，突出功能性",
+    "brand_commercial": "文化品牌广告，知识价值，创意灵感，情感连接",
+    "social_media": "学习博主风格，文具评测，笔记技巧，阅读分享"
+  },
+  "brand_element_rules": {
+    "logo_position": "产品表面或包装适当位置，融入文化氛围",
+    "color_palette": "使用品牌文具色彩，自然文艺色调",
+    "typography": "文化风格字体，优雅易读，体现知识价值"
+  },
+  "localization_rules": {
+    "US": "美式文具风格，实用高效，色彩多样，个性化表达",
+    "CN": "中式文具风格，传统典雅，精致设计，色彩稳重",
+    "JP": "日式文具风格，精致简约，人性化设计，色彩淡雅",
+    "KR": "韩式文具风格，时尚可爱，潮流元素，色彩明亮",
+    "EU": "欧式文具风格，经典优雅，艺术设计，色彩丰富"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "3:4",
+    "detail_level": "high",
+    "color_accuracy": "high",
+    "compression_quality": 90
+  },
+  "default_scenes": [
+    "产品包装展示",
+    "使用场景演示",
+    "细节质感特写",
+    "不同款式对比",
+    "创作过程展示"
+  ],
+  "material_types": [
+    "paper",
+    "cardboard",
+    "leather",
+    "plastic",
+    "metal",
+    "fabric"
+  ],
+  "lighting_presets": [
+    "studio_soft_light",
+    "natural_window_light",
+    "warm_desk_lamp",
+    "library_ambient"
+  ],
+  "composition_guidelines": [
+    "产品占据画面60-70%",
+    "突出材质和工艺",
+    "展示使用功能性",
+    "保持画面文艺优雅"
+  ],
+  "product_types": [
+    "books",
+    "notebooks",
+    "pens",
+    "art_supplies",
+    "office_supplies",
+    "desk_accessories"
+  ],
+  "learning_styles": [
+    "note_taking",
+    "sketching",
+    "planning",
+    "studying",
+    "creative_writing"
+  ],
+  "design_themes": [
+    "academic",
+    "creative",
+    "professional",
+    "minimalist",
+    "vintage",
+    "modern"
+  ]
+}

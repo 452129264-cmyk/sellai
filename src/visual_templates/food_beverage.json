@@ -1,0 +1,81 @@
+{
+  "category": "food_beverage",
+  "name": "食品饮料",
+  "description": "食品和饮料产品视觉生成模板，包括零食、饮料、生鲜、健康食品等",
+  "prompt_template": "食品产品摄影，{product_name}，{product_description}，{visual_style}风格，诱人视觉效果，展示食材新鲜感和美味感，激发食欲",
+  "style_adaptations": {
+    "product_photography": "专业食品摄影，突出食材质感和色彩",
+    "lifestyle": "真实食用场景，展示烹饪过程和享用时刻",
+    "minimalist": "现代食品美学，简洁摆盘，突出食物本身",
+    "brand_commercial": "食品品牌广告，健康理念，美味承诺，情感满足",
+    "social_media": "美食博主风格，制作过程，品尝体验，食谱分享"
+  },
+  "brand_element_rules": {
+    "logo_position": "餐具或背景适当位置，融入美食场景",
+    "color_palette": "使用品牌食品色彩，自然新鲜色调",
+    "typography": "食品风格字体，亲切易读，体现食品特色"
+  },
+  "localization_rules": {
+    "US": "美式饮食风格，丰盛多样，快捷方便，色彩鲜明",
+    "CN": "中式饮食风格，传统烹饪，色香味俱全，色彩丰富",
+    "JP": "日式饮食风格，精致摆盘，食材本味，色彩淡雅",
+    "KR": "韩式饮食风格，辣味特色，时尚摆盘，色彩鲜艳",
+    "EU": "欧式饮食风格，经典料理，高级摆盘，色彩优雅"
+  },
+  "quality_parameters": {
+    "min_resolution": [2048, 2048],
+    "preferred_aspect_ratio": "3:2",
+    "detail_level": "high",
+    "color_accuracy": "very_high",
+    "compression_quality": 90
+  },
+  "default_scenes": [
+    "产品包装展示",
+    "食材特写展示",
+    "烹饪过程展示",
+    "成品摆盘展示",
+    "享用场景展示"
+  ],
+  "material_types": [
+    "fresh_produce",
+    "packaged_goods",
+    "beverage_liquid",
+    "baked_goods",
+    "frozen_foods"
+  ],
+  "lighting_presets": [
+    "food_studio_lighting",
+    "natural_window_light",
+    "restaurant_ambient",
+    "warm_table_light"
+  ],
+  "composition_guidelines": [
+    "产品占据画面60-70%",
+    "突出食材新鲜感",
+    "展示美味视觉效果",
+    "保持画面诱人可口"
+  ],
+  "food_categories": [
+    "snacks",
+    "beverages",
+    "fresh_produce",
+    "cooked_meals",
+    "desserts",
+    "health_foods"
+  ],
+  "dietary_preferences": [
+    "vegetarian",
+    "vegan",
+    "gluten_free",
+    "low_carb",
+    "organic",
+    "non_gmo"
+  ],
+  "serving_styles": [
+    "family_style",
+    "plated",
+    "buffet",
+    "tapas",
+    "takeout"
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "category": "books_stationery",
+  "category_name": "图书文具",
+  "description": "适用于书籍、文具、学习用品等教育文化产品的短视频生成模板",
+  "platforms_supported": ["xiaohongshu", "tiktok_us", "instagram_reels"],
+  "video_styles": ["product_showcase", "tutorial", "review_comparison", "lifestyle"],
+  "target_audiences": ["学生群体", "阅读爱好者", "文具控", "知识工作者"],
+  "scene_structure": [
+    "curiosity_hook",
+    "product_reveal",
+    "content_overview",
+    "unique_features",
+    "practical_application",
+    "learning_benefits",
+    "comparison_insights",
+    "usage_tips",
+    "outro"
+  ],
+  "scene_descriptions": {
+    "curiosity_hook": "引发好奇的开场，展示学习或创作场景",
+    "product_reveal": "产品外观、包装、设计细节的完整展示",
+    "content_overview": "主要内容、特色章节或功能的简要介绍",
+    "unique_features": "区别于竞品的独特设计或创新点",
+    "practical_application": "实际使用场景中的效果演示",
+    "learning_benefits": "对学习、工作或创作的帮助和价值",
+    "comparison_insights": "同类产品对比分析和选择建议",
+    "usage_tips": "使用技巧、保养方法和常见问题解答",
+    "outro": "总结推荐，学习激励和购买引导"
+  },
+  "default_transitions": [
+    "page_turn",
+    "fade_in",
+    "slide_up",
+    "zoom_out",
+    "reveal"
+  ],
+  "pacing_guidelines": {
+    "curiosity_hook_duration_seconds": 3,
+    "product_reveal_duration_seconds": 4,
+    "content_overview_duration_seconds": 5,
+    "unique_features_duration_seconds": 4,
+    "practical_application_duration_seconds": 6,
+    "learning_benefits_duration_seconds": 3,
+    "comparison_insights_duration_seconds": 4,
+    "usage_tips_duration_seconds": 3,
+    "outro_duration_seconds": 2
+  },
+  "visual_requirements": {
+    "lighting": "明亮柔和，适合阅读和书写的光线",
+    "background": "学习环境、书房或文化空间",
+    "detail_shots": "高清特写，展现文字和设计细节",
+    "camera_angles": ["俯拍", "平视", "特写镜头", "动态翻页"],
+    "color_palette": "知识感色调，如米白、深蓝、原木色"
+  },
+  "audio_requirements": {
+    "background_music": "古典、轻音乐、氛围音乐或自然音效",
+    "voiceover_tone": "亲切、专业、富有启发",
+    "sound_effects": ["翻书声", "写字声", "纸声", "点击声"],
+    "audio_pacing": "平和专注，适合学习氛围"
+  },
+  "text_overlays": {
+    "key_topics": true,
+    "target_audience": true,
+    "skill_level": true,
+    "learning_outcomes": true,
+    "study_resources": true
+  },
+  "platform_specific_optimizations": {
+    "xiaohongshu": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "3:4",
+      "recommended_hashtags": ["文具推荐", "好书分享", "学习用品", "读书笔记"],
+      "engagement_hooks": ["学习方法", "文具测评", "阅读心得", "知识整理"]
+    },
+    "tiktok_us": {
+      "max_duration_seconds": 60,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["booktok", "stationery", "studygram", "learning"],
+      "engagement_hooks": ["阅读挑战", "文具展示", "学习技巧", "知识分享"]
+    },
+    "instagram_reels": {
+      "max_duration_seconds": 90,
+      "aspect_ratio": "9:16",
+      "recommended_hashtags": ["bookreels", "stationeryreels", "studyreels"],
+      "engagement_hooks": ["书房布置", "笔记方法", "阅读推荐", "文具收藏"]
+    }
+  },
+  "content_guidelines": {
+    "product_showcase": {
+      "focus_on": ["内容价值", "设计美学", "实用功能", "学习效果"],
+      "avoid": ["过度美化", "虚假内容", "夸大效果"]
+    },
+    "tutorial": {
+      "focus_on": ["方法清晰", "可复制性", "实用技巧", "效率提升"],
+      "avoid": ["步骤混乱", "工具要求高", "效果不稳定"]
+    },
+    "review_comparison": {
+      "focus_on": ["客观评价", "真实体验", "优劣分析", "适用建议"],
+      "avoid": ["主观偏见", "不公对比", "利益驱动"]
+    }
+  },
+  "demonstration_techniques": {
+    "content_exploration": ["章节浏览", "关键概念", "特色内容", "价值亮点"],
+    "skill_application": ["实际演示", "效果对比", "效率提升", "问题解决"],
+    "learning_engagement": ["互动练习", "知识延伸", "社群分享", "持续学习"]
+  },
+  "generation_presets": {
+    "quick_preview": {
+      "total_duration_seconds": 15,
+      "scene_count": 5,
+      "pacing": "moderate",
+      "focus": "核心内容和外观展示"
+    },
+    "detailed_guide": {
+      "total_duration_seconds": 45,
+      "scene_count": 8,
+      "pacing": "detailed",
+      "focus": "全面内容解析和使用方法"
+    },
+    "learning_journey": {
+      "total_duration_seconds": 60,
+      "scene_count": 9,
+      "pacing": "inspirational",
+      "focus": "知识获取过程和个人成长故事"
+    }
+  },
+  "quality_metrics": {
+    "resolution_minimum": "1080p",
+    "framerate_minimum": 30,
+    "audio_quality": "192kbps",
+    "visual_clarity": "文字和设计细节清晰可见"
+  },
+  "version": "1.0",
+  "last_updated": "2026-04-05"
+}

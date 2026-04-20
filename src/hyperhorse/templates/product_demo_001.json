@@ -1,0 +1,48 @@
+{
+  "template_id": "product_demo_001",
+  "name": "快速产品展示模板",
+  "description": "适用于电商产品的快速展示，突出产品卖点和使用场景",
+  "script_type": "product_demo",
+  "category": "general",
+  "audience": "general",
+  "platform": "tiktok",
+  "difficulty": "beginner",
+  "conversion_rate": 0.6,
+  "engagement_score": 0.7,
+  "cultural_adaptability": 0.8,
+  "tags": ["product", "demo", "ecommerce"],
+  "title_template": "你需要的{product_name}在这里！",
+  "description_template": "为什么每个人都爱这款{product_name}？看看就知道了",
+  "scenes": [
+    {
+      "scene_number": 1,
+      "duration_seconds": 5,
+      "visual": "产品特写镜头",
+      "text": "这是{product_name}",
+      "audio": "轻快背景音乐"
+    },
+    {
+      "scene_number": 2,
+      "duration_seconds": 10,
+      "visual": "产品使用场景",
+      "text": "解决{problem_description}",
+      "audio": "节奏加快"
+    },
+    {
+      "scene_number": 3,
+      "duration_seconds": 10,
+      "visual": "产品功能展示",
+      "text": "特点：{feature_1}, {feature_2}",
+      "audio": "高潮部分"
+    },
+    {
+      "scene_number": 4,
+      "duration_seconds": 5,
+      "visual": "行动号召",
+      "text": "立即购买{product_name}",
+      "audio": "逐渐结束"
+    }
+  ],
+  "call_to_action": "点击链接购买",
+  "hashtags": ["#{product_category}", "#productdemo", "#musthave"]
+}
