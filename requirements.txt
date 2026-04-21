@@ -20,4 +20,5 @@ websockets
 python-multipart
 aiohttp
 schedule
-schedule
+tenacity
+python-dotenv
