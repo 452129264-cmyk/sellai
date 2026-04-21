@@ -3222,9 +3222,6 @@ async def broadcast_message(message_type: str, content: str):
     await broadcast_to_websockets({
         "type": message_type,
         "data": {"message": content}
-    })
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
 if __name__ == "__main__":
     print("启动 Uvicorn...")
     import uvicorn
