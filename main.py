@@ -1147,13 +1147,13 @@ class AppState:
         
         # ========== v3.3.0 全自动守护进程初始化 ==========
         
-        if DAEMON_SERVICE_AVAILABLE:
-            try:
-                self.scrapling_daemon = ScraplingDaemon(db_path=db_path)
-                self.scrapling_daemon.start()
-                logger.info("✓ Scrapling全自动守护进程启动成功 - 每30分钟自动爬取商机")
-            except Exception as e:
-                logger.error(f"✗ Scrapling守护进程启动失败: {e}")
+#         if DAEMON_SERVICE_AVAILABLE:
+#             try:
+#                 self.scrapling_daemon = ScraplingDaemon(db_path=db_path)
+#                 self.scrapling_daemon.start()
+#                 logger.info("✓ Scrapling全自动守护进程启动成功 - 每30分钟自动爬取商机")
+#             except Exception as e:
+#                 logger.error(f"✗ Scrapling守护进程启动失败: {e}")
         
         # 电商网关初始化
         if ECOMMERCE_GATEWAY_AVAILABLE:
