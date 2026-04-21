@@ -3563,3 +3563,10 @@ if __name__ == "__main__":
     print("启动 Uvicorn...")
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+from fastapi.responses import FileResponse
+
+@app.get("/")
+@app.get("/office")
+async def root():
+    return FileResponse("static/index.html")
