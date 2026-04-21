@@ -3228,12 +3228,6 @@ async def broadcast_message(message_type: str, content: str):
         "message": f"已广播 {message_type} 类型消息"
     }
 
-@app.get("/")
-@app.get("/office")
-async def root():
-    return FileResponse("static/index.html")
-
-if __name__ == "__main__":
     print("启动 Uvicorn...")
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
