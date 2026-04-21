@@ -3222,6 +3222,12 @@ async def broadcast_message(message_type: str, content: str):
     await broadcast_to_websockets({
         "type": message_type,
         "data": {"message": content}
+    })
+    return {
+        "success": True,
+        "message": f"已广播 {message_type} 类型消息"
+    }
+
 if __name__ == "__main__":
     print("启动 Uvicorn...")
     import uvicorn
