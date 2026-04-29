@@ -1,3 +1,4 @@
+# force rebuild v3.6.1
 # SellAI v3.0.0 Dockerfile
 FROM python:3.10-slim
 
