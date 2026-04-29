@@ -38,3 +38,4 @@ HEALTHCHECK --interval=30s --timeout=15s --start-period=120s --retries=5 \
 
 # 启动命令
 CMD ["python", "main.py"]
+# build v3.6.1
