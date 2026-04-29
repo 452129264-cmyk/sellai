@@ -41,9 +41,9 @@ def test_sensitive_info_filtering():
         ("邮箱: user@example.com", ["[PII_FILTERED]"], "邮箱过滤"),
         ("会话Cookie: session_id=abc123def456ghi789jkl012mno345pqr678stu901", ["[FILTERED]"], "会话Cookie过滤"),
         ("环境变量: DB_PASSWORD=secret123", ["[FILTERED]"], "环境变量过滤"),
-        ("Slack令牌: xoxb-TEST-FAKE-TOKEN-FOR-UNIT-TEST-ONLY", ["[FILTERED]"], "Slack令牌过滤"),
+        ("Slack令牌: xoxb-123456789012-1234567890123-abcdefghijklmnopqrstuvwx", ["[FILTERED]"], "Slack令牌过滤"),
         ("GitHub令牌: ghp_abcdefghijklmnopqrstuvwxyz0123456789", ["[FILTERED]"], "GitHub令牌过滤"),
-        ("Stripe密钥: sk_live_FAKE_TEST_KEY_NOT_REAL", ["[FILTERED]"], "Stripe密钥过滤"),
+        ("Stripe密钥: sk_live_abcdefghijklmnopqrstuvwx", ["[FILTERED]"], "Stripe密钥过滤"),
         ("通用令牌: abcdefghijklmnopqrstuvwxyz0123456789", ["[GENERIC_TOKEN_FILTERED]"], "通用令牌过滤"),
     ]
     

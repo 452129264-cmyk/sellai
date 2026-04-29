@@ -113,11 +113,16 @@ class TrafficBurstCrawler:
             
             # 执行请求
             if method.upper() == "GET":
-                response = self.session.get(url, headers=request_headers,
+                response = self.session.get(url, headers=request_headers, 
                                            params=params, **request_kwargs)
             else:
-                response = self.session.post(url, headers=request_headers,
+                response = self.session.post(url, headers=request_headers, 
                                             json=params, **request_kwargs)
+                response = self.session.get(url, headers=request_headers, 
+                                           params=params, timeout=timeout)
+            else:
+                response = self.session.post(url, headers=request_headers, 
+                                            json=params, timeout=timeout)
             
             response_time = (time.time() - start_time) * 1000
             

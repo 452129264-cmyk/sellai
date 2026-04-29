@@ -13,8 +13,8 @@ from datetime import datetime, timedelta
 from typing import Dict, Any, Optional, List, Callable, Tuple
 import threading
 
-from src.memory_v2.memory_v2_validator import MemoryV2Validator, validate_memory_write, ValidationStatus
-from src.memory_v2.memory_v2_indexer import MemoryV2Indexer, IndexTier
+from memory_v2_validator import MemoryV2Validator, validate_memory_write, ValidationStatus
+from memory_v2_indexer import MemoryV2Indexer, IndexTier
 
 # 配置日志
 logging.basicConfig(

@@ -56,7 +56,7 @@ class ComprehensiveSecurityTest:
             ("邮箱: user@example.com", ["[PII_FILTERED]"], "邮箱"),
             ("会话Cookie: session_id=abc123def456ghi789jkl012mno345pqr678stu901", ["[FILTERED]"], "会话Cookie"),
             ("环境变量: DB_PASSWORD=secret123", ["[FILTERED]"], "环境变量"),
-            ("Slack令牌: xoxb-TEST-FAKE-TOKEN-ONLY", ["[FILTERED]"], "Slack令牌"),
+            ("Slack令牌: xoxb-123456789012-1234567890123-abcdefghijklmnopqrstuvwx", ["[FILTERED]"], "Slack令牌"),
             ("GitHub令牌: ghp_abcdefghijklmnopqrstuvwxyz0123456789", ["[FILTERED]"], "GitHub令牌"),
             ("通用令牌: abcdefghijklmnopqrstuvwxyz0123456789", ["[GENERIC_TOKEN_FILTERED]"], "通用长令牌"),
         ]
@@ -89,7 +89,7 @@ class ComprehensiveSecurityTest:
                 "mysql://root:password", "-----BEGIN RSA PRIVATE KEY-----",
                 "4111111111111111", "110101199003078888", "13800138000",
                 "user@example.com", "session_id=abc123", "DB_PASSWORD=secret123",
-                "xoxb-TEST-FAKE", "ghp_abcdefghijklmnop", "abcdefghijklmnopqrstuvwxyz0123456789"
+                "xoxb-123456789012", "ghp_abcdefghijklmnop", "abcdefghijklmnopqrstuvwxyz0123456789"
             ]
             
             for indicator in sensitive_indicators:
@@ -294,7 +294,7 @@ class ComprehensiveSecurityTest:
         
         # 测试文本
         test_text = """包含多种敏感信息的测试文本：
-        API密钥: sk_live_FAKE_TEST_ONLY
+        API密钥: sk_live_abcdef1234567890
         密码: mypassword123
         Bearer令牌: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
         内部术语: KAIROS守护系统、Memory V2记忆系统、情报官

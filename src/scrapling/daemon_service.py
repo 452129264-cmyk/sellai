@@ -9,6 +9,7 @@ import logging
 import time
 import threading
 import sqlite3
+import urllib.parse
 from datetime import datetime, timedelta
 from typing import Dict, List, Any, Optional, Tuple
 import schedule
@@ -449,6 +450,15 @@ class ScraplingDaemon:
             
             logger.info(f"爬取周期完成，耗时{duration:.2f}秒，成功{success_categories}个品类，获取{total_intel_items}条情报")
             
+            # v3.4.0: 爬取完成后通知WebSocket客户端
+            self._notify_websocket_clients(
+                success=success_categories > 0,
+                total_items=total_intel_items,
+                success_categories=success_categories,
+                failed_categories=failed_categories,
+                duration=duration
+            )
+            
         except Exception as e:
             logger.error(f"执行爬取周期失败: {e}")
             
@@ -815,3 +825,88 @@ class ScraplingDaemon:
         except Exception as e:
             logger.error(f"单次爬取执行失败: {e}")
             return False
+    
+    def _notify_websocket_clients(self, success: bool, total_items: int, 
+                                  success_categories: int, failed_categories: int,
+                                  duration: float) -> None:
+        """
+        v3.4.0: 通知WebSocket客户端爬取完成
+        
+        参数：
+            success: 爬取是否成功
+            total_items: 获取的商机总数
+            success_categories: 成功的品类数
+            failed_categories: 失败的品类数
+            duration: 爬取耗时（秒）
+        """
+        try:
+            import asyncio
+            import sys
+            import os
+            
+            # 尝试导入main.py中的broadcast函数
+            # 由于daemon运行在独立线程，需要通过事件循环调度
+            def _do_broadcast():
+                try:
+                    # 添加父目录到路径
+                    parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+                    if parent_dir not in sys.path:
+                        sys.path.insert(0, parent_dir)
+                    
+                    # 尝试导入broadcast函数
+                    try:
+                        from main import broadcast_to_websockets, ws_manager
+                        
+                        # 创建新事件循环
+                        loop = asyncio.new_event_loop()
+                        asyncio.set_event_loop(loop)
+                        
+                        # 构建消息
+                        message = {
+                            "type": "opportunities_update",
+                            "data": {
+                                "success": success,
+                                "total_items": total_items,
+                                "success_categories": success_categories,
+                                "failed_categories": failed_categories,
+                                "duration_seconds": round(duration, 2),
+                                "crawl_time": datetime.now().isoformat()
+                            }
+                        }
+                        
+                        # 如果有商机更新，添加简短摘要
+                        if success and total_items > 0:
+                            message["summary"] = f"商机扫描完成，发现{total_items}条新商机"
+                        
+                        # 执行广播
+                        loop.run_until_complete(broadcast_to_websockets(message))
+                        loop.close()
+                        
+                        logger.info("WebSocket广播爬取结果成功")
+                        
+                    except ImportError:
+                        # main.py未导入，尝试通过API调用
+                        import urllib.request
+                        import json as json_lib
+                        
+                        try:
+                            req = urllib.request.Request(
+                                "http://localhost:8000/api/ws/broadcast?message_type=opportunities_update&content=" + 
+                                urllib.parse.quote(f"商机更新: 发现{total_items}条新商机")
+                            )
+                            req.add_header('Content-Type', 'application/json')
+                            with urllib.request.urlopen(req, timeout=5) as response:
+                                logger.info("WebSocket广播通过API调用成功")
+                        except Exception as api_error:
+                            logger.warning(f"WebSocket广播API调用失败: {api_error}")
+                            
+                except Exception as e:
+                    logger.warning(f"WebSocket通知失败: {e}")
+            
+            # 在后台线程执行广播（不阻塞主爬取流程）
+            import threading
+            broadcast_thread = threading.Thread(target=_do_broadcast, daemon=True)
+            broadcast_thread.start()
+            
+        except Exception as e:
+            logger.warning(f"通知WebSocket客户端失败: {e}")

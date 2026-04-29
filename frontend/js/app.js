@@ -10,8 +10,17 @@ const APP_STATE = {
     shopAccounts: [],
     avatars: [],
     opportunities: [],
-    notifications: []
+    notifications: [],
+    // v3.4.0 WebSocket状态
+    wsConnected: false,
+    wsReconnectAttempts: 0,
+    wsMaxReconnectAttempts: 10
 };
+
+// v3.4.0 WebSocket实例
+let ws = null;
+let wsReconnectTimer = null;
+let wsHeartbeatTimer = null;
 
 // 页面初始化
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,6 +40,9 @@ async function initApp() {
     
     // 初始化设置导航
     initSettingsNav();
+    
+    // v3.4.0: 初始化WebSocket连接
+    initWebSocket();
     
     // 加载初始数据
     await loadDashboardData();
@@ -789,3 +801,283 @@ function hideLoading() {
         overlay.classList.add('hidden');
     }
 }
+
+// ============================================================
+// v3.4.0 WebSocket实时推送
+// ============================================================
+
+/**
+ * 初始化WebSocket连接
+ */
+function initWebSocket() {
+    // 如果已有连接，先关闭
+    if (ws && ws.readyState === WebSocket.OPEN) {
+        return;
+    }
+    
+    // 构建WebSocket URL
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsUrl = protocol + '//' + window.location.host + '/ws';
+    
+    try {
+        console.log('正在连接WebSocket:', wsUrl);
+        ws = new WebSocket(wsUrl);
+        
+        // 连接成功
+        ws.onopen = () => {
+            console.log('WebSocket连接成功');
+            APP_STATE.wsConnected = true;
+            APP_STATE.wsReconnectAttempts = 0;
+            
+            // 清除重连定时器
+            if (wsReconnectTimer) {
+                clearTimeout(wsReconnectTimer);
+                wsReconnectTimer = null;
+            }
+            
+            // 显示连接状态
+            updateWebSocketStatus(true);
+            
+            // 发送订阅消息
+            ws.send(JSON.stringify({
+                type: 'subscribe',
+                channel: 'all'
+            }));
+            
+            // 启动心跳
+            startHeartbeat();
+            
+            // 显示通知
+            showToast('实时推送已连接', 'success');
+        };
+        
+        // 接收消息
+        ws.onmessage = (event) => {
+            handleWebSocketMessage(event.data);
+        };
+        
+        // 连接关闭
+        ws.onclose = (event) => {
+            console.log('WebSocket连接关闭', event.code, event.reason);
+            APP_STATE.wsConnected = false;
+            stopHeartbeat();
+            updateWebSocketStatus(false);
+            
+            // 指数退避重连
+            scheduleReconnect();
+        };
+        
+        // 连接错误
+        ws.onerror = (error) => {
+            console.error('WebSocket错误:', error);
+            APP_STATE.wsConnected = false;
+            updateWebSocketStatus(false);
+        };
+        
+    } catch (error) {
+        console.error('创建WebSocket失败:', error);
+        scheduleReconnect();
+    }
+}
+
+/**
+ * 处理WebSocket消息
+ */
+function handleWebSocketMessage(data) {
+    try {
+        const message = typeof data === 'string' ? JSON.parse(data) : data;
+        const type = message.type;
+        const msgData = message.data || {};
+        
+        console.log('收到WebSocket消息:', type, msgData);
+        
+        switch (type) {
+            case 'opportunities_update':
+                // 商机更新
+                handleOpportunitiesUpdate(msgData);
+                break;
+                
+            case 'avatars_update':
+                // 分身更新
+                handleAvatarsUpdate(msgData);
+                break;
+                
+            case 'tasks_update':
+                // 任务更新
+                handleTasksUpdate(msgData);
+                break;
+                
+            case 'daemon_status':
+                // 守护进程状态
+                handleDaemonStatus(msgData);
+                break;
+                
+            case 'notification':
+                // 系统通知
+                handleNotification(msgData);
+                break;
+                
+            case 'pong':
+                // 心跳回复
+                console.log('收到心跳回复');
+                break;
+                
+            case 'subscribed':
+                console.log('已订阅频道:', msgData.channel);
+                break;
+                
+            default:
+                console.log('收到未知类型的WebSocket消息:', type);
+        }
+        
+    } catch (error) {
+        console.error('处理WebSocket消息失败:', error);
+    }
+}
+
+/**
+ * 处理商机更新
+ */
+function handleOpportunitiesUpdate(data) {
+    const summary = data.summary || `发现${data.total_items || 0}条新商机`;
+    showToast(summary, 'info');
+    
+    // 刷新商机数据
+    if (APP_STATE.currentPage === 'dashboard' || APP_STATE.currentPage === 'opportunities') {
+        loadDashboardData();
+        loadOpportunitiesData();
+    }
+}
+
+/**
+ * 处理分身更新
+ */
+function handleAvatarsUpdate(data) {
+    showToast('分身数据已更新', 'info');
+    
+    // 刷新分身数据
+    if (APP_STATE.currentPage === 'avatars') {
+        loadAvatarsData();
+    }
+}
+
+/**
+ * 处理任务更新
+ */
+function handleTasksUpdate(data) {
+    showToast('任务状态已更新', 'info');
+}
+
+/**
+ * 处理守护进程状态
+ */
+function handleDaemonStatus(data) {
+    console.log('守护进程状态:', data);
+}
+
+/**
+ * 处理系统通知
+ */
+function handleNotification(data) {
+    const title = data.title || '通知';
+    const message = data.message || '';
+    const level = data.level || 'info';
+    
+    showToast(`${title}: ${message}`, level);
+}
+
+/**
+ * 更新WebSocket连接状态显示
+ */
+function updateWebSocketStatus(connected) {
+    const statusElement = document.getElementById('api-status');
+    if (statusElement) {
+        if (connected) {
+            statusElement.innerHTML = `
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="text-gray-400">实时推送已连接</span>
+            `;
+        } else {
+            statusElement.innerHTML = `
+                <span class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
+                <span class="text-gray-400">实时推送断开</span>
+            `;
+        }
+        statusElement.classList.remove('hidden');
+    }
+}
+
+/**
+ * 计划重连（指数退避）
+ */
+function scheduleReconnect() {
+    if (wsReconnectTimer) {
+        return;
+    }
+    
+    // 最大重试次数
+    if (APP_STATE.wsReconnectAttempts >= APP_STATE.wsMaxReconnectAttempts) {
+        console.log('已达到最大重连次数，停止重连');
+        showToast('实时推送连接失败，请刷新页面重试', 'error');
+        return;
+    }
+    
+    // 计算延迟时间（指数退避，最长30秒）
+    const delay = Math.min(
+        1000 * Math.pow(2, APP_STATE.wsReconnectAttempts),
+        30000
+    );
+    
+    console.log(`${delay/1000}秒后尝试第${APP_STATE.wsReconnectAttempts + 1}次重连`);
+    
+    wsReconnectTimer = setTimeout(() => {
+        wsReconnectTimer = null;
+        APP_STATE.wsReconnectAttempts++;
+        initWebSocket();
+    }, delay);
+}
+
+/**
+ * 启动心跳
+ */
+function startHeartbeat() {
+    stopHeartbeat();
+    
+    // 每30秒发送一次心跳
+    wsHeartbeatTimer = setInterval(() => {
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            ws.send('ping');
+        }
+    }, 30000);
+}
+
+/**
+ * 停止心跳
+ */
+function stopHeartbeat() {
+    if (wsHeartbeatTimer) {
+        clearInterval(wsHeartbeatTimer);
+        wsHeartbeatTimer = null;
+    }
+}
+
+/**
+ * 手动刷新数据（供外部调用）
+ */
+function refreshData() {
+    loadDashboardData();
+    showToast('数据已刷新', 'success');
+}
+
+/**
+ * 页面卸载时关闭WebSocket
+ */
+window.addEventListener('beforeunload', () => {
+    if (ws) {
+        ws.close();
+    }
+});
+
+// 导出给全局使用
+window.refreshData = refreshData;
+window.initWebSocket = initWebSocket;

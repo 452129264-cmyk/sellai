@@ -22,7 +22,7 @@ const CONFIG = {
     
     // Mock模式配置
     MOCK: {
-        ENABLED: true,  // 默认开启Mock模式用于离线预览
+        ENABLED: false,  // 关闭Mock模式，使用真实API
         DELAY: 500      // 模拟API延迟(ms)
     },
     
@@ -226,9 +226,15 @@ function initConfig() {
         }
     }
     
-    // 如果没有设置API地址，使用备用地址
+    // 如果没有设置API地址，尝试自动检测
     if (!CONFIG.API.BASE_URL) {
-        CONFIG.API.BASE_URL = CONFIG.API.BACKUP;
+        // 如果是本地访问，使用本地API
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            CONFIG.API.BASE_URL = `http://${window.location.hostname}:${window.location.port || '8000'}`;
+        } else {
+            // 否则使用备用API
+            CONFIG.API.BASE_URL = CONFIG.API.BACKUP;
+        }
     }
     
     // 更新Mock模式切换

@@ -1,5 +1,3 @@
-from PIL import ImageFile
-from PIL import ImageFile
 #!/usr/bin/env python3
 """
 Banana生图内核图片处理器
